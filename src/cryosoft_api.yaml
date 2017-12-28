@@ -1,0 +1,95 @@
+swagger: "2.0"
+info:
+  version: "0.0.1"
+  title: CRYOSOFT API
+# during dev, should point to your local machine
+host: localhost:10010
+# basePath prefixes all resource paths
+basePath: /api/v1
+schemes:
+  # tip: remove http to make production-grade
+  - http
+  - https
+# format of bodies a client can send (Content-Type)
+consumes:
+  - application/json
+# format of the responses to the client (Accepts)
+produces:
+  - application/json
+paths:
+  /login:
+    post:
+      security: [] # authentication not require for login
+      operationId: login
+      parameters:
+      - in: body
+        name: body
+        description: The username/password
+        required: true
+        schema:
+          $ref: '#/definitions/Login'
+      responses:
+        "200":
+          description: login success
+          schema:
+            $ref: "#/definitions/ViewLogin"
+        "403":
+          description: login failed (may be incorrect password or username, user got banned)
+  /logout:
+    get:
+      operationId: logout
+      security: [] # authentication not require for logout
+      responses:
+        "200":
+          description: logout success
+# complex objects have schema definitions
+definitions:
+  Login:
+    type: object
+    properties:
+      username:
+        type: string
+      password:
+        type: string
+  ViewLogin:
+    type: object
+    properties:
+      token:
+        type: string
+      user:
+        $ref: "#/definitions/User"
+  User:
+    type: object
+    properties:
+      ID_USER:
+        type: integer
+      ID_MONETARY_CURRENCY:
+        type: integer
+      CODE_LANGUE:
+        type: integer
+      ID_CALC_PARAMSDEF:
+        type: integer
+      ID_TEMP_RECORD_PTS_DEF:
+        type: integer
+      USERNAM:
+        type: string
+      USERPRIO:
+        type: integer
+      TRACE_LEVEL:
+        type: integer
+      USER_ENERGY:
+        type: integer
+      USER_CONSTRUCTOR:
+        type: string
+      USER_FAMILY:
+        type: integer
+      USER_ORIGINE:
+        type: integer
+      USER_PROCESS:
+        type: integer
+      USER_MODEL:
+        type: integer
+      USERMAIL:
+        type: string
+      API_TOKEN:
+        type: string

@@ -1,0 +1,541 @@
+paths:
+  /translations/{lang}/components:
+    get:
+      operationId: getComponentTranslations
+      security: [] # authentication not require for getting translations
+      parameters:
+        - name: lang
+          in: path
+          required: true
+          type: string
+      responses:
+        "200":
+          description: ok
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/Translation"
+  /translations/{lang}/packings:
+    get:
+      operationId: getPackingTranslations
+      security: [] # authentication not require for getting translations
+      parameters:
+        - name: lang
+          in: path
+          required: true
+          type: string
+      responses:
+        "200":
+          description: ok
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/Translation"
+  /studies:
+    get:
+      operationId: findStudies
+      description: Get a list of studies
+      parameters:
+        - name: mine
+          in: query
+          description: true will return studies of current logged in user, false for getting other studies
+          required: false
+          type: boolean
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/Study"
+    put:
+      operationId: createStudy
+      description: create a new study
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: study
+          description: The study to create.
+          schema:
+            $ref: "#/definitions/Study"
+      responses:
+        "200":
+          description: OK, created
+  /studies/{id}:
+    patch:
+      operationId: saveStudy
+      parameters:
+      - name: id
+        in: path
+        description: Study ID
+        required: true
+        type: integer
+      - in: body
+        name: body
+        schema:
+          $ref: "#/definitions/Study"
+      responses:
+        "200":
+          description: todo
+    get:
+      operationId: getStudyById
+      parameters:
+        - name: id
+          in: path
+          description: Study ID
+          required: true
+          type: integer
+      responses:
+        "200":
+          description: Successful retrieve the study
+          schema:
+            $ref: "#/definitions/Study"
+    delete:
+      operationId: deleteStudyById
+      parameters:
+        - name: id
+          in: path
+          description: Study ID
+          required: true
+          type: integer
+      responses:
+        "200":
+          description: study was deleted successfully
+  /studies/{id}/open:
+    get:
+      operationId: openStudy
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: id study to open
+          type: integer
+      responses:
+        "200":
+          description: OK
+  /studies/{id}/product:
+    post:
+      operationId: updateProduct
+      consumes:
+        - application/x-www-form-urlencoded
+      parameters:
+      - name: id
+        in: path
+        description: study ID
+        required: true
+        type: integer
+      - name: name
+        in: formData
+        description: product name
+        required: false
+        type: string
+      - name: dim1
+        description: dim1
+        in: formData
+        required: false
+        type: number
+      - name: dim2
+        description: dim2
+        in: formData
+        required: false
+        type: number
+      - name: dim3
+        description: dim3
+        in: formData
+        required: false
+        type: number
+      responses:
+        "200":
+          description: ok
+        "422":
+          description: missing data
+    put:
+      operationId: newProduct
+      parameters:
+      - name: id
+        in: path
+        description: study ID
+        required: true
+        type: integer
+      - name: name
+        in: query
+        description: product name
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ok
+  /studies/{id}/refreshMesh:
+    get:
+      operationId: refreshMesh
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: refresh mesh of study
+          type: integer
+      responses:
+        "200":
+          description: OK
+  /studies/{id}/equipments:
+    get:
+      operationId: getStudyEquipments
+      parameters:
+      - name: id
+        in: path
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/StudyEquipment"
+  /studies/{id}/clone:
+    put:
+      operationId: saveStudyAs
+      consumes:
+        - application/x-www-form-urlencoded
+      parameters:
+        - in: path
+          name: id
+          type: integer
+          required: true
+          description: id study to open.
+        - in: formData
+          name: name
+          required: true
+          type: string
+          description: new study name.
+      responses:
+        "200":
+          description: OK
+  /equipments:
+    get:
+      description: get all available equipments
+      operationId: getEquipments
+      parameters:
+      - name: energy
+        in: query
+        type: integer
+      - name: manufacturer
+        in: query
+        type: integer
+      - name: family
+        in: query
+        type: integer
+      - name: equip_origin
+        type: integer
+        in: query
+      - name: process_type
+        in: query
+        type: integer
+      - name: model
+        in: query
+        type: integer
+      - name: size
+        in: query
+        type: integer
+      responses:
+        "200":
+          description: todo ok
+          schema:
+            type: array
+            items:
+              $ref:  "#/definitions/Equipment"
+  /equipments/{id}:
+    get:
+      description: get equipment by id
+      parameters:
+      - name: id
+        in: path
+        description: Equipment ID
+        required: true
+        type: integer
+      operationId: getEquipmentById
+      responses:
+        "200":
+          description: todo
+          schema:
+            $ref:  "#/definitions/Equipment"
+  /studyEquipment/{id}:
+    get:
+      description: get study equipment by id
+      parameters:
+      - name: id
+        in: path
+        description: StudyEquipment ID
+        required: true
+        type: integer
+      operationId: getStudyEquipmentById
+      responses:
+        "200":
+          description: todo
+          schema:
+            $ref:  "#/definitions/StudyEquipment"
+  /productions/{id}:
+    get:
+      operationId: getProductionById
+      description: get production by id
+      parameters:
+      - name: id
+        in: path
+        description: Production ID
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: todo
+          schema:
+            $ref:  "#/definitions/Production"
+    patch:
+      operationId: saveProduction
+      parameters:
+      - name: id
+        in: path
+        description: Production ID
+        required: true
+        type: integer
+      - name: body
+        in: body
+        description: todo
+        schema:
+          $ref: "#/definitions/Production"
+      responses:
+        "200":
+          description: todo
+  /products/{id}:
+    get:
+      operationId: getProductById
+      description: get product by id
+      parameters:
+      - name: id
+        in: path
+        description: Product ID
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: todo
+          schema:
+            $ref:  "#/definitions/Product"
+  /products/{id}/view:
+    get:
+      operationId: getProductViewModel
+      description: get product view model
+      parameters:
+      - name: id
+        in: path
+        description: Product ID
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: todo
+          schema:
+            $ref:  "#/definitions/ViewProduct"
+  /products/{id}/elements:
+    get:
+      operationId: getElementsByProductId
+      description: get elements of a products
+      parameters:
+      - name: id
+        in: path
+        description: Product ID
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: todo
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/ProductElmt"
+    put:
+      operationId: appendElementsToProduct
+      description: append elements to product
+      parameters:
+      - name: id
+        in: path
+        description: Product ID
+        required: true
+        type: integer
+      - name: componentId
+        required: true
+        in: query
+        type: integer
+      - name: shapeId
+        required: true
+        in: query
+        type: integer
+      - name: dim1
+        required: false
+        in: query
+        type: number
+      - name: dim3
+        required: false
+        in: query
+        type: number
+      responses:
+        "200":
+          description: todo
+        "500":
+          description: server error
+    delete:
+      operationId: removeProductElement
+      description: remove a product element
+      parameters:
+      - name: id
+        in: path
+        description: Product ID
+        required: true
+        type: integer
+      - name: elementId
+        required: true
+        in: query
+        type: integer
+      responses:
+        "200":
+          description: todo
+        "500":
+          description: server error
+  /productElmts/{id}/moveup:
+    get:
+      operationId: productElementMoveUp
+      description: move a product element up
+      parameters:
+      - name: id
+        in: path
+        description: element ID
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: todo
+        "500":
+          description: server error
+  /productElmts/{id}/movedown:
+    get:
+      operationId: productElementMoveDown
+      description: move a product element down
+      parameters:
+      - name: id
+        in: path
+        description: element ID
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: todo
+        "500":
+          description: server error
+  /components:
+    get:
+      operationId: findComponents
+      description: find available components by filter
+      parameters:
+      - name: compfamily
+        in: query
+        type: integer
+      - name: subfamily
+        in: query
+        type: integer
+      - name: waterpercent
+        in: query
+        type: integer
+      responses:
+        "200":
+          description: todo
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/Component"
+  /users:
+    get:
+      description: todo
+      responses:
+        "200":
+          description: todo
+  /shapes:
+    get:
+      operationId: getShapes
+      description: get available shapes
+      responses:
+        "200":
+          description: todo
+          schema:
+            type: array
+            items:
+              $ref:  "#/definitions/Shape"
+  /packingElements:
+    get:
+      operationId: findPackingElements
+      description: get available packing elements
+      responses:
+        "200":
+          description: todo
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/PackingElement"
+  /packingLayers:
+    get:
+      operationId: findPackingLayers
+      description: get packing layers
+      responses:
+        "200":
+          description: todo
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/PackingLayer"
+  /studies/{id}/packingLayers:
+    get:
+      operationId: getStudyPackingLayers
+      description: get StudyPackingLayers
+      parameters:
+      - name: id
+        description: study id
+        type: integer
+        in: path
+        required: true
+      responses:
+        "200":
+          description: ToDo
+          schema:
+            $ref: "#/definitions/ViewPackingLayer"
+    post:
+      operationId: savePacking
+      description: save packing
+      parameters:
+      - name: id
+        description: study id
+        type: integer
+        in: path
+        required: true
+      - name: body
+        in: body
+        description: body
+        required: true
+        schema:
+          $ref: "#/definitions/SavePackingLayer"
+      responses:
+        "200":
+          description: ToDo
+  /products/{id}/meshView:
+      get:
+        operationId: getMeshView
+        description: get mesh view of product
+        parameters:
+          - name: id
+            in: path
+            required: true
+            description: id of product
+            type: integer
+        responses:
+          "200":
+            description: OK
+            schema:
+              $ref: "#/definitions/ViewMesh"

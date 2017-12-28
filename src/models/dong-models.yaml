@@ -1,0 +1,413 @@
+definitions:
+  MeshParamDef:
+    type: object
+    properties:
+      ID_USER:
+        type: integer
+      MESH_1_SIZE:
+        type: number
+      MESH_2_SIZE:
+        type: number
+      MESH_3_SIZE:
+        type: number
+      MESH_RATIO:
+        type: number
+  MeshParamDefSave:
+    type: object
+    properties:
+      dim1:
+        type: number
+      dim2:
+        type: number
+      dim3:
+        type: number
+  TempRecordPtsDef:
+    type: object
+    properties:
+      ID_TEMP_RECORD_PTS_DEF:
+        type: integer
+      ID_USER:
+        type: integer
+      AXIS1_PT_TOP_SURF_DEF:
+        type: number
+      AXIS2_PT_TOP_SURF_DEF:
+        type: number
+      AXIS3_PT_TOP_SURF_DEF:
+        type: number
+      AXIS1_PT_INT_PT_DEF:
+        type: number
+      AXIS2_PT_INT_PT_DEF:
+        type: number
+      AXIS3_PT_INT_PT_DEF:
+        type: number
+      AXIS1_PT_BOT_SURF_DEF:
+        type: number
+      AXIS2_PT_BOT_SURF_DEF:
+        type: number
+      AXIS3_PT_BOT_SURF_DEF:
+        type: number
+      AXIS2_AX_1_DEF:
+        type: number
+      AXIS3_AX_1_DEF:
+        type: number
+      AXIS1_AX_2_DEF:
+        type: number
+      AXIS3_AX_2_DEF:
+        type: number
+      AXIS1_AX_3_DEF:
+        type: number
+      AXIS2_AX_3_DEF:
+        type: number
+      AXIS1_PL_2_3_DEF:
+        type: number
+      AXIS2_PL_1_3_DEF:
+        type: number
+      AXIS3_PL_1_2_DEF:
+        type: number
+      NB_STEPS_DEF:
+        type: number
+      CONTOUR2D_TEMP_MIN_DEF:
+        type: number
+      CONTOUR2D_TEMP_MAX_DEF:
+        type: number
+  TempRecordPtsDefSave:
+    type: object
+    properties:
+      axis1TopSurf:
+        type: number
+      axis2TopSurf:
+        type: number
+      axis3TopSurf:
+        type: number
+      axis1IntPt:
+        type: number
+      axis2IntPt:
+        type: number
+      axis3IntPt:
+        type: number
+      axis1BotSurf:
+        type: number
+      axis2BotSurf:
+        type: number
+      axis3BotSurf:
+        type: number
+      axis2PL13:
+        type: number
+      axis3PL12:
+        type: number
+      axis1PL23:
+        type: number
+      axis2Axe1:
+        type: number
+      axis3Axe1:
+        type: number
+      axis1Axe2:
+        type: number
+      axis3Axe2:
+        type: number
+      axis1Axe3:
+        type: number
+      axis2Axe3:
+        type: number
+  CalculationParametersDef:
+    type: object
+    properties:
+      ID_CALC_PARAMSDEF:
+        type: integer
+      ID_USER:
+        type: integer
+      HORIZ_SCAN_DEF:
+        type: integer
+      VERT_SCAN_DEF:
+        type: integer
+      MAX_IT_NB_DEF:
+        type: number
+      TIME_STEPS_NB_DEF:
+        type: number
+      RELAX_COEFF_DEF:
+        type: number
+      TIME_STEP_DEF:
+        type: number
+      STORAGE_STEP_DEF:
+        type: number
+      PRECISION_LOG_STEP_DEF:
+        type: number
+      STOP_TOP_SURF_DEF:
+        type: number
+      STOP_INT_DEF:
+        type: number
+      STOP_BOTTOM_SURF_DEF:
+        type: number
+      STOP_AVG_DEF:
+        type: number
+      STUDY_ALPHA_TOP_FIXED_DEF:
+        type: number
+      STUDY_ALPHA_TOP_DEF:
+        type: number
+      STUDY_ALPHA_BOTTOM_FIXED_DEF:
+        type: number
+      STUDY_ALPHA_BOTTOM_DEF:
+        type: number
+      STUDY_ALPHA_LEFT_FIXED_DEF:
+        type: number
+      STUDY_ALPHA_LEFT_DEF:
+        type: number
+      STUDY_ALPHA_RIGHT_FIXED_DEF:
+        type: number
+      STUDY_ALPHA_RIGHT_DEF:
+        type: number
+      STUDY_ALPHA_FRONT_FIXED_DEF:
+        type: number
+      STUDY_ALPHA_FRONT_DEF:
+        type: number
+      STUDY_ALPHA_REAR_FIXED_DEF:
+        type: number
+      STUDY_ALPHA_REAR_DEF:
+        type: number
+      PRECISION_REQUEST_DEF:
+        type: number
+  CalculationParametersDefSave:
+    type: object
+    properties:
+      ishorizScanDef:
+        type: number
+      isVertScanDef:
+        type: number
+      maxIter:
+        type: number
+      relaxCoef:
+        type: number
+      precision:
+        type: number
+      stopTopSurfDef:
+        type: number
+      stopIntDef:
+        type: number
+      stopBottomSurfDef:
+        type: number
+      stopAvgDef:
+        type: number
+      isStudyAlphaTopFixedDef:
+        type: number
+      isStudyAlphaBottomFixedDef:
+        type: number
+      isStudyAlphaLeftFixedDef:
+        type: number
+      isStudyAlphaRightFixedDef:
+        type: number
+      isStudyAlphaFrontFixedDef:
+        type: number
+      isStudyAlphaRearFixedDef:
+        type: number
+      studyAlphaTopDef:
+        type: number
+      studyAlphaBottomDef:
+        type: number
+      studyAlphaLeftDef:
+        type: number
+      studyAlphaRightDef:
+        type: number
+      studyAlphaFrontDef:
+        type: number
+      studyAlphaRearDef:
+        type: number
+      storageStepDef:
+        type: number
+      precisionLogStepDef:
+        type: number
+      timeStepDef:
+        type: number
+  Translation:
+    type: object
+    properties:
+      CODE_LANGUE:
+        type: integer
+      ID_TRANSLATION:
+        type: integer
+      TRANS_TYPE:
+        type: integer
+      LABEL:
+        type: string
+  CheckControlView:
+    type: object
+    properties:
+      definition:
+        type: boolean
+      production:
+        type: boolean
+      mesh:
+        type: boolean
+      packing:
+        type: boolean
+      equipment:
+        type: boolean
+      pipeenable:
+        type: boolean
+      pipeline:
+        type: boolean
+  CheckControl:
+    type: object
+    properties:
+      checkcontrol:
+        type: boolean
+  OptimumCalculator:
+    type: object
+    properties:
+      sdisableFields:
+        type: number
+      sdisableCalculate:
+        type: number
+      scheckOptim:
+        type: number
+      sdisableOptim:
+        type: number
+      sdisableNbOptim:
+        type: number
+      epsilonTemp:
+        type: number
+      epsilonEnth:
+        type: number
+      nbOptimIter:
+        type: number
+      sdisableTimeStep:
+        type: number
+      sdisablePrecision:
+        type: number
+      sdisableStorage:
+        type: number
+      timeStep:
+        type: number
+      precision:
+        type: number
+      scheckStorage:
+        type: number
+      storagestep:
+        type: number
+      hRadioOn:
+        type: number
+      hRadioOff:
+        type: number
+      maxIter:
+        type: number
+      relaxCoef:
+        type: number
+      vRadioOn:
+        type: number
+      vRadioOff:
+        type: number
+      tempPtSurf:
+        type: number
+      tempPtIn:
+        type: number
+      tempPtBot:
+        type: number
+      tempPtAvg:
+        type: number
+      isBrainCalculator:
+        type: number
+      select1:
+        type: array
+        items:
+          $ref: "#/definitions/ViewSelect"
+      select2:
+        type: array
+        items:
+          $ref: "#/definitions/ViewSelect"
+      select3:
+        type: array
+        items:
+          $ref: "#/definitions/ViewSelect"
+      select4:
+        type: array
+        items:
+          $ref: "#/definitions/ViewSelect"
+      select5:
+        type: array
+        items:
+          $ref: "#/definitions/ViewSelect"
+      select6:
+        type: array
+        items:
+          $ref: "#/definitions/ViewSelect"
+      select7:
+        type: array
+        items:
+          $ref: "#/definitions/ViewSelect"
+      select8:
+        type: array
+        items:
+          $ref: "#/definitions/ViewSelect"
+      select9:
+        type: array
+        items:
+          $ref: "#/definitions/ViewSelect"
+  ViewSelect:
+    type: object
+    properties:
+      selected:
+        type: number
+      value:
+        type: number
+      label:
+        type: number
+  StartCalculate:
+    type: object
+    properties:
+      idStudy:
+        type: integer
+      idStudyEquipment:
+        type: integer
+      scheckOptim:
+        type: number
+      epsilonTemp:
+        type: number
+      epsilonEnth:
+        type: number
+      nbOptimIter:
+        type: number
+      timeStep:
+        type: number
+      precision:
+        type: number
+      scheckStorage:
+        type: number
+      storagestep:
+        type: number
+      hRadioOn:
+        type: number
+      hRadioOff:
+        type: number
+      maxIter:
+        type: number
+      relaxCoef:
+        type: number
+      vRadioOn:
+        type: number
+      vRadioOff:
+        type: number
+      tempPtSurf:
+        type: number
+      tempPtIn:
+        type: number
+      tempPtBot:
+        type: number
+      tempPtAvg:
+        type: number
+      select1:
+        type: number
+      select2:
+        type: number
+      select3:
+        type: number
+      select4:
+        type: number
+      select5:
+        type: number
+      select6:
+        type: number
+      select7:
+        type: number
+      select8:
+        type: number
+      select9:
+        type: number

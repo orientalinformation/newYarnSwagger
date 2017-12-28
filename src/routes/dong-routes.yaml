@@ -1,0 +1,159 @@
+paths:
+  /meshparamdef:
+    get:
+      operationId: getMyMeshParamDef
+      responses:
+        "200":
+          description: get meshparamdef by iduser
+          schema:
+            $ref: "#/definitions/MeshParamDef"
+  /temprecordptsdef:
+    get:
+      operationId: getMyTempRecordPtsDef
+      responses:
+        "200":
+          description: get tempRecordPtsDef by iduser
+          schema:
+            $ref: "#/definitions/TempRecordPtsDef"
+  /calculationparametersdef:
+    get:
+      operationId: getMyCalculationParametersDef
+      responses:
+        "200":
+          description: get calculationParametersDef by iduser
+          schema:
+            $ref: "#/definitions/CalculationParametersDef"
+  /checkcontrolview:
+    get:
+      operationId: checkControlView
+      description: get array checkcontrol
+      parameters:
+      - name: idStudy
+        in: query
+        type: integer
+      - name: idProd
+        in: query
+        type: integer
+      responses:
+        "200":
+          description: todo
+          schema:
+              $ref: "#/definitions/CheckControlView"
+  /checkcontrol:
+    get:
+      operationId: checkControl
+      description: get checkcontrol
+      parameters:
+      - name: idStudy
+        in: query
+        type: integer
+      - name: idProd
+        in: query
+        type: integer
+      responses:
+        "200":
+          description: todo
+          schema:
+              $ref: "#/definitions/CheckControl"
+  /savemeshparamdef:
+    post:
+      consumes:
+        - application/x-www-form-urlencoded
+      operationId: saveMyMeshParamDef
+      description: save MeshParamDef
+      parameters:
+      - name: body
+        in: body
+        required: true
+        description: body save meshParamDef
+        schema:
+          $ref: "#/definitions/MeshParamDefSave"
+      responses:
+        "200":
+          description: ok
+        "422":
+          description: missing data
+  /savetemprecordptsdef:
+    post:
+      consumes:
+        - application/x-www-form-urlencoded
+      operationId: saveMyTempRecordPtsDef
+      description: save TempRecordPtsDef by id
+      parameters:
+        - name: body
+          in: body
+          required: true
+          description: body save TempRecordPtsDef
+          schema:
+            $ref: "#/definitions/TempRecordPtsDefSave"
+      responses:
+        "200":
+          description: ok
+        "422":
+          description: missing data
+  /savecalculationparametersdef:
+    post:
+      consumes:
+        - application/x-www-form-urlencoded
+      operationId: saveMyCalculationParametersDef
+      description: save CalculationParametersDef by id
+      parameters:
+        - name: body
+          in: body
+          required: true
+          description: body save CalculationParametersDef
+          schema:
+            $ref: "#/definitions/CalculationParametersDefSave"
+      responses:
+        "200":
+          description: ok
+        "422":
+          description: missing data
+  /optimumcalculator:
+    get:
+      operationId: getOptimumCalculator
+      description: get optimumcalculator
+      parameters:
+      - name: idStudy
+        in: query
+        type: integer
+      - name: idStudyEquipment
+        in: query
+        type: integer
+      responses:
+        "200":
+          description: todo
+          schema:
+            $ref: "#/definitions/OptimumCalculator"
+  /startcalculate:
+    post:
+      consumes:
+        - application/x-www-form-urlencoded
+      operationId: startCalculate
+      description: Run Kernal calculate
+      parameters:
+        - name: body
+          in: body
+          required: true
+          description: body save startCalculate
+          schema:
+            $ref: "#/definitions/StartCalculate"
+      responses:
+        "200":
+          description: ok
+        "422":
+          description: missing data
+  /studies/{id}/calculate:
+    get:
+      operationId: startStudyCalculation
+      parameters:
+        - name: id
+          in: path
+          description: Study ID
+          required: true
+          type: integer
+      responses:
+        "200":
+          description: Successful retrieve the study
+          schema:
+            $ref: "#/definitions/StudyEquipment"

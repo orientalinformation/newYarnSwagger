@@ -1,0 +1,331 @@
+definitions:
+  ViewProduct:
+    type: object
+    properties:
+      product:
+        $ref: "#/definitions/Product"
+      elements:
+        type: array
+        items:
+          $ref: "#/definitions/ProductElmt"
+      specificDimension:
+        type: number
+  ViewSizingResultOptimum:
+    type: object
+    properties:
+      result:
+        $ref: "#/definitions/SizingResultOptimum"
+      customFlowRate:
+        type: number
+      selectedEquipment:
+        type: object
+      availableEquipment:
+        type: object
+      dataGrapChart:
+        type: object
+      dataTemProfileChart:
+        type: object
+  ViewTemperatureProfile:
+    type: object
+    properties:
+      minScaleTemp:
+        type: number
+      maxScaleTemp:
+        type: number
+      minScaleConv:
+        type: number
+      maxScaleConv:
+        type: number
+      tempChartData:
+        $ref: "#/definitions/TemperatureProfileData"
+      convChartData:
+        $ref: "#/definitions/TemperatureProfileData"
+  Component:
+    type: object
+    properties:
+      ID_COMP:
+        type: integer
+  Shape:
+    type: object
+    properties:
+      ID_SHAPE:
+        type: integer
+      SHAPECODE:
+        type: integer
+      SHAPEPICT:
+        type: string
+      SYM_1:
+        type: integer
+      SYM_2:
+        type: integer
+      SYM_3:
+        type: integer
+      AXISYM_1:
+        type: integer
+      AXISYM_2:
+        type: integer
+      AXISYM_3:
+        type: integer
+  PackingElement:
+    type: object
+    properties:
+      ID_PACKING_ELMT:
+        type: integer
+  PackingLayer:
+    type: object
+    properties:
+      ID_PACKING_LAYER:
+        type: integer
+      ID_PACKING:
+        type: integer
+      ID_PACKING_ELMT:
+        type: integer
+      THICKNESS:
+        type: number
+      PACKING_SIDE_NUMBER:
+        type: integer
+      PACKING_LAYER_ORDER:
+        type: integer
+  Packing:
+    type: object
+    properties:
+      ID_PACKING:
+        type: integer
+      ID_SHAPE:
+        type: integer
+      ID_STUDY:
+        type: integer
+      NOMEMBMAT:
+        type: string
+  Study:
+    type: object
+    properties:
+      CALCULATION_MODE:
+        type: integer
+      CALCULATION_STATUS:
+        type: integer
+      CHAINING_ADD_COMP_ENABLE:
+        type: boolean
+      CHAINING_CONTROLS:
+        type: boolean
+      CHAINING_NODE_DECIM_ENABLE:
+        type: boolean
+      COMMENT_TXT:
+        type: string
+      CUSTOMER:
+        type: string
+      HAS_CHILD:
+        type: integer
+      ID_HAVERAGE_RESULTS:
+        type: integer
+      ID_PACKING:
+        type: integer
+      ID_PRECALC_LDG_RATE_PRM:
+        type: integer
+      ID_PRICE:
+        type: integer
+      ID_PROD:
+        type: integer
+      ID_PRODUCTION:
+        type: integer
+      ID_REPORT:
+        type: integer
+      ID_STUDY:
+        type: integer
+      ID_STUDY_RESULTS:
+        type: integer
+      ID_TEMP_RECORD_PTS:
+        type: integer
+      ID_USER:
+        type: integer
+      OPEN_BY_OWNER:
+        type: integer
+      OPTION_CRYOPIPELINE:
+        type: boolean
+      OPTION_ECO:
+        type: boolean
+      OPTION_EXHAUSTPIPELINE:
+        type: boolean
+      PARENT_ID:
+        type: integer
+      PARENT_STUD_EQP_ID:
+        type: integer
+      STUDY_NAME:
+        type: string
+      TO_RECALCULATE:
+        type: integer
+      USERNAM:
+        type: string
+  Equipment:
+    type: object
+    properties:
+      ID_EQUIP:
+        type: integer
+  Production:
+    type: object
+    properties:
+      ID_PRODUCTION:
+        type: integer
+      ID_STUDY:
+        type: integer
+      DAILY_PROD:
+        type: number
+      DAILY_STARTUP:
+        type: number
+      WEEKLY_PROD:
+        type: number
+      PROD_FLOW_RATE:
+        type: number
+      NB_PROD_WEEK_PER_YEAR:
+        type: number
+      AMBIENT_TEMP:
+        type: number
+      AMBIENT_HUM:
+        type: number
+      AVG_T_DESIRED:
+        type: number
+      AVG_T_INITIAL:
+        type: number
+      APPROX_DWELLING_TIME:
+        type: number
+  Product:
+    type: object
+    properties:
+      ID_PROD:
+        type: integer
+      ID_STUDY:
+        type: integer
+      ID_MESH_GENERATION:
+        type: integer
+      PRODNAME:
+        type: string
+      PROD_ISO:
+        type: integer
+      PROD_WEIGHT:
+        type: number
+      PROD_REALWEIGHT:
+        type: number
+      PROD_VOLUME:
+        type: number
+  ProductElmt:
+    type: object
+    properties:
+      ID_PRODUCT_ELMT:
+        type: integer
+      ID_PROD:
+        type: integer
+      ID_SHAPE:
+        type: integer
+      ID_COMP:
+        type: integer
+      PROD_ELMT_NAME:
+        type: string
+      SHAPE_PARAM1:
+        type: number
+      SHAPE_PARAM2:
+        type: number
+      SHAPE_PARAM3:
+        type: number
+      PROD_DEHYD:
+        type: number
+      PROD_DEHYD_COST:
+        type: number
+      SHAPE_POS1:
+        type: number
+      SHAPE_POS2:
+        type: number
+      SHAPE_POS3:
+        type: number
+      PROD_ELMT_ISO:
+        type: number
+      ORIGINAL_THICK:
+        type: number
+      NODE_DECIM:
+        type: number
+      INSERT_LINE_ORDER:
+        type: integer
+      PROD_ELMT_WEIGHT:
+        type: number
+      PROD_ELMT_REALWEIGHT:
+        type: number
+  StudyEquipment:
+    type: object
+    properties:
+      ID_STUDY_EQUIPMENTS:
+        type: integer
+      ID_STUDY:
+        type: integer
+      ID_EQUIP:
+        type: integer
+      ID_EXH_GEN:
+        type: integer
+      ID_EXH_RES:
+        type: integer
+      ID_PIPE_GEN:
+        type: integer
+      ID_PIPE_RES:
+        type: integer
+      ID_ECONOMIC_RESULTS:
+        type: integer
+      ID_STUD_EQUIPPROFILE:
+        type: integer
+      ID_LAYOUT_GENERATION:
+        type: integer
+      ID_LAYOUT_RESULTS:
+        type: integer
+      ID_CALC_PARAMS:
+        type: integer
+      LINE_ORDER:
+        type: integer
+      STDEQP_LENGTH:
+        type: number
+      STDEQP_WIDTH:
+        type: number
+      EQP_INST:
+        type: integer
+      AVERAGE_PRODUCT_TEMEQP_WIDTHP:
+        type: number
+      AVERAGE_PRODUCT_ENTHALPY:
+        type: number
+      ENTHALPY_VARIATION:
+        type: number
+      PRECIS:
+        type: number
+      NB_MODUL:
+        type: number
+      STACKING_WARNING:
+        type: number
+      ENABLE_CONS_PIE:
+        type: number
+      EQUIP_STATUS:
+        type: number
+      RUN_CALCULATE:
+        type: integer
+      BRAIN_SAVETODB:
+        type: number
+      BRAIN_TYPE:
+        type: number
+      ID_COOLING_FAMILY:
+        type: integer
+      EQUIP_NAME:
+        type: string
+      CAPABILITIES:
+        type: integer
+      MODUL_LENGTH:
+        type: number
+      EQP_LENGTH:
+        type: number
+      EQP_WIDTH:
+        type: number
+      EQUIP_VERSION:
+        type: number
+      STD:
+        type: integer
+      ITEM_TR:
+        type: number
+      NB_TR:
+        type: integer
+      SERIES_NAME:
+        type: string
+      BATCH_PROCESS:
+        type: integer

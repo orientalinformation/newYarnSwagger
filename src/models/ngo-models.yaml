@@ -1,0 +1,499 @@
+definitions:
+  Symbol:
+    type: object
+    properties:
+      productFlowSymbol:
+          type: string
+      massSymbol:
+        type: string
+      temperatureSymbol:
+        type: string
+      percentSymbol:
+        type: string
+      timeSymbol:
+        type: string
+      perUnitOfMassSymbol:
+        type: string
+      enthalpySymbol:
+        type: string
+      monetarySymbol:
+        type: string
+      equipDimensionSymbol:
+        type: string
+      convectionSpeedSymbol:
+        type: string
+      consumSymbol:
+        type: string
+      consumMaintienSymbol:
+        type: string
+      mefSymbol:
+        type: string
+  OptimumResultAna:
+    type: object
+    properties:
+      prodFlowRate:
+        type: number
+      prodElmtRealweight:
+        type: number
+      avgTInitial:
+        type: number
+  HeadBalanceResult:
+    type: object
+    properties:
+      id:
+        type: integer
+      specificSize:
+        type: string
+      equipName:
+        type: string
+      runBrainPopup:
+        type: boolean
+      calculWarning:
+        type: number
+      calculate:
+        type: "string"
+      tr:
+        type: number
+      ts:
+        type: number
+      vc:
+        type: number
+      vep:
+        type: number
+      tfp:
+        type: number
+      dhp:
+        type: number
+      conso:
+        type: string
+      toc:
+        type: string
+      precision:
+        type: number
+  HeadBalanceMaxResult:
+    type: object
+    properties:
+      id:
+        type: integer
+      specificSize:
+        type: string
+      equipName:
+        type: string
+      calculWarning:
+        type: number
+      tr:
+        type: number
+      ts:
+        type: number
+      vc:
+        type: number
+      vep:
+        type: number
+      tfp:
+        type: number
+      dhp:
+        type: number
+      conso:
+        type: string
+      toc:
+        type: string
+      precision:
+        type: number
+  EstimationHeadBalanceResult:
+    type: object
+    properties:
+      id:
+        type: integer
+      specificSize:
+        type: string
+      equipName:
+        type: string
+      tr:
+        type: number
+      ts:
+        type: number
+      vc:
+        type: number
+      vep:
+        type: number
+      tfp:
+        type: number
+      dhp:
+        type: number
+      conso:
+        type: number
+      toc:
+        type: string
+      consoMax:
+        type: number
+      tocMax:
+        type: string
+      precision:
+        type: number
+  ConsumptionResult:
+    type: object
+    properties:
+      id:
+        type: integer
+      equipName:
+        type: string
+      tc:
+        type: number
+      kgProduct:
+        type: number
+      product:
+        type: number
+      day:
+        type: integer
+      week:
+        type: integer
+      hour:
+        type: number
+      month:
+        type: integer
+      year:
+        type: integer
+      eqptPerm:
+        type: number
+      eqptCold:
+        type: number
+      lineCold:
+        type: number
+      linePerm:
+        type: number
+      tank:
+        type: number
+      percentProduct:
+        type: integer
+      percentEquipmentPerm:
+        type: integer
+      percentEquipmentDown:
+        type: integer
+      percentLine:
+        type: integer
+  EconomicResult:
+    type: object
+    properties:
+      id:
+        type: integer
+      equipName:
+        type: string
+      tc:
+        type: number
+      kgProduct:
+        type: number
+      product:
+        type: number
+      day:
+        type: integer
+      week:
+        type: integer
+      month:
+        type: integer
+      year:
+        type: integer
+      eqptPerm:
+        type: number
+      eqptCold:
+        type: number
+      lineCold:
+        type: number
+      linePerm:
+        type: number
+      tank:
+        type: number
+  EquipSizing:
+    type: object
+    properties:
+      idStudyEquipment:
+        type: integer
+      equipName:
+        type: string
+      minWidth:
+        type: number
+      maxWidth:
+        type: number
+      minLength:
+        type: number
+      maxLength:
+        type: number
+      minSurf:
+        type: number
+      maxSurf:
+        type: number
+  StudEqpPrm:
+    type: object
+    properties:
+      ID_STUD_EQP_PRM:
+        type: integer
+      ID_STUDY_EQUIPMENTS:
+        type: integer
+      VALUE_TYPE:
+        type: number
+      VALUE:
+        type: number
+  DimaResults:
+    type: object
+    properties:
+      ID_DIMA_RESULTS:
+        type: integer
+      ID_STUDY_EQUIPMENTS:
+        type: integer
+      SETPOINT:
+        type: number
+      DIMA_STATUS:
+        type: integer
+      DIMA_TS:
+        type: number
+      DIMA_TFP:
+        type: number
+      DIMA_VEP:
+        type: number
+      DIMA_VC:
+        type: number
+      DIMA_TYPE:
+        type: integer
+      DIMA_PRECIS:
+        type: number
+      CRYOCONSPROD:
+        type: number
+      HOURLYOUTPUTMAX:
+        type: number
+      CONSUM:
+        type: number
+      USERATE:
+        type: number
+      CONSUMMAX:
+        type: number
+      USERATEMAX:
+        type: number
+  ViewEquipTr:
+    type: object
+    properties:
+      equipName:
+        type: string
+      dimaResult:
+        $ref: "#/definitions/DimaResults"
+  ViewTrCalculate:
+    type: object
+    properties:
+      idStudyEquipment:
+        type: integer
+      equipName:
+        type: string
+      trPrm:
+        $ref: "#/definitions/StudEqpPrm"
+      tsPrm:
+        $ref: "#/definitions/StudEqpPrm"
+      vcPrm:
+        $ref: "#/definitions/StudEqpPrm"
+      tePrm:
+        $ref: "#/definitions/StudEqpPrm"
+      ldSetpointmax:
+        type: integer
+      trMin:
+        type: number
+      trMax:
+        type: number
+      tsMin:
+        type: number
+      tsMax:
+        type: number
+      disabled:
+        type: string
+  ViewPackingLayer:
+    type: object
+    properties:
+      packing:
+        $ref: "#/definitions/Packing"
+      packingLayers:
+        type: array
+        items:
+          $ref: "#/definitions/PackingLayer"
+  SavePackingLayer:
+    type: object
+    properties:
+      packing:
+        $ref: "#/definitions/Packing"
+      packingLayers:
+        type: array
+        items:
+          properties:
+            ID_PACKING_ELMT:
+              type: integer
+            PACKING_SIDE_NUMBER:
+              type: integer
+            PACKING_LAYER_ORDER:
+              type: integer
+            THICKNESS:
+              type: number
+  ViewMesh:
+    type: object
+    properties:
+      meshGeneration:
+        $ref: "#/definitions/MeshGeneration"
+      elements:
+        type: array
+        items:
+          $ref: "#/definitions/ProductElmt"
+      elmtMeshPositions:
+        type: array
+        items:
+          $ref: "#/definitions/MeshPosition"
+  MeshGeneration:
+    type: object
+    properties:
+      ID_MESH_GENERATION:
+        type: integer
+      ID_PROD:
+        type: integer
+      MESH_1_FIXED:
+        type: number
+      MESH_2_FIXED:
+        type: number
+      MESH_3_FIXED:
+        type: number
+      MESH_1_MODE:
+        type: integer
+      MESH_2_MODE:
+        type: integer
+      MESH_3_MODE:
+        type: integer
+      MESH_1_NB:
+        type: integer
+      MESH_2_NB:
+        type: integer
+      MESH_3_NB:
+        type: integer
+      MESH_1_SIZE:
+        type: number
+      MESH_2_SIZE:
+        type: number
+      MESH_3_SIZE:
+        type: number
+      MESH_1_INT:
+        type: number
+      MESH_2_INT:
+        type: number
+      MESH_3_INT:
+        type: number
+      MESH_1_RATIO:
+        type: number
+      MESH_2_RATIO:
+        type: number
+      MESH_3_RATIO:
+        type: number
+      BEST_1_NB:
+        type: integer
+      BEST_2_NB:
+        type: integer
+      BEST_3_NB:
+        type: integer
+  MeshPosition:
+    type: object
+    properties:
+      ID_MESH_POSITION:
+        type: integer
+      ID_PRODUCT_ELMT:
+        type: integer
+      MESH_AXIS:
+        type: number
+      MESH_ORDER:
+        type: integer
+      MESH_AXIS_POS:
+        type: number
+  SizingResultOptimum:
+    type: object
+    properties:
+      ts:
+        type: number
+      tr:
+        type: number
+      vc:
+        type: number
+      dhp:
+        type: number
+      conso:
+        type: string
+      toc:
+        type: number
+      tsMax:
+        type: number
+      trMax:
+        type: number
+      vcMax:
+        type: number
+      dhpMax:
+        type: number
+      consoMax:
+        type: string
+      tocMax:
+        type: number
+  ViewSizingEstimationResult:
+    type: object
+    properties:
+      result:
+        $ref: "#/definitions/SizingResultEStimation"
+      dataGraphChart:
+        type: object
+        properties:
+          id:
+            type: integer
+          equipName:
+            type: string
+          data:
+            $ref: "#/definitions/chartEstimationData"
+  SizingResultEStimation:
+    type: object
+    properties:
+      id:
+        type: integer
+      equipName:
+        type: string
+      viewEquip:
+        type: boolean
+      tr:
+        type: string
+      conso:
+        type: string
+      toc:
+        type: string
+      dhpMax:
+        type: string
+      consoMax:
+        type: string
+      tocMax:
+        type: string
+  TemperatureProfileData:
+    type: object
+    properties:
+      top:
+        $ref: "#/definitions/Coordinates"
+      bottom:
+        $ref: "#/definitions/Coordinates"
+      left:
+        $ref: "#/definitions/Coordinates"
+      right:
+        $ref: "#/definitions/Coordinates"
+      front:
+        $ref: "#/definitions/Coordinates"
+      rear:
+        $ref: "#/definitions/Coordinates"
+  Coordinates:
+    type: object
+    properties:
+      x:
+        type: number
+      y:
+        type: number
+  chartEstimationData:
+    type: object
+    properties:
+      dhp:
+        type: number
+      conso:
+        type: number
+      dhpMax:
+        type: number
+      consoMax:
+        type: number

@@ -1,0 +1,206 @@
+paths:
+  /symbol/{idStudy}:
+    get:
+      operationId: getSymbol
+      description: get symbol study
+      parameters:
+      - name: idStudy
+        in: path
+        description: Study ID
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: todo
+          schema:
+            $ref:  "#/definitions/Symbol"
+  /proInfoStudy/{idStudy}:
+    get:
+      operationId: getProInfoStudy
+      description: get pro info study
+      parameters:
+      - name: idStudy
+        in: path
+        description: Study ID
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: todo
+          schema:
+            $ref: "#/definitions/OptimumResultAna"
+  /optimum/headBalance/{idStudy}:
+    get:
+      operationId: getOptimumHeadBalance
+      description: get optimum head balance
+      parameters:
+      - name: idStudy
+        in: path
+        description: Study ID
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: todo
+          schema:
+            $ref: "#/definitions/HeadBalanceResult"
+  /optimum/headBalanceMax/{idStudy}:
+    get:
+      operationId: getOptimumHeadBalanceMax
+      description: get optimum head balance max
+      parameters:
+      - name: idStudy
+        in: path
+        description: get optimum head balance max results
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: todo
+          schema:
+            $ref:  "#/definitions/HeadBalanceMaxResult"
+  /optimum/equipSizing/{idStudyEquipment}:
+    get:
+      operationId: getEquipSizing
+      description: get equip sizing
+      parameters:
+      - name: idStudyEquipment
+        in: path
+        description: StudyEquipment ID
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: todo
+          schema:
+            $ref:  "#/definitions/EquipSizing"
+  /estimation/headBalance:
+    get:
+      operationId: getEstimationHeadBalance
+      description: get estimation head balance
+      parameters:
+      - name: idStudy
+        in: query
+        description: Study ID
+        required: true
+        type: integer
+      - name: tr
+        in: query
+        description: Control temperature
+        required: false
+        type: integer
+      responses:
+        "200":
+          description: todo
+          schema:
+            $ref:  "#/definitions/EstimationHeadBalanceResult"
+  /estimation/trCalculate/{idStudyEquipment}:
+    get:
+      operationId: temperatureCalculation
+      description: get temperature calculation data
+      parameters:
+      - name: idStudyEquipment
+        in: path
+        description: StudyEquipment ID
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: todo
+          schema:
+            $ref:  "#/definitions/ViewTrCalculate"
+  /estimation/viewEquipTr/{idStudyEquipment}:
+    get:
+      operationId: viewEquipTr
+      description: view Equipment Temperature
+      parameters:
+      - name: idStudyEquipment
+        in: path
+        description: StudyEquipment ID
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: todo
+          schema:
+            $ref:  "#/definitions/ViewEquipTr"
+  /common/consumption/{idStudy}:
+    get:
+      operationId: getAnalyticalConsumption
+      description: get consumption results
+      parameters:
+      - name: idStudy
+        in: path
+        description: Study ID
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: todo
+          schema:
+            $ref:  "#/definitions/ConsumptionResult"
+  /common/economic/{idStudy}:
+    get:
+      operationId: getAnalyticalEconomic
+      description: get economic results
+      parameters:
+      - name: idStudy
+        in: path
+        description: Study ID
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: todo
+          schema:
+            $ref:  "#/definitions/EconomicResult"
+  /output/sizingresult/{idStudy}/optimum:
+    get:
+      operationId: sizingOptimumResult
+      description: get sizng result optimum
+      parameters:
+      - name: idStudy
+        in: path
+        description: Study ID
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: todo
+          schema:
+            $ref: "#/definitions/ViewSizingResultOptimum"
+  /output/sizingresult/estimation:
+    get:
+      operationId: sizingEstimationResult
+      description: sizing result estimation
+      parameters:
+      - name: idStudy
+        in: query
+        description: Study ID
+        required: true
+        type: integer
+      - name: tr
+        in: query
+        description: Control temperature
+        required: false
+        type: integer
+      responses:
+        "200":
+          description: todo
+          schema:
+            $ref:  "#/definitions/ViewSizingEstimationResult"
+  /output/temperatureProfile/{idStudyEquipment}:
+    get:
+      operationId: temperatureProfile
+      description: get temperature profile
+      parameters:
+      - name: idStudyEquipment
+        in: path
+        description: StudyEquipment ID
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: todo
+          schema:
+            $ref: "#/definitions/ViewTemperatureProfile"
