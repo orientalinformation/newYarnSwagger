@@ -1,0 +1,9 @@
+paths:
+  /reference:
+    get:
+      operationId: getRefenceData
+      responses:
+        "200":
+          description: get meshparamdef by iduser
+          schema:
+            $ref: "#/definitions/ReferenceData"

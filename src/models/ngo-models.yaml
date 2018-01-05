@@ -327,19 +327,6 @@ definitions:
               type: integer
             THICKNESS:
               type: number
-  ViewMesh:
-    type: object
-    properties:
-      meshGeneration:
-        $ref: "#/definitions/MeshGeneration"
-      elements:
-        type: array
-        items:
-          $ref: "#/definitions/ProductElmt"
-      elmtMeshPositions:
-        type: array
-        items:
-          $ref: "#/definitions/MeshPosition"
   MeshGeneration:
     type: object
     properties:
@@ -464,6 +451,48 @@ definitions:
         type: string
       tocMax:
         type: string
+  ViewSizingResultOptimum:
+    type: object
+    properties:
+      result:
+        $ref: "#/definitions/SizingResultOptimum"
+      selectedEquipment:
+        $ref: "#/definitions/SizingOptimumData"
+      availableEquipment:
+        $ref: "#/definitions/SizingOptimumData"
+      dataGrapChart:
+        $ref: "#/definitions/SizingOptimumData"
+  ViewTemperatureProfile:
+    type: object
+    properties:
+      minScaleTemp:
+        type: number
+      maxScaleTemp:
+        type: number
+      minScaleConv:
+        type: number
+      maxScaleConv:
+        type: number
+      tempChartData:
+        $ref: "#/definitions/TemperatureProfileData"
+      convChartData:
+        $ref: "#/definitions/TemperatureProfileData"
+  ViewHeatExchange:
+    type: object
+    properties:
+     result:
+       $ref: "#/definitions/Coordinates"
+     curve:
+       $ref: "#/definitions/Coordinates"
+  ViewTimeBased:
+    type: object
+    properties:
+      label:
+        $ref: "#/definitions/TimeBasedLabel"
+      result:
+        $ref: "#/definitions/TimeBasedResult"
+      curve:
+        $ref: "#/definitions/TimeBasedCurve"
   TemperatureProfileData:
     type: object
     properties:
@@ -478,6 +507,17 @@ definitions:
       front:
         $ref: "#/definitions/Coordinates"
       rear:
+        $ref: "#/definitions/Coordinates"
+  TimeBasedCurve:
+    type: object
+    properties:
+      top:
+        $ref: "#/definitions/Coordinates"
+      int:
+        $ref: "#/definitions/Coordinates"
+      bot:
+        $ref: "#/definitions/Coordinates"
+      average:
         $ref: "#/definitions/Coordinates"
   Coordinates:
     type: object
@@ -496,4 +536,41 @@ definitions:
       dhpMax:
         type: number
       consoMax:
+        type: number
+  SizingOptimumData:
+    type: object
+    properties:
+      id:
+        type: integer
+      equipName:
+        type: string
+      dhp:
+        type: number
+      conso:
+        type: number
+      dhpMax:
+        type: number
+      consoMax:
+        type: number
+  TimeBasedLabel:
+    type: object
+    properties:
+      top:
+        type: string
+      int:
+        type: string
+      bot:
+        type: string
+  TimeBasedResult:
+    type: object
+    properties:
+      points:
+        type: number
+      top:
+        type: number
+      int:
+        type: number
+      bot:
+        type: number
+      average:
         type: number

@@ -154,6 +154,21 @@ paths:
           description: todo
           schema:
             $ref:  "#/definitions/EconomicResult"
+  /studyEquipment/{id}/productChart:
+    get:
+      description: get study equipment product chart
+      parameters:
+      - name: id
+        in: path
+        description: StudyEquipment ID
+        required: true
+        type: integer
+      operationId: getstudyEquipmentProductChart
+      responses:
+        "200":
+          description: todo
+          schema:
+            $ref:  "#/definitions/StudyEquipment"
   /output/sizingresult/{idStudy}/optimum:
     get:
       operationId: sizingOptimumResult
@@ -204,3 +219,43 @@ paths:
           description: todo
           schema:
             $ref: "#/definitions/ViewTemperatureProfile"
+  /output/heatExchange:
+    get:
+      operationId: heatExchange
+      description: get heat exchange product chart
+      parameters:
+      - name: idStudy
+        in: query
+        description: Study ID
+        required: true
+        type: integer
+      - name: idStudyEquipment
+        in: query
+        description: StudyEquipment ID
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: todo
+          schema:
+            $ref:  "#/definitions/ViewHeatExchange"
+  /output/timeBased:
+    get:
+      operationId: timeBased
+      description: get item based product chart
+      parameters:
+      - name: idStudy
+        in: query
+        description: Study ID
+        required: true
+        type: integer
+      - name: idStudyEquipment
+        in: query
+        description: StudyEquipment ID
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: todo
+          schema:
+            $ref:  "#/definitions/ViewTimeBased"

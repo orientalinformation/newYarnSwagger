@@ -350,6 +350,20 @@ definitions:
         type: number
       label:
         type: number
+  ViewDwellingTimes:
+    type: object
+    properties:
+      name:
+        type: number
+      value:
+        type: number
+  ViewTemperatures:
+    type: object
+    properties:
+      name:
+        type: number
+      value:
+        type: number
   StartCalculate:
     type: object
     properties:
@@ -358,6 +372,178 @@ definitions:
       idStudyEquipment:
         type: integer
       scheckOptim:
+        type: number
+      epsilonTemp:
+        type: number
+      epsilonEnth:
+        type: number
+      nbOptimIter:
+        type: number
+      timeStep:
+        type: number
+      precision:
+        type: number
+      scheckStorage:
+        type: number
+      storagestep:
+        type: number
+      hRadioOn:
+        type: number
+      hRadioOff:
+        type: number
+      maxIter:
+        type: number
+      relaxCoef:
+        type: number
+      vRadioOn:
+        type: number
+      vRadioOff:
+        type: number
+      tempPtSurf:
+        type: number
+      tempPtIn:
+        type: number
+      tempPtBot:
+        type: number
+      tempPtAvg:
+        type: number
+      select1:
+        type: number
+      select2:
+        type: number
+      select3:
+        type: number
+      select4:
+        type: number
+      select5:
+        type: number
+      select6:
+        type: number
+      select7:
+        type: number
+      select8:
+        type: number
+      select9:
+        type: number
+  BrainCalculator:
+    type: object
+    properties:
+      sdisableFields:
+        type: number
+      sdisableCalculate:
+        type: number
+      scheckOptim:
+        type: number
+      sdisableOptim:
+        type: number
+      sdisableNbOptim:
+        type: number
+      epsilonTemp:
+        type: number
+      epsilonEnth:
+        type: number
+      nbOptimIter:
+        type: number
+      sdisableTimeStep:
+        type: number
+      sdisablePrecision:
+        type: number
+      sdisableStorage:
+        type: number
+      timeStep:
+        type: number
+      precision:
+        type: number
+      precisionlogstep:
+        type: number
+      scheckStorage:
+        type: number
+      storagestep:
+        type: number
+      hRadioOn:
+        type: number
+      hRadioOff:
+        type: number
+      maxIter:
+        type: number
+      relaxCoef:
+        type: number
+      vRadioOn:
+        type: number
+      vRadioOff:
+        type: number
+      tempPtSurf:
+        type: number
+      tempPtIn:
+        type: number
+      tempPtBot:
+        type: number
+      tempPtAvg:
+        type: number
+      dwellingTimes:
+        type: array
+        items:
+          $ref: "#/definitions/ViewDwellingTimes"
+      temperatures:
+        type: array
+        items:
+          $ref: "#/definitions/ViewTemperatures"
+      toc:
+        type: number
+      select1:
+        type: array
+        items:
+          $ref: "#/definitions/ViewSelect"
+      select2:
+        type: array
+        items:
+          $ref: "#/definitions/ViewSelect"
+      select3:
+        type: array
+        items:
+          $ref: "#/definitions/ViewSelect"
+      select4:
+        type: array
+        items:
+          $ref: "#/definitions/ViewSelect"
+      select5:
+        type: array
+        items:
+          $ref: "#/definitions/ViewSelect"
+      select6:
+        type: array
+        items:
+          $ref: "#/definitions/ViewSelect"
+      select7:
+        type: array
+        items:
+          $ref: "#/definitions/ViewSelect"
+      select8:
+        type: array
+        items:
+          $ref: "#/definitions/ViewSelect"
+      select9:
+        type: array
+        items:
+          $ref: "#/definitions/ViewSelect"
+  StartBrainCalculate:
+    type: object
+    properties:
+      idStudy:
+        type: integer
+      idStudyEquipment:
+        type: integer
+      checkOptim:
+        type: boolean
+      dwellingTimes:
+        type: array
+        items:
+          $ref: "#/definitions/ViewDwellingTimes"
+      temperatures:
+        type: array
+        items:
+          $ref: "#/definitions/ViewTemperatures"
+      toc:
         type: number
       epsilonTemp:
         type: number

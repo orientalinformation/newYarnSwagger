@@ -140,7 +140,11 @@ paths:
             $ref: "#/definitions/StartCalculate"
       responses:
         "200":
-          description: ok
+          description: Run kernal ok
+          schema:
+            type: array
+            items:
+              type: integer
         "422":
           description: missing data
   /studies/{id}/calculate:
@@ -156,4 +160,49 @@ paths:
         "200":
           description: Successful retrieve the study
           schema:
-            $ref: "#/definitions/StudyEquipment"
+            type: array
+            items:
+              type: integer
+  /studyequipment/braincalculate:
+    get:
+      operationId: getStudyEquipmentCalculation
+      parameters:
+      - name: idStudy
+        in: query
+        required: true
+        type: integer
+      - name: idStudyEquipment
+        in: query
+        required: true
+        type: integer
+      - name: checkOptim
+        in: query
+        required: true
+        type: boolean
+      responses:
+        "200":
+          description: todo
+          schema:
+            $ref: "#/definitions/BrainCalculator"
+  /studyequipment/startbraincalculate:
+    post:
+      consumes:
+        - application/x-www-form-urlencoded
+      operationId: startBrainCalculate
+      description: Run Kernal Brain Calculate
+      parameters:
+        - name: body
+          in: body
+          required: true
+          description: body save startBrainCalculate
+          schema:
+            $ref: "#/definitions/StartBrainCalculate"
+      responses:
+        "200":
+          description: ok
+          schema:
+            type: array
+            items:
+              type: integer
+        "422":
+          description: missing data

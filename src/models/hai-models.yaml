@@ -1,0 +1,6 @@
+definitions:
+  ReferenceData:
+    type: object
+    properties:
+      name:
+        type: string

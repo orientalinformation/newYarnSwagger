@@ -1,4 +1,20 @@
 definitions:
+  ViewMesh:
+    type: object
+    properties:
+      meshGeneration:
+        $ref: "#/definitions/MeshGeneration"
+      elements:
+        type: array
+        items:
+          $ref: "#/definitions/ProductElmt"
+      elmtMeshPositions:
+        type: array
+        items:
+          $ref: "#/definitions/MeshPosition"
+      productIsoTemp:
+        type: number
+        required: false
   ViewProduct:
     type: object
     properties:
@@ -10,41 +26,59 @@ definitions:
           $ref: "#/definitions/ProductElmt"
       specificDimension:
         type: number
-  ViewSizingResultOptimum:
-    type: object
-    properties:
-      result:
-        $ref: "#/definitions/SizingResultOptimum"
-      customFlowRate:
-        type: number
-      selectedEquipment:
-        type: object
-      availableEquipment:
-        type: object
-      dataGrapChart:
-        type: object
-      dataTemProfileChart:
-        type: object
-  ViewTemperatureProfile:
-    type: object
-    properties:
-      minScaleTemp:
-        type: number
-      maxScaleTemp:
-        type: number
-      minScaleConv:
-        type: number
-      maxScaleConv:
-        type: number
-      tempChartData:
-        $ref: "#/definitions/TemperatureProfileData"
-      convChartData:
-        $ref: "#/definitions/TemperatureProfileData"
   Component:
     type: object
     properties:
+      AIR:
+        type: number
+      BLS_CODE:
+        type: string
+      CLASS_TYPE:
+        type: number
+      COMP_COMMENT:
+        type: string
+      COMP_DATE:
+        type: string
+      COMP_GEN_STATUS:
+        type: integer
+      COMP_IMP_ID_STUDY:
+        type: integer
+      COMP_NATURE:
+        type: integer
+      COMP_RELEASE:
+        type: integer
+      COMP_VERSION:
+        type: number
+      COND_DENS_MODE:
+        type: number
+      DENSITY:
+        type: number
+      FAT_TYPE:
+        type: number
+      FREEZE_TEMP:
+        type: number
+      GLUCID:
+        type: number
       ID_COMP:
         type: integer
+      ID_USER:
+        type: integer
+      LIPID:
+        type: number
+      NON_FROZEN_WATER:
+        type: number
+      OPEN_BY_OWNER:
+        type: integer
+      PROTID:
+        type: number
+      SALT:
+        type: number
+      SPECIFIC_HEAT:
+        type: number
+      SUB_FAMILY:
+        type: integer
+      WATER:
+        type: number
   Shape:
     type: object
     properties:
@@ -161,6 +195,80 @@ definitions:
     properties:
       ID_EQUIP:
         type: integer
+      ID_EQUIPSERIES:
+        type: integer
+      ID_COOLING_FAMILY:
+        type: integer
+      ID_USER:
+        type: integer
+      ID_EQUIPGENERATION:
+        type: integer
+      EQUIP_NAME:
+        type: string
+      EQUIP_VERSION:
+        type: number
+      EQUIP_RELEASE:
+        type: integer
+      EQUIP_DATE:
+        type: string
+      EQUIP_COMMENT:
+        type: string
+      EQUIPPICT:
+        type: string
+      STD:
+        type: integer
+      EQP_LENGTH:
+        type: number
+      EQP_WIDTH:
+        type: number
+      EQP_HEIGHT:
+        type: number
+      MODUL_LENGTH:
+        type: number
+      NB_MAX_MODUL:
+        type: integer
+      NB_TR:
+        type: integer
+      NB_TS:
+        type: integer
+      NB_VC:
+        type: integer
+      BUYING_COST:
+        type: number
+      RENTAL_COST:
+        type: number
+      INSTALL_COST:
+        type: number
+      MAX_FLOW_RATE:
+        type: number
+      MAX_NOZZLES_BY_RAMP:
+        type: integer
+      MAX_RAMPS:
+        type: integer
+      NUMBER_OF_ZONES:
+        type: integer
+      TMP_REGUL_MIN:
+        type: number
+      CAPABILITIES:
+        type: integer
+      ITEM_TR:
+        type: integer
+      ITEM_TS:
+        type: integer
+      ITEM_VC:
+        type: integer
+      ITEM_PRECIS:
+        type: integer
+      ITEM_TIMESTEP:
+        type: integer
+      EQP_IMP_ID_STUDY:
+        type: integer
+      OPEN_BY_OWNER:
+        type: integer
+      SERIES_NAME:
+        type: string
+      BATCH_PROCESS:
+        type: boolean
   Production:
     type: object
     properties:
@@ -248,6 +356,45 @@ definitions:
         type: number
       PROD_ELMT_REALWEIGHT:
         type: number
+  ViewStudyEquipment:
+    type: object
+    properties:
+      ID_STUDY_EQUIPMENTS:
+        type: integer
+      EQUIP_NAME:
+        type: string
+      ID_EQUIP:
+        type: integer
+      EQP_LENGTH:
+        type: number
+      EQP_WIDTH:
+        type: number
+      EQUIP_VERSION:
+        type: number
+      ORIENTATION:
+        type: integer
+      displayName:
+        type: string
+      TExt:
+        type: number
+      dh:
+        type: array
+        items:
+          type: number
+      tr:
+        type: array
+        items:
+          type: number
+      ts:
+        type: array
+        items:
+          type: number
+      vc:
+        type: array
+        items:
+          type: number
+      top_or_QperBatch:
+        type: string
   StudyEquipment:
     type: object
     properties:
@@ -329,3 +476,36 @@ definitions:
         type: string
       BATCH_PROCESS:
         type: integer
+      equipment:
+        $ref: "#/definitions/Equipment"
+  GenMeshParams:
+    type: object
+    properties:
+      dim1:
+        type: number
+      dim2:
+        type: number
+      dim3:
+        type: number
+  ViewOpenStudy:
+    type: object
+    properties:
+      mine:
+        type: array
+        items:
+          $ref: "#/definitions/Study"
+      others:
+        type: array
+        items:
+          $ref: "#/definitions/Study"
+  ViewComponents:
+    type: object
+    properties:
+      active:
+        type: array
+        items:
+          $ref: "#/definitions/Component"
+      sleeping:
+        type: array
+        items:
+          $ref: "#/definitions/Component"

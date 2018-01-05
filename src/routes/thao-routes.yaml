@@ -35,19 +35,11 @@ paths:
     get:
       operationId: findStudies
       description: Get a list of studies
-      parameters:
-        - name: mine
-          in: query
-          description: true will return studies of current logged in user, false for getting other studies
-          required: false
-          type: boolean
       responses:
         "200":
           description: OK
           schema:
-            type: array
-            items:
-              $ref: "#/definitions/Study"
+            $ref: "#/definitions/ViewOpenStudy"
     put:
       operationId: createStudy
       description: create a new study
@@ -61,6 +53,8 @@ paths:
             $ref: "#/definitions/Study"
       responses:
         "200":
+          schema:
+            $ref: "#/definitions/Study"
           description: OK, created
   /studies/{id}:
     patch:
@@ -192,7 +186,21 @@ paths:
           schema:
             type: array
             items:
-              $ref: "#/definitions/StudyEquipment"
+              $ref: "#/definitions/ViewStudyEquipment"
+    put:
+      operationId: addEquipment
+      parameters:
+      - name: id
+        in: path
+        required: true
+        type: integer
+      - name: idEquip
+        in: query
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: ok
   /studies/{id}/clone:
     put:
       operationId: saveStudyAs
@@ -401,6 +409,32 @@ paths:
           description: todo
         "500":
           description: server error
+    post:
+      operationId: updateProductElement
+      description: update elements to product
+      parameters:
+      - name: id
+        in: path
+        description: Product ID
+        required: true
+        type: integer
+      - name: elementId
+        required: true
+        in: query
+        type: integer
+      - name: description
+        required: false
+        in: query
+        type: string
+      - name: dim2
+        required: false
+        in: query
+        type: number
+      responses:
+        "200":
+          description: todo
+        "500":
+          description: server error
   /productElmts/{id}/moveup:
     get:
       operationId: productElementMoveUp
@@ -449,9 +483,7 @@ paths:
         "200":
           description: todo
           schema:
-            type: array
-            items:
-              $ref: "#/definitions/Component"
+            $ref: "#/definitions/ViewComponents"
   /users:
     get:
       description: todo
@@ -525,17 +557,75 @@ paths:
         "200":
           description: ToDo
   /products/{id}/meshView:
-      get:
-        operationId: getMeshView
-        description: get mesh view of product
-        parameters:
-          - name: id
-            in: path
-            required: true
-            description: id of product
-            type: integer
-        responses:
-          "200":
-            description: OK
-            schema:
-              $ref: "#/definitions/ViewMesh"
+    get:
+      operationId: getMeshView
+      description: get mesh view of product
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: id of product
+          type: integer
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/ViewMesh"
+  /products/{idProd}/generateMesh:
+    post:
+      operationId: generateMesh
+      description: generate product mesh
+      parameters:
+        - name: idProd
+          in: path
+          required: true
+          type: integer
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/GenMeshParams"
+      responses:
+        "200":
+          description: generate mesh done successfully
+  /products/{idProd}/defaultMesh:
+    post:
+      operationId: generateDefaultMesh
+      description: generate product default mesh
+      parameters:
+        - name: idProd
+          in: path
+          required: true
+          type: integer
+      responses:
+        "200":
+          description: generate default mesh done successfully
+          schema:
+            $ref: "#/definitions/ViewMesh"
+  /products/{idProd}/initTemperature:
+    post:
+      operationId: initTemperature
+      description: initialize temperature
+      parameters:
+        - name: idProd
+          in: path
+          required: true
+          type: integer
+        - name: initTemp
+          in: query
+          required: true
+          type: number
+      responses:
+        "200":
+          description: initialize temperature
+  /recentStudies:
+    get:
+      operationId: recentStudies
+      description: get my recent studies
+      responses:
+        "200":
+          description: ok
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/Study"

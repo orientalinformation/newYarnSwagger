@@ -1,0 +1,35 @@
+paths:
+  /admin/users:
+    get:
+      operationId: getUsers
+      tags:
+      - admin
+      responses:
+        "200":
+          description: ok
+    put:
+      consumes:
+      - application/x-www-form-urlencoded
+      operationId: newUser
+      tags:
+      - admin
+      description: Create new user
+      parameters:
+      - name: body
+        in: body
+        required: true
+        description: body create new user
+        schema:
+          $ref: "#/definitions/NewUser"
+      responses:
+        "200":
+          description: ok
+          schema:
+            type: array
+            items:
+              type: integer
+        "422":
+          description: missing data
+      responses:
+        "200":
+          description: ok
