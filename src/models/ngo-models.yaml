@@ -22,6 +22,8 @@ definitions:
         type: string
       convectionSpeedSymbol:
         type: string
+      prodchartDimensionSymbol:
+        type: string
       consumSymbol:
         type: string
       consumMaintienSymbol:
@@ -66,6 +68,8 @@ definitions:
         type: number
       conso:
         type: string
+      conso_warning:
+        type: string
       toc:
         type: string
       precision:
@@ -94,6 +98,8 @@ definitions:
       dhp:
         type: number
       conso:
+        type: string
+      conso_warning:
         type: string
       toc:
         type: string
@@ -124,8 +130,6 @@ definitions:
         type: number
       toc:
         type: string
-      consoMax:
-        type: number
       tocMax:
         type: string
       precision:
@@ -389,6 +393,57 @@ definitions:
         type: integer
       MESH_AXIS_POS:
         type: number
+      ID_STUDY:
+        type: integer
+  TempRecordPts:
+    type: object
+    properties:
+      ID_TEMP_RECORD_PTS:
+        type: integer
+      ID_STUDY:
+        type: integer
+      AXIS1_PT_TOP_SURF:
+        type: number
+      AXIS2_PT_TOP_SURF:
+        type: number
+      AXIS3_PT_TOP_SURF:
+        type: number
+      AXIS1_PT_INT_PT:
+        type: number
+      AXIS2_PT_INT_PT:
+        type: number
+      AXIS3_PT_INT_PT:
+        type: number
+      AXIS1_PT_BOT_SURF:
+        type: number
+      AXIS2_PT_BOT_SURF:
+        type: number
+      AXIS3_PT_BOT_SURF:
+        type: number
+      AXIS2_AX_1:
+        type: number
+      AXIS3_AX_1:
+        type: number
+      AXIS1_AX_2:
+        type: number
+      AXIS3_AX_2:
+        type: number
+      AXIS1_AX_3:
+        type: number
+      AXIS2_AX_3:
+        type: number
+      AXIS1_PL_2_3:
+        type: number
+      AXIS2_PL_1_3:
+        type: number
+      AXIS3_PL_1_2:
+        type: number
+      NB_STEPS:
+        type: integer
+      CONTOUR2D_TEMP_MIN:
+        type: number
+      CONTOUR2D_TEMP_MAX:
+        type: number
   SizingResultOptimum:
     type: object
     properties:
@@ -402,6 +457,8 @@ definitions:
         type: number
       conso:
         type: string
+      conso_warning:
+        type: string
       toc:
         type: number
       tsMax:
@@ -413,6 +470,8 @@ definitions:
       dhpMax:
         type: number
       consoMax:
+        type: string
+      consomax_warning:
         type: string
       tocMax:
         type: number
@@ -477,6 +536,23 @@ definitions:
         $ref: "#/definitions/TemperatureProfileData"
       convChartData:
         $ref: "#/definitions/TemperatureProfileData"
+  ViewLocation:
+    type: object
+  ViewLocationMeshAxis:
+    type: object
+    properties:
+      x:
+        type: array
+        items:
+          $ref: "#/definitions/LocationMeshAxisResult"
+      y:
+        type: array
+        items:
+          $ref: "#/definitions/LocationMeshAxisResult"
+      z:
+        type: array
+        items:
+          $ref: "#/definitions/LocationMeshAxisResult"
   ViewHeatExchange:
     type: object
     properties:
@@ -493,6 +569,34 @@ definitions:
         $ref: "#/definitions/TimeBasedResult"
       curve:
         $ref: "#/definitions/TimeBasedCurve"
+  ViewProductSection:
+    type: object
+    properties:
+     axeTemp:
+       type: array
+       items:
+         type: number
+     resultLabel:
+       type: array
+       items:
+         type: number
+     result:
+       type: object
+       properties:
+         recAxis:
+           type: array
+           items:
+             type: number
+         mesAxis:
+           type: array
+           items:
+             type: number
+         resultValue:
+           type: array
+           items:
+             type: array
+             items:
+               type: number
   TemperatureProfileData:
     type: object
     properties:
@@ -574,3 +678,12 @@ definitions:
         type: number
       average:
         type: number
+  LocationMeshAxisResult:
+    type: object
+    properties:
+      name:
+        type: number
+      value:
+        type: number
+  MeshPoints:
+    type: object

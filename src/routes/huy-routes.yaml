@@ -1,0 +1,20 @@
+paths:
+  /studies/{id}/clone:
+    put:
+      operationId: saveStudyAs
+      consumes:
+        - application/x-www-form-urlencoded
+      parameters:
+        - in: path
+          name: id
+          type: integer
+          required: true
+          description: id study to open.
+        - in: formData
+          name: name
+          required: true
+          type: string
+          description: new study name.
+      responses:
+        "200":
+          description: OK

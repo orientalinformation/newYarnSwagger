@@ -169,6 +169,45 @@ paths:
           description: todo
           schema:
             $ref:  "#/definitions/StudyEquipment"
+  /studies/{id}/tempRecordPts:
+    get:
+      operationId: getTempRecordPts
+      parameters:
+      - name: id
+        in: path
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/TempRecordPts"
+  /studies/{id}/productElmt:
+    get:
+      operationId: getProductElmt
+      parameters:
+      - name: id
+        in: path
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/ProductElmt"
+  /studies/{id}/meshPoints:
+    get:
+      operationId: getMeshPoints
+      parameters:
+      - name: id
+        in: path
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/MeshPoints"
   /output/sizingresult/{idStudy}/optimum:
     get:
       operationId: sizingOptimumResult
@@ -219,6 +258,26 @@ paths:
           description: todo
           schema:
             $ref: "#/definitions/ViewTemperatureProfile"
+  /output/location:
+    get:
+      operationId: location
+      description: get location product chart
+      parameters:
+      - name: idStudy
+        in: query
+        description: Study ID
+        required: true
+        type: integer
+      - name: idStudyEquipment
+        in: query
+        description: StudyEquipment ID
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/ViewLocation"
   /output/heatExchange:
     get:
       operationId: heatExchange
@@ -242,7 +301,7 @@ paths:
   /output/timeBased:
     get:
       operationId: timeBased
-      description: get item based product chart
+      description: get based product chart
       parameters:
       - name: idStudy
         in: query
@@ -259,3 +318,28 @@ paths:
           description: todo
           schema:
             $ref:  "#/definitions/ViewTimeBased"
+  /output/productSection:
+    get:
+      operationId: productSection
+      description: get product section product chart
+      parameters:
+      - name: idStudy
+        in: query
+        description: Study ID
+        required: true
+        type: integer
+      - name: idStudyEquipment
+        in: query
+        description: StudyEquipment ID
+        required: true
+        type: integer
+      - name: selectedAxe
+        in: query
+        description: Axe select
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: todo
+          schema:
+            $ref:  "#/definitions/ViewProductSection"

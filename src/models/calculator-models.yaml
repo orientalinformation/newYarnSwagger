@@ -1,0 +1,108 @@
+definitions:
+  StartCalcul:
+    type: object
+    properties:
+      idStudy:
+        type: integer
+      idStudyEquipment:
+        type: integer
+      epsilonTemp:
+        type: number
+      epsilonEnth:
+        type: number
+      nbOptimIter:
+        type: number
+      timeStep:
+        type: number
+      precision:
+        type: number
+      scheckStorage:
+        type: number
+      storagestep:
+        type: number
+      hRadioOn:
+        type: number
+      hRadioOff:
+        type: number
+      maxIter:
+        type: number
+      relaxCoef:
+        type: number
+      vRadioOn:
+        type: number
+      vRadioOff:
+        type: number
+      tempPtSurf:
+        type: number
+      tempPtIn:
+        type: number
+      tempPtBot:
+        type: number
+      tempPtAvg:
+        type: number
+      precisionlogstep:
+        type: number
+      select1:
+        type: array
+        items:
+          $ref: "#/definitions/ViewSelect"
+      select2:
+        type: array
+        items:
+          $ref: "#/definitions/ViewSelect"
+      select3:
+        type: array
+        items:
+          $ref: "#/definitions/ViewSelect"
+      select4:
+        type: array
+        items:
+          $ref: "#/definitions/ViewSelect"
+      select5:
+        type: array
+        items:
+          $ref: "#/definitions/ViewSelect"
+      select6:
+        type: array
+        items:
+          $ref: "#/definitions/ViewSelect"
+      select7:
+        type: array
+        items:
+          $ref: "#/definitions/ViewSelect"
+      select8:
+        type: array
+        items:
+          $ref: "#/definitions/ViewSelect"
+      select9:
+        type: array
+        items:
+          $ref: "#/definitions/ViewSelect"
+  ViewBrainOptim:
+    type: object
+    properties:
+      idStudy:
+        type: integer
+      idStudyEquipment:
+        type: integer
+      BRAIN_OPTIM:
+        type: integer
+      EQUIP_STANDARD:
+        type: integer
+      BRAIN_OPTIM_TSFIXED:
+        type: integer
+      BRAIN_OPTIM_TRFIXED:
+        type: integer
+      BRAIN_OPTIM_DHPFIXED:
+        type: integer
+      BRAIN_OPTIM_TOPFIXED:
+        type: integer
+      BRAIN_OPTIM_COSTFIXED:
+        type: integer
+  ViewProgressBar:
+    type: object
+    properties:
+      studyEquipments:
+        type: array
+        items:
+          $ref: "#/definitions/ViewStudyEquipment"

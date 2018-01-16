@@ -201,25 +201,21 @@ paths:
       responses:
         "200":
           description: ok
-  /studies/{id}/clone:
-    put:
-      operationId: saveStudyAs
-      consumes:
-        - application/x-www-form-urlencoded
+  /studies/{id}/equipments/{idEquip}:
+    delete:
+      operationId: removeStudyEquipment
       parameters:
-        - in: path
-          name: id
-          type: integer
-          required: true
-          description: id study to open.
-        - in: formData
-          name: name
-          required: true
-          type: string
-          description: new study name.
+      - name: id
+        in: path
+        required: true
+        type: integer
+      - name: idEquip
+        in: path
+        required: true
+        type: integer
       responses:
         "200":
-          description: OK
+          description: ok
   /equipments:
     get:
       description: get all available equipments
@@ -430,6 +426,14 @@ paths:
         required: false
         in: query
         type: number
+      - name: computedmass
+        required: false
+        in: query
+        type: number
+      - name: realmass
+        required: false
+        in: query
+        type: number
       responses:
         "200":
           description: todo
@@ -486,6 +490,7 @@ paths:
             $ref: "#/definitions/ViewComponents"
   /users:
     get:
+      operationId: getActiveUsers
       description: todo
       responses:
         "200":

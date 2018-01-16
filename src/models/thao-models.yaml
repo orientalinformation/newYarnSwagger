@@ -356,6 +356,10 @@ definitions:
         type: number
       PROD_ELMT_REALWEIGHT:
         type: number
+      ID_STUDY:
+        type: integer
+      SHAPECODE:
+        type: integer
   ViewStudyEquipment:
     type: object
     properties:
@@ -475,6 +479,8 @@ definitions:
       SERIES_NAME:
         type: string
       BATCH_PROCESS:
+        type: integer
+      ORIENTATION:
         type: integer
       equipment:
         $ref: "#/definitions/Equipment"

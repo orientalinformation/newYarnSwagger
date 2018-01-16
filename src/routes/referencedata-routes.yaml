@@ -1,0 +1,50 @@
+paths:
+  /referencedata/packing:
+    get:
+      operationId: findRefPackingElmt
+      tags:
+      - referencedata
+      description: Get a list of packingelmt
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/ViewPackingElmt"
+    put:
+      consumes:
+      - application/x-www-form-urlencoded
+      operationId: NewPacking
+      tags:
+      - referencedata
+      description: Create new packing
+      parameters:
+      - name: body
+        in: body
+        required: true
+        description: body create new packing
+        schema:
+          $ref: "#/definitions/NewPacking"
+      responses:
+        "200":
+          description: ok
+          schema:
+              type: integer
+        "422":
+          description: missing data
+  /referencedata/{lang}/family:
+    get:
+      operationId: getFamilyTranslations
+      tags:
+        - referencedata
+      parameters:
+        - name: lang
+          in: path
+          required: true
+          type: string
+      responses:
+        "200":
+          description: ok
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/Translation"

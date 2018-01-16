@@ -1,4 +1,15 @@
 definitions:
+  ViewUsers:
+    type: object
+    properties:
+      online:
+        type: array
+        items:
+          $ref: "#/definitions/UserAdmin"
+      offline:
+        type: array
+        items:
+          $ref: "#/definitions/ConnectionUser"
   NewUser:
     type: object
     properties:
@@ -10,3 +21,64 @@ definitions:
         type: string
       confirmpassword:
         type: string
+  Connection:
+    type: object
+    properties:
+      ID_USER:
+        type: number
+      DATE_CONNECTION:
+        type: string
+      DATE_DISCONNECTION:
+        type: string
+      TYPE_DISCONNECTION:
+        type: string
+      USERNAM:
+        type: string
+      PERIOD:
+        type: string
+  ConnectionUser:
+    type: object
+    properties:
+      ID_USER:
+        type: number
+      DATE_CONNECTION:
+        type: string
+      DATE_DISCONNECTION:
+        type: string
+      TYPE_DISCONNECTION:
+        type: string
+      USERNAM:
+        type: string
+  UserAdmin:
+    type: object
+    properties:
+      CODE_LANGUE:
+        type: integer
+      ID_CALC_PARAMSDEF:
+        type: integer
+      ID_MONETARY_CURRENCY:
+        type: integer
+      ID_USER:
+        type: integer
+      TRACE_LEVEL:
+        type: integer
+      USERMAIL:
+        type: string
+      USERNAM:
+        type: string
+      USERPRIO:
+        type: integer
+      ID_TEMP_RECORD_PTS_DEF:
+        type: integer
+      USER_CONSTRUCTOR:
+        type: string
+      USER_ENERGY:
+        type: integer
+      USER_FAMILY:
+        type: integer
+      USER_MODEL:
+        type: integer
+      USER_ORIGINE:
+        type: integer
+      USER_PROCESS:
+        type: integer

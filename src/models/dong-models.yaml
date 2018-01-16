@@ -408,23 +408,41 @@ definitions:
       tempPtAvg:
         type: number
       select1:
-        type: number
+        type: array
+        items:
+          $ref: "#/definitions/ViewSelect"
       select2:
-        type: number
+        type: array
+        items:
+          $ref: "#/definitions/ViewSelect"
       select3:
-        type: number
+        type: array
+        items:
+          $ref: "#/definitions/ViewSelect"
       select4:
-        type: number
+        type: array
+        items:
+          $ref: "#/definitions/ViewSelect"
       select5:
-        type: number
+        type: array
+        items:
+          $ref: "#/definitions/ViewSelect"
       select6:
-        type: number
+        type: array
+        items:
+          $ref: "#/definitions/ViewSelect"
       select7:
-        type: number
+        type: array
+        items:
+          $ref: "#/definitions/ViewSelect"
       select8:
-        type: number
+        type: array
+        items:
+          $ref: "#/definitions/ViewSelect"
       select9:
-        type: number
+        type: array
+        items:
+          $ref: "#/definitions/ViewSelect"
   BrainCalculator:
     type: object
     properties:
@@ -526,6 +544,10 @@ definitions:
         type: array
         items:
           $ref: "#/definitions/ViewSelect"
+      sdisableTOC:
+        type: number
+      typeCalculate:
+        type: integer
   StartBrainCalculate:
     type: object
     properties:
@@ -545,6 +567,8 @@ definitions:
           $ref: "#/definitions/ViewTemperatures"
       toc:
         type: number
+      typeCalculate:
+        type: integer
       epsilonTemp:
         type: number
       epsilonEnth:
@@ -580,20 +604,38 @@ definitions:
       tempPtAvg:
         type: number
       select1:
-        type: number
+        type: array
+        items:
+          $ref: "#/definitions/ViewSelect"
       select2:
-        type: number
+        type: array
+        items:
+          $ref: "#/definitions/ViewSelect"
       select3:
-        type: number
+        type: array
+        items:
+          $ref: "#/definitions/ViewSelect"
       select4:
-        type: number
+        type: array
+        items:
+          $ref: "#/definitions/ViewSelect"
       select5:
-        type: number
+        type: array
+        items:
+          $ref: "#/definitions/ViewSelect"
       select6:
-        type: number
+        type: array
+        items:
+          $ref: "#/definitions/ViewSelect"
       select7:
-        type: number
+        type: array
+        items:
+          $ref: "#/definitions/ViewSelect"
       select8:
-        type: number
+        type: array
+        items:
+          $ref: "#/definitions/ViewSelect"
       select9:
-        type: number
+        type: array
+        items:
+          $ref: "#/definitions/ViewSelect"

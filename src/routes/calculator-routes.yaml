@@ -1,0 +1,106 @@
+paths:
+  /calculator/startcalcul:
+    post:
+      consumes:
+        - application/x-www-form-urlencoded
+      operationId: startCalcul
+      tags:
+        - calculator
+      description: Run Kernal Brain Calcul
+      parameters:
+        - name: body
+          in: body
+          required: true
+          description: body save start Calcul
+          schema:
+            $ref: "#/definitions/StartCalcul"
+      responses:
+        "200":
+          description: ok
+          schema:
+            type: array
+            items:
+              type: integer
+        "422":
+          description: missing data
+  /calculator/calculoptim:
+    post:
+      consumes:
+        - application/x-www-form-urlencoded
+      operationId: calculOptim
+      tags:
+        - calculator
+      description: save Calcul Optim
+      parameters:
+        - name: body
+          in: body
+          required: true
+          description: body save start Calcul
+          schema:
+            $ref: "#/definitions/StartCalcul"
+      responses:
+        "200":
+          description: ok
+          schema:
+            type: array
+            items:
+              type: integer
+        "422":
+          description: missing data
+  /calculator/brainoptim:
+    get:
+      operationId: getBrainOptim
+      tags:
+        - calculator
+      description: get brain optim
+      parameters:
+      - name: idStudyEquipment
+        in: query
+        type: integer
+      - name: brainoptim
+        in: query
+        type: integer
+      responses:
+        "200":
+          description: todo
+          schema:
+              $ref: "#/definitions/ViewBrainOptim"
+  /calculator/startcalculoptim:
+    post:
+      consumes:
+        - application/x-www-form-urlencoded
+      operationId: startCalculOptim
+      tags:
+        - calculator
+      description: Run Kernal Calcul Optim
+      parameters:
+        - name: body
+          in: body
+          required: true
+          description: body run start Calcul optim
+          schema:
+            $ref: "#/definitions/ViewBrainOptim"
+      responses:
+        "200":
+          description: ok
+          schema:
+            type: array
+            items:
+              type: integer
+        "422":
+          description: missing data
+  /calculator/progressbar:
+    get:
+      operationId: getProgressBarStudyEquipment
+      tags:
+        - calculator
+      description: get study equipment
+      parameters:
+      - name: idStudy
+        in: query
+        type: integer
+      responses:
+        "200":
+          description: todo
+          schema:
+              $ref: "#/definitions/ViewProgressBar"

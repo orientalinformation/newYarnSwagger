@@ -7,6 +7,10 @@ paths:
       responses:
         "200":
           description: ok
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/ViewUsers"
     put:
       consumes:
       - application/x-www-form-urlencoded
@@ -25,11 +29,84 @@ paths:
         "200":
           description: ok
           schema:
+              type: integer
+        "422":
+          description: missing data
+  /admin/users/{id}:
+    post:
+      consumes:
+      - application/x-www-form-urlencoded
+      operationId: updateUser
+      tags:
+      - admin
+      description: update user
+      parameters:
+      - name: id
+        in: path
+        required: true
+        type: integer
+      - name: body
+        in: body
+        required: true
+        description: body update user
+        schema:
+          $ref: "#/definitions/NewUser"
+      responses:
+        "200":
+          description: ok
+          schema:
             type: array
             items:
               type: integer
         "422":
           description: missing data
+    delete:
+      operationId: deleteUser
+      tags:
+      - admin
+      description: delete user
+      parameters:
+      - name: id
+        in: path
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: user was deleted successfully
+  /admin/connections/{id}:
+    post:
+      operationId: disconnectUser
+      tags:
+      - admin
+      parameters:
+        - name: id
+          in: path
+          description: User id
+          required: true
+          type: integer
+        - name: reset
+          in: query
+          description: status disconnect user
+          required: true
+          type: integer
+      responses:
+        "200":
+          description: User was deleted successfully
+  /admin/connections:
+    get:
+      operationId: loadConnections
+      tags:
+      - admin
+      parameters:
+      - name: record
+        in: query
+        description: number record connections
+        required: true
+        type: integer
       responses:
         "200":
           description: ok
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/Connection"

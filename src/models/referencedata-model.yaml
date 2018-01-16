@@ -1,0 +1,107 @@
+definitions:
+  PackingElmt:
+    type: object
+    properties:
+      ID_PACKING_ELMT:
+        type: integer
+      ID_USER:
+        type: integer
+      PACKING_VERSION:
+        type: number
+      PACKING_RELEASE:
+        type: integer
+      PACKING_DATE:
+        type: string
+      PACKING_COMMENT:
+        type: string
+      PACKINGCOND:
+        type: number
+      PACK_IMP_ID_STUDY:
+        type: integer
+      OPEN_BY_OWNER:
+        type: integer
+      CODE_LANGUE:
+        type: integer
+      ID_TRANSLATION:
+        type: integer
+      LABEL:
+        type: string
+      TRANS_TYPE:
+        type: integer
+  ViewPackingElmt:
+    type: object
+    properties:
+      mine:
+        type: array
+        items:
+          $ref: "#/definitions/PackingElmt"
+      others:
+        type: array
+        items:
+          $ref: "#/definitions/PackingElmt"
+  NewPacking:
+    type: object
+    properties:
+      name:
+        type: string
+      version:
+        type: number
+      conductivity:
+        type: number
+      comment:
+        type: string
+      release:
+        type: integer
+  ComponentDB:
+    type: object
+    properties:
+      AIR:
+        type: number
+      BLS_CODE:
+        type: string
+      CLASS_TYPE:
+        type: number
+      COMP_COMMENT:
+        type: string
+      COMP_DATE:
+        type: string
+      COMP_GEN_STATUS:
+        type: integer
+      COMP_IMP_ID_STUDY:
+        type: integer
+      COMP_NATURE:
+        type: integer
+      COMP_RELEASE:
+        type: integer
+      COMP_VERSION:
+        type: number
+      COND_DENS_MODE:
+        type: number
+      DENSITY:
+        type: number
+      FAT_TYPE:
+        type: number
+      FREEZE_TEMP:
+        type: number
+      GLUCID:
+        type: number
+      ID_COMP:
+        type: integer
+      ID_USER:
+        type: integer
+      LIPID:
+        type: number
+      NON_FROZEN_WATER:
+        type: number
+      OPEN_BY_OWNER:
+        type: integer
+      PROTID:
+        type: number
+      SALT:
+        type: number
+      SPECIFIC_HEAT:
+        type: number
+      SUB_FAMILY:
+        type: integer
+      WATER:
+        type: number
