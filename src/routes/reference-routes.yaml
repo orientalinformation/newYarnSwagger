@@ -1,0 +1,177 @@
+paths:
+  /referencedata/component:
+    get:
+      operationId: getDataComponent
+      tags:
+      - referencedata
+      description: Get a list of family component
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/ViewComponent"
+    put:
+      consumes:
+      - application/x-www-form-urlencoded
+      operationId: saveDataComponent
+      tags:
+      - referencedata
+      description: Save data component
+      parameters:
+      - name: body
+        in: body
+        required: true
+        description: body save Component
+        schema:
+          $ref: "#/definitions/ViewComponent"
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: integer
+        "422":
+          description: missing data
+  /referencedata/component/{id}:
+    get:
+      operationId: getTemperaturesByIdComp
+      tags:
+      - referencedata
+      parameters:
+        - name: id
+          in: path
+          description: Component Id
+          required: true
+          type: integer
+      responses:
+        "200":
+          description: Successful retrieve the Temperatures
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/ViewTemperature"
+    delete:
+      operationId: deleteComponent
+      tags:
+      - referencedata
+      description: delete component
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+      responses:
+        "200":
+          description: delete component successfully
+          schema:
+              type: integer
+  /referencedata/calculatefreeze:
+    put:
+      consumes:
+      - application/x-www-form-urlencoded
+      operationId: calculateFreeze
+      tags:
+      - referencedata
+      description: run calculatefreeze component
+      parameters:
+      - name: body
+        in: body
+        required: true
+        description: body run calculatefreeze
+        schema:
+          $ref: "#/definitions/ViewComponent"
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: integer
+        "422":
+          description: missing data
+  /referencedata/calculate:
+    put:
+      consumes:
+      - application/x-www-form-urlencoded
+      operationId: startFCCalculate
+      tags:
+      - referencedata
+      description: run calculate component
+      parameters:
+      - name: body
+        in: body
+        required: true
+        description: body run calculate
+        schema:
+          $ref: "#/definitions/ViewComponent"
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: integer
+        "422":
+          description: missing data
+  /referencedata/components:
+    get:
+      operationId: getMyComponent
+      tags:
+      - referencedata
+      description: Get list my component
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/MyComponent"
+  /referencedata/compenths/{idComp}:
+    get:
+      operationId: getCompenthsByIdComp
+      tags:
+      - referencedata
+      parameters:
+      - name: idComp
+        in: path
+        description: Compenth id
+        type: integer
+      description: Get list compenth by Id compenth
+      responses:
+        "200":
+          description: Successful retrieve the compenths
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/Compenth"
+  /referencedata/compenth/{id}:
+    get:
+      operationId: getCompenthById
+      tags:
+      - referencedata
+      parameters:
+      - name: id
+        in: path
+        description: Compenth id
+        type: integer
+      description: Get compenth by id
+      responses:
+        "200":
+          description: Successful retrieve the compenth
+          schema:
+              $ref: "#/definitions/Compenth"
+  /referencedata/compenth:
+    put:
+      consumes:
+      - application/x-www-form-urlencoded
+      operationId: updateCompenth
+      tags:
+      - referencedata
+      description: Save data compenth
+      parameters:
+      - name: body
+        in: body
+        required: true
+        description: body save Compenth
+        schema:
+          $ref: "#/definitions/Compenth"
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: integer
+        "422":
+          description: missing data

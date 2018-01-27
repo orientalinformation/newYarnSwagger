@@ -515,3 +515,18 @@ definitions:
         type: array
         items:
           $ref: "#/definitions/Component"
+  ProductUpdateParams:
+    type: object
+    properties:
+      name:
+        required: false
+        type: string
+      dim1:
+        required: false
+        type: number
+      dim2:
+        required: false
+        type: number
+      dim3:
+        required: false
+        type: number

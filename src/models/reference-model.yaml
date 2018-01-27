@@ -1,0 +1,191 @@
+definitions:
+  ViewComponent:
+    type: object
+    properties:
+      productFamily:
+        type: array
+        items:
+          $ref: "#/definitions/ViewFamily"
+      PRODUCT_TYPE:
+        type: integer
+      subFamily:
+        type: array
+        items:
+          $ref: "#/definitions/ViewFamily"
+      SUB_TYPE:
+        type: integer
+      productNature:
+        type: array
+        items:
+          $ref: "#/definitions/ViewFamily"
+      NATURE_TYPE:
+        type: integer
+      Conductivity:
+        type: array
+        items:
+          $ref: "#/definitions/ViewFamily"
+      CONDUCT_TYPE:
+        type: integer
+      FatType:
+        type: array
+        items:
+          $ref: "#/definitions/ViewFamily"
+      Temperatures:
+        type: array
+        items:
+          $ref: "#/definitions/ViewTemperature"
+      FATTYPE:
+        type: integer
+      COMP_NAME:
+        type: string
+      COMP_NAME_NEW:
+        type: string
+      AIR:
+        type: number
+      BLS_CODE:
+        type: string
+      CLASS_TYPE:
+        type: number
+      COMP_COMMENT:
+        type: string
+      COMP_DATE:
+        type: string
+      COMP_GEN_STATUS:
+        type: integer
+      COMP_IMP_ID_STUDY:
+        type: integer
+      COMP_NATURE:
+        type: integer
+      COMP_RELEASE:
+        type: integer
+      COMP_VERSION:
+        type: number
+      COMP_VERSION_NEW:
+        type: number
+      COND_DENS_MODE:
+        type: number
+      DENSITY:
+        type: number
+      FAT_TYPE:
+        type: number
+      FREEZE_TEMP:
+        type: number
+      GLUCID:
+        type: number
+      ID_COMP:
+        type: integer
+      ID_USER:
+        type: integer
+      LIPID:
+        type: number
+      NON_FROZEN_WATER:
+        type: number
+      OPEN_BY_OWNER:
+        type: integer
+      PROTID:
+        type: number
+      SALT:
+        type: number
+      SPECIFIC_HEAT:
+        type: number
+      SUB_FAMILY:
+        type: integer
+      WATER:
+        type: number
+      release:
+        type: integer
+      TYPE_COMP:
+        type: integer
+  ViewFamily:
+    type: object
+    properties:
+      LABEL:
+        type: string
+      ID_TRANSLATION:
+        type: integer
+  ViewTemperature:
+    type: object
+    properties:
+      temperature:
+        type: number
+  VComponent:
+    type: object
+    properties:
+      AIR:
+        type: number
+      BLS_CODE:
+        type: string
+      CLASS_TYPE:
+        type: number
+      COMP_COMMENT:
+        type: string
+      COMP_DATE:
+        type: string
+      COMP_GEN_STATUS:
+        type: integer
+      COMP_IMP_ID_STUDY:
+        type: integer
+      COMP_NATURE:
+        type: integer
+      COMP_RELEASE:
+        type: integer
+      COMP_VERSION:
+        type: number
+      COND_DENS_MODE:
+        type: number
+      DENSITY:
+        type: number
+      FAT_TYPE:
+        type: number
+      FREEZE_TEMP:
+        type: number
+      GLUCID:
+        type: number
+      ID_COMP:
+        type: integer
+      ID_USER:
+        type: integer
+      LIPID:
+        type: number
+      NON_FROZEN_WATER:
+        type: number
+      OPEN_BY_OWNER:
+        type: integer
+      PROTID:
+        type: number
+      SALT:
+        type: number
+      SPECIFIC_HEAT:
+        type: number
+      SUB_FAMILY:
+        type: integer
+      WATER:
+        type: number
+      LABEL:
+        type: string
+  MyComponent:
+    type: object
+    properties:
+      mine:
+        type: array
+        items:
+          $ref: "#/definitions/VComponent"
+      others:
+        type: array
+        items:
+          $ref: "#/definitions/VComponent"
+  Compenth:
+    type: object
+    properties:
+      ID_COMPENTH:
+        type: integer
+      ID_COMP:
+        type: integer
+      COMPTEMP:
+        type: number
+      COMPENTH:
+        type: number
+      COMPCOND:
+        type: number
+      COMPDENS:
+        type: number

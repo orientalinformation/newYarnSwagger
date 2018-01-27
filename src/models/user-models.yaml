@@ -1,0 +1,70 @@
+definitions:
+  ChangePassword:
+    type: object
+    properties:
+      oldPass:
+        type: string
+      newPass:
+        type: string
+  Constructors:
+    type: object
+    properties:
+      CONSTRUCTOR:
+        type: string
+  MonetaryCurrency:
+    type: object
+    properties:
+      ID_MONETARY_CURRENCY:
+        type: integer
+      MONEY_TEXT:
+        type: string
+      MONEY_SYMB:
+        type: string
+  Units:
+    type: object
+    properties:
+      ID_USER:
+        type: integer
+      ID_UNIT:
+        type: integer
+      TYPE_UNIT:
+        type: integer
+      SYMBOL:
+        type: string
+      COEFF_A:
+        type: number
+      COEFF_B:
+        type: number
+      listSymbol:
+        type: object
+  Langue:
+    type: object
+    properties:
+      langId:
+        type: integer
+      monetaryId:
+        type: integer
+  DefaultEquipment:
+    type: object
+    properties:
+      energyId:
+        type: integer
+      construct:
+        type: string
+      familyId:
+        type: integer
+      stdId:
+        type: integer
+      batchProcess:
+        type: integer
+      equipseriesId:
+        type: integer
+  Profile:
+    type: object
+    properties:
+      Langue:
+        $ref: "#/definitions/Langue"
+      DefaultEquipment:
+        $ref: "#/definitions/DefaultEquipment"
+      UnitsUsers:
+        $ref: "#/definitions/Units"

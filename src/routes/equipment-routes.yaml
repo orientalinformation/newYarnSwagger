@@ -1,0 +1,59 @@
+paths:
+  /studies/{id}/equipment/unitData:
+    get:
+      operationId: getUnitData
+      description: Get Price, interval Width Lenght
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/UnitDataEquipment"
+  /studies/{id}/equipment/price:
+    post:
+      operationId: updatePrice
+      description: Update price Studies
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+        - name: price
+          in: query
+          required: true
+          type: number
+      responses:
+        "200":
+          description: ok
+          schema:
+            type: integer
+        "422":
+          description: missing data
+  /studies/{id}/equipment/interval:
+    post:
+      operationId: updateInterval
+      description: Update Interval Lenght Width Studies
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+        - name: lenght
+          in: query
+          required: true
+          type: number
+        - name: width
+          in: query
+          required: true
+          type: number
+      responses:
+        "200":
+          description: ok
+          schema:
+            type: integer
+        "422":
+          description: missing data

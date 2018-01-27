@@ -13,7 +13,7 @@ paths:
     put:
       consumes:
       - application/x-www-form-urlencoded
-      operationId: NewPacking
+      operationId: newPacking
       tags:
       - referencedata
       description: Create new packing
@@ -31,20 +31,194 @@ paths:
               type: integer
         "422":
           description: missing data
-  /referencedata/{lang}/family:
-    get:
-      operationId: getFamilyTranslations
+  /referencedata/packing/{id}:
+    delete:
+      operationId: deletePacking
       tags:
-        - referencedata
+      - referencedata
+      description: delete Packing
       parameters:
-        - name: lang
-          in: path
-          required: true
-          type: string
+      - name: id
+        in: path
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: packing delete successfully
+    post:
+      consumes:
+      - application/x-www-form-urlencoded
+      operationId: updatePacking
+      tags:
+      - referencedata
+      description: update packing
+      parameters:
+      - name: id
+        in: path
+        required: true
+        type: integer
+      - name: body
+        in: body
+        required: true
+        description: body update packing
+        schema:
+          $ref: "#/definitions/NewPacking"
       responses:
         "200":
           description: ok
           schema:
             type: array
             items:
-              $ref: "#/definitions/Translation"
+              type: integer
+        "422":
+          description: missing data
+    put:
+      consumes:
+      - application/x-www-form-urlencoded
+      operationId: saveAsPacking
+      tags:
+      - referencedata
+      description: save as packing
+      parameters:
+      - name: id
+        in: path
+        required: true
+        type: integer
+      - name: body
+        in: body
+        required: true
+        description: body save as packing
+        schema:
+          $ref: "#/definitions/NewPacking"
+      responses:
+        "200":
+          description: ok
+          schema:
+              type: integer
+        "422":
+          description: missing data
+  /referencedata/pipeline:
+    get:
+      operationId: findRefPipeline
+      tags:
+      - referencedata
+      description: Get a list of pipeLineElmt
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/ViewPipeLineElmt"
+    put:
+      consumes:
+      - application/x-www-form-urlencoded
+      operationId: newPipeLine
+      tags:
+      - referencedata
+      description: Create new pipeline
+      parameters:
+      - name: body
+        in: body
+        required: true
+        description: body create new pipeline
+        schema:
+          $ref: "#/definitions/PipeLineElmt"
+      responses:
+        "200":
+          description: ok
+          schema:
+              type: integer
+        "422":
+          description: missing data
+  /referencedata/pipeline/{id}:
+    delete:
+      operationId: deletePipeLine
+      tags:
+      - referencedata
+      description: delete pipe line
+      parameters:
+      - name: id
+        in: path
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: pipe line delete successfully
+          schema:
+              type: integer
+    post:
+      consumes:
+      - application/x-www-form-urlencoded
+      operationId: updatePipeLine
+      tags:
+      - referencedata
+      description: update pipe line
+      parameters:
+      - name: id
+        in: path
+        required: true
+        type: integer
+      - name: body
+        in: body
+        required: true
+        description: body update pipe line
+        schema:
+          $ref: "#/definitions/PipeLineElmt"
+      responses:
+        "200":
+          description: ok
+          schema:
+              type: integer
+        "422":
+          description: missing data
+    put:
+      consumes:
+      - application/x-www-form-urlencoded
+      operationId: saveAsPipeLine
+      tags:
+      - referencedata
+      description: save as pipe line
+      parameters:
+      - name: id
+        in: path
+        required: true
+        type: integer
+      - name: name
+        in: query
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ok
+          schema:
+              type: integer
+        "422":
+          description: missing data
+  /translation/linetype:
+    get:
+      operationId: getListLineType
+      description: Get list line type
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/Translation"
+  /translation/energies:
+    get:
+      operationId: getListEnergies
+      description: Get list energies (list cooling family)
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/Translation"
+  /referencedata/equipments:
+    get:
+      operationId: findRefEquipment
+      tags:
+      - referencedata
+      description: Get a list of equipment
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/ViewEquipment"

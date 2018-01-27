@@ -111,34 +111,17 @@ paths:
   /studies/{id}/product:
     post:
       operationId: updateProduct
-      consumes:
-        - application/x-www-form-urlencoded
       parameters:
       - name: id
         in: path
         description: study ID
         required: true
         type: integer
-      - name: name
-        in: formData
-        description: product name
-        required: false
-        type: string
-      - name: dim1
-        description: dim1
-        in: formData
-        required: false
-        type: number
-      - name: dim2
-        description: dim2
-        in: formData
-        required: false
-        type: number
-      - name: dim3
-        description: dim3
-        in: formData
-        required: false
-        type: number
+      - name: updateParams
+        in: body
+        required: true
+        schema:
+          $ref: "#/definitions/ProductUpdateParams"
       responses:
         "200":
           description: ok
@@ -213,6 +196,29 @@ paths:
         in: path
         required: true
         type: integer
+      responses:
+        "200":
+          description: ok
+  /studies/{id}/comment:
+    get:
+      operationId: getStudyComment
+      parameters:
+      - name: id
+        in: path
+        type: integer
+      responses:
+        "200":
+          description: ok
+    patch:
+      operationId: postStudyComment
+      parameters:
+      - name: id
+        in: path
+        type: integer
+      - name: comment
+        in: body
+        schema:
+          type: string
       responses:
         "200":
           description: ok

@@ -110,3 +110,54 @@ paths:
             type: array
             items:
               $ref: "#/definitions/Connection"
+  /admin/units:
+    get:
+      operationId: units
+      responses:
+        "200":
+          description: ok
+          schema:
+            $ref: "#/definitions/ViewUnits"
+  /monetaryCurrency:
+    put:
+      operationId: createMonetaryCurrency
+      description: create a new monetary currency
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: monetaryCurrency
+          description: The monetary currency to create.
+          schema:
+            $ref: "#/definitions/MonetaryCurrency"
+      responses:
+        "200":
+          schema:
+            $ref: "#/definitions/MonetaryCurrency"
+          description: OK, created
+    patch:
+      operationId: saveMonetaryCurrency
+      parameters:
+      - in: body
+        name: body
+        schema:
+          $ref: "#/definitions/MonetaryCurrency"
+      responses:
+        "200":
+          description: edit MonetaryCurrency By Id
+          schema:
+            $ref: "#/definitions/MonetaryCurrency"
+  /monetaryCurrency/{id}:
+    get:
+      operationId: getMonetaryCurrencyById
+      parameters:
+        - name: id
+          in: path
+          description: MonetaryCurrency ID
+          required: true
+          type: integer
+      responses:
+        "200":
+          description: get MonetaryCurrency By Id
+          schema:
+            $ref: "#/definitions/MonetaryCurrency"

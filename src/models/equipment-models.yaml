@@ -1,0 +1,14 @@
+definitions:
+  UnitDataEquipment:
+    type: object
+    properties:
+      Price:
+        type: number
+      IntervalWidth:
+        type: number
+      IntervalLength:
+        type: number
+      MonetarySymbol:
+        type: string
+      DimensionSymbol:
+        type: string

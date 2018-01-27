@@ -105,3 +105,155 @@ definitions:
         type: integer
       WATER:
         type: number
+  ViewPipeLineElmt:
+    type: object
+    properties:
+      mine:
+        type: array
+        items:
+          $ref: "#/definitions/PipeLineElmt"
+      others:
+        type: array
+        items:
+          $ref: "#/definitions/PipeLineElmt"
+  PipeLineElmt:
+    type: object
+    properties:
+      ID_PIPELINE_ELMT:
+        type: integer
+      ID_USER:
+        type: integer
+      ID_COOLING_FAMILY:
+        type: integer
+      LINE_VERSION:
+        type: number
+      LINE_RELEASE:
+        type: integer
+      LINE_DATE:
+        type: string
+      LINE_COMMENT:
+        type: string
+      MANUFACTURER:
+        type: string
+      ELT_TYPE:
+        type: number
+      INSULATION_TYPE:
+        type: number
+      ELMT_PRICE:
+        type: number
+      ELT_SIZE:
+        type: number
+      ELT_LOSSES_1:
+        type: number
+      ELT_LOSSES_2:
+        type: number
+      ELT_IMP_ID_STUDY:
+        type: integer
+      OPEN_BY_OWNER:
+        type: integer
+      CODE_LANGUE:
+        type: integer
+      ID_TRANSLATION:
+        type: integer
+      TRANS_TYPE:
+        type: integer
+      LABEL:
+        type: string
+  RefEquipment:
+    type: object
+    properties:
+      ID_EQUIP:
+        type: integer
+      ID_EQUIPSERIES:
+        type: integer
+      ID_COOLING_FAMILY:
+        type: integer
+      ID_USER:
+        type: integer
+      ID_EQUIPGENERATION:
+        type: integer
+      EQUIP_NAME:
+        type: string
+      EQUIP_VERSION:
+        type: number
+      EQUIP_RELEASE:
+        type: integer
+      EQUIP_DATE:
+        type: string
+      EQUIP_COMMENT:
+        type: string
+      EQUIPPICT:
+        type: string
+      STD:
+        type: integer
+      EQP_LENGTH:
+        type: number
+      EQP_WIDTH:
+        type: number
+      EQP_HEIGHT:
+        type: number
+      MODUL_LENGTH:
+        type: number
+      NB_MAX_MODUL:
+        type: integer
+      NB_TR:
+        type: integer
+      NB_TS:
+        type: integer
+      NB_VC:
+        type: integer
+      BUYING_COST:
+        type: number
+      RENTAL_COST:
+        type: number
+      INSTALL_COST:
+        type: number
+      MAX_FLOW_RATE:
+        type: number
+      MAX_NOZZLES_BY_RAMP:
+        type: integer
+      MAX_RAMPS:
+        type: integer
+      NUMBER_OF_ZONES:
+        type: integer
+      TMP_REGUL_MIN:
+        type: number
+      CAPABILITIES:
+        type: integer
+      ITEM_TR:
+        type: integer
+      ITEM_TS:
+        type: integer
+      ITEM_VC:
+        type: integer
+      ITEM_PRECIS:
+        type: integer
+      ITEM_TIMESTEP:
+        type: integer
+      EQP_IMP_ID_STUDY:
+        type: integer
+      OPEN_BY_OWNER:
+        type: integer
+      SERIES_NAME:
+        type: string
+      BATCH_PROCESS:
+        type: boolean
+      TEMP_SETPOINT:
+        type: number
+      DWELLING_TIME:
+        type: number
+      capabilitiesCalc:
+        type: string
+      symbol:
+        type: string
+  ViewEquipment:
+    type: object
+    properties:
+      mine:
+        type: array
+        items:
+          $ref: "#/definitions/RefEquipment"
+      others:
+        type: array
+        items:
+          $ref: "#/definitions/RefEquipment"

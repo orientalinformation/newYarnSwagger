@@ -1,0 +1,235 @@
+paths:
+  /users/{id}/changepassword:
+    post:
+      operationId: changePassword
+      tags:
+      - profile
+      description: Change password
+      parameters:
+      - name: id
+        in: path
+        required: true
+        type: integer
+      - name: body
+        in: body
+        required: true
+        description: body password
+        schema:
+          $ref: "#/definitions/ChangePassword"
+      responses:
+        "200":
+          description: ok
+          schema:
+              type: integer
+        "422":
+          description: missing data
+  /users/energies:
+    get:
+      operationId: getEnergies
+      tags:
+      - profile
+      description: get list Energies
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/Translation"
+  /users/constructors:
+    get:
+      operationId: getConstructors
+      tags:
+      - profile
+      description: get list Constructors
+      parameters:
+      - name: idCooling
+        in: query
+        required: false
+        type: integer
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/Constructors"
+  /users/families:
+    get:
+      operationId: getFamilies
+      tags:
+      - profile
+      description: get list family (equipment series)
+      parameters:
+        - name: idCooling
+          in: query
+          required: false
+          type: integer
+        - name: manufacturerLabel
+          in: query
+          required: false
+          type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/Translation"
+  /users/origines:
+    get:
+      operationId: getOrigines
+      tags:
+      - profile
+      description: get list Origines (equipment Origines)
+      parameters:
+        - name: idCooling
+          in: query
+          required: false
+          type: integer
+        - name: manufacturerLabel
+          in: query
+          required: false
+          type: string
+        - name: idFamily
+          in: query
+          required: false
+          type: integer
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/Translation"
+  /users/processes:
+    get:
+      operationId: getProcesses
+      tags:
+      - profile
+      description: get list Processes (Processes type)
+      parameters:
+        - name: idCooling
+          in: query
+          required: false
+          type: integer
+        - name: manufacturerLabel
+          in: query
+          required: false
+          type: string
+        - name: idFamily
+          in: query
+          required: false
+          type: integer
+        - name: idStd
+          in: query
+          required: false
+          type: integer
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/Translation"
+  /users/models:
+    get:
+      operationId: getModels
+      tags:
+      - profile
+      description: get list Processes (Processes type)
+      parameters:
+        - name: idCooling
+          in: query
+          required: false
+          type: integer
+        - name: manufacturerLabel
+          in: query
+          required: false
+          type: string
+        - name: idFamily
+          in: query
+          required: false
+          type: integer
+        - name: idStd
+          in: query
+          required: false
+          type: integer
+        - name: idProcess
+          in: query
+          required: false
+          type: integer
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/Translation"
+  /users/lang:
+    get:
+      operationId: getLangue
+      tags:
+      - profile
+      description: get list langue
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/Translation"
+  /users/monetary:
+    get:
+      operationId: getMonetary
+      tags:
+      - profile
+      description: get list Monetary
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/MonetaryCurrency"
+  /users/{id}/units:
+    get:
+      operationId: getUnits
+      tags:
+        - profile
+      description: get list units user
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/Units"
+    post:
+      consumes:
+      - application/x-www-form-urlencoded
+      operationId: updateUnits
+      tags:
+      - profile
+      description: update unit users
+      parameters:
+      - name: id
+        in: path
+        required: true
+        type: integer
+      - name: body
+        in: body
+        required: true
+        description: body update unit users
+        schema:
+          $ref: "#/definitions/Profile"
+      responses:
+        "200":
+          description: ok
+          schema:
+            type: integer
+        "422":
+          description: missing data
+  /users/{id}:
+    get:
+      operationId: getUser
+      description: get user by id
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+      responses:
+        "200":
+          description: ok
+          schema:
+            $ref: "#/definitions/User"
+        "422":
+          description: missing data

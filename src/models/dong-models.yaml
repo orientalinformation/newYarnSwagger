@@ -257,7 +257,7 @@ definitions:
         type: number
       sdisableCalculate:
         type: number
-      scheckOptim:
+      checkOptim:
         type: number
       sdisableOptim:
         type: number
@@ -371,7 +371,7 @@ definitions:
         type: integer
       idStudyEquipment:
         type: integer
-      scheckOptim:
+      checkOptim:
         type: number
       epsilonTemp:
         type: number
@@ -379,6 +379,8 @@ definitions:
         type: number
       nbOptimIter:
         type: number
+      sdisableOptim:
+        type: integer
       timeStep:
         type: number
       precision:
@@ -450,7 +452,7 @@ definitions:
         type: number
       sdisableCalculate:
         type: number
-      scheckOptim:
+      checkOptim:
         type: number
       sdisableOptim:
         type: number

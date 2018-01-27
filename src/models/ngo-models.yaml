@@ -331,6 +331,17 @@ definitions:
               type: integer
             THICKNESS:
               type: number
+  saveTempRecordPts:
+    type: object
+    properties:
+      ID_STUDY:
+        type: integer
+      ID_STUDY_EQUIPMENTS:
+        type: integer
+      AXE:
+        type: integer
+      NB_STEPS:
+        type: number
   MeshGeneration:
     type: object
     properties:
@@ -443,6 +454,25 @@ definitions:
       CONTOUR2D_TEMP_MIN:
         type: number
       CONTOUR2D_TEMP_MAX:
+        type: number
+  RecordPosition:
+    type: object
+    properties:
+      AVERAGE_ENTH_VAR:
+        type: number
+      AVERAGE_TEMP:
+        type: number
+      ENTHALPY_VAR:
+        type: number
+      ID_REC_POS:
+        type: integer
+      ID_STUDY_EQUIPMENTS:
+        type: integer
+      RECORD_BUFFER:
+        type: integer
+      RECORD_STATE:
+        type: integer
+      RECORD_TIME:
         type: number
   SizingResultOptimum:
     type: object
@@ -576,6 +606,10 @@ definitions:
        type: array
        items:
          type: number
+     dataChart:
+       type: array
+       items:
+         $ref: "#/definitions/Coordinates"
      resultLabel:
        type: array
        items:
@@ -597,6 +631,15 @@ definitions:
              type: array
              items:
                type: number
+  ViewProductchart2D:
+    type: object
+    properties:
+      valueRecAxis:
+        $ref: "#/definitions/Coordinates"
+      lfDwellingTime:
+        type: number
+      lftimeInterval:
+        type: number
   TemperatureProfileData:
     type: object
     properties:
@@ -629,6 +672,8 @@ definitions:
       x:
         type: number
       y:
+        type: number
+      z:
         type: number
   chartEstimationData:
     type: object

@@ -2,19 +2,38 @@ paths:
   /studies/{id}/clone:
     put:
       operationId: saveStudyAs
-      consumes:
-        - application/x-www-form-urlencoded
       parameters:
         - in: path
           name: id
+          required: true
+          description: Study id
           type: integer
+        - name: name
+          in: query
           required: true
-          description: id study to open.
-        - in: formData
-          name: name
-          required: true
+          description: Study name
           type: string
-          description: new study name.
+      responses:
+        "200":
+          description: Ok
+          schema:
+            $ref: "#/definitions/Study"
+        "500":
+          description: Not ok
+          schema:
+            $ref: "#/definitions/Error"
+  /studies/{id}/getListLine:
+    get:
+      operationId: loadPipeline
+      parameters:
+        - name: id
+          in: path
+          require: true
+          type: integer
       responses:
         "200":
           description: OK
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/ViewLineList"

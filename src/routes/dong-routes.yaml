@@ -109,44 +109,6 @@ paths:
           description: ok
         "422":
           description: missing data
-  /optimumcalculator:
-    get:
-      operationId: getOptimumCalculator
-      description: get optimumcalculator
-      parameters:
-      - name: idStudy
-        in: query
-        type: integer
-      - name: idStudyEquipment
-        in: query
-        type: integer
-      responses:
-        "200":
-          description: todo
-          schema:
-            $ref: "#/definitions/OptimumCalculator"
-  /startcalculate:
-    post:
-      consumes:
-        - application/x-www-form-urlencoded
-      operationId: startCalculate
-      description: Run Kernal calculate
-      parameters:
-        - name: body
-          in: body
-          required: true
-          description: body save startCalculate
-          schema:
-            $ref: "#/definitions/StartCalculate"
-      responses:
-        "200":
-          description: Run kernal ok
-          schema:
-            type: array
-            items:
-              type: integer
-        "422":
-          description: missing data
   /studies/{id}/calculate:
     get:
       operationId: startStudyCalculation

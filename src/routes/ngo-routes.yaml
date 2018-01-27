@@ -169,6 +169,21 @@ paths:
           description: todo
           schema:
             $ref:  "#/definitions/StudyEquipment"
+  /studyEquipment/{id}/recordPosition:
+    get:
+      description: get study equipment record position
+      parameters:
+      - name: id
+        in: path
+        description: StudyEquipment ID
+        required: true
+        type: integer
+      operationId: getRecordPosition
+      responses:
+        "200":
+          description: todo
+          schema:
+            $ref:  "#/definitions/RecordPosition"
   /studies/{id}/tempRecordPts:
     get:
       operationId: getTempRecordPts
@@ -343,3 +358,47 @@ paths:
           description: todo
           schema:
             $ref:  "#/definitions/ViewProductSection"
+  /output/saveTempRecordPts:
+    post:
+      operationId: saveTempRecordPts
+      parameters:
+      - name: body
+        in: body
+        description: body
+        required: true
+        schema:
+          $ref: "#/definitions/saveTempRecordPts"
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref:  "#/definitions/ViewProductSection"
+        "500":
+          description: Not ok
+          schema:
+            $ref: "#/definitions/Error"
+  /output/productchart2D:
+    get:
+      operationId: productchart2D
+      description: get product chart 2d chart
+      parameters:
+      - name: idStudy
+        in: query
+        description: Study ID
+        required: true
+        type: integer
+      - name: idStudyEquipment
+        in: query
+        description: StudyEquipment ID
+        required: true
+        type: integer
+      - name: selectedPlan
+        in: query
+        description: Plan select
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: todo
+          schema:
+            $ref:  "#/definitions/ViewProductchart2D"

@@ -5,11 +5,20 @@ definitions:
       online:
         type: array
         items:
-          $ref: "#/definitions/UserAdmin"
+          $ref: "#/definitions/User"
       offline:
         type: array
         items:
           $ref: "#/definitions/ConnectionUser"
+  ViewUnits:
+    type: object
+    properties:
+      kernelMonetary:
+        $ref: "#/definitions/MonetaryCurrency"
+      monetary:
+        $ref: "#/definitions/MonetaryCurrency"
+      listUnit:
+        $ref: "#/definitions/ListUnit"
   NewUser:
     type: object
     properties:
@@ -49,36 +58,18 @@ definitions:
         type: string
       USERNAM:
         type: string
-  UserAdmin:
+  ListUnit:
     type: object
     properties:
-      CODE_LANGUE:
-        type: integer
-      ID_CALC_PARAMSDEF:
-        type: integer
-      ID_MONETARY_CURRENCY:
-        type: integer
-      ID_USER:
-        type: integer
-      TRACE_LEVEL:
-        type: integer
-      USERMAIL:
+      name:
         type: string
-      USERNAM:
+      value:
+        type: integer
+      SYMBOL:
         type: string
-      USERPRIO:
-        type: integer
-      ID_TEMP_RECORD_PTS_DEF:
-        type: integer
-      USER_CONSTRUCTOR:
-        type: string
-      USER_ENERGY:
-        type: integer
-      USER_FAMILY:
-        type: integer
-      USER_MODEL:
-        type: integer
-      USER_ORIGINE:
-        type: integer
-      USER_PROCESS:
-        type: integer
+      COEFF_A:
+        type: number
+      COEFF_B:
+        type: number
+      symbolSelect:
+        $ref: "#/definitions/Units"

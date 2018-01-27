@@ -1,0 +1,10 @@
+definitions:
+  Error:
+    type: object
+    properties:
+      code:
+        type: number
+      message:
+        type: string
+  ViewLineList:
+    type: object
