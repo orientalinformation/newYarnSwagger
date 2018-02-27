@@ -229,8 +229,8 @@ ee-first@1.1.1:
   resolved "https://registry.yarnpkg.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
 
 encodeurl@~1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/encodeurl/-/encodeurl-1.0.1.tgz#79e3d58655346909fe6f0f45a5de68103b294d20"
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/encodeurl/-/encodeurl-1.0.2.tgz#ad3ff4c86ec2d029322f5a02c3a9a606c95b3f59"
 
 engine.io-client@~3.1.0:
   version "3.1.4"
@@ -282,8 +282,8 @@ es6-promise@^3.0.2:
   resolved "https://registry.yarnpkg.com/es6-promise/-/es6-promise-3.3.1.tgz#a08cdde84ccdbf34d027a1451bc91d4bcd28a613"
 
 es6-promise@^4.1.1:
-  version "4.2.2"
-  resolved "https://registry.yarnpkg.com/es6-promise/-/es6-promise-4.2.2.tgz#f722d7769af88bd33bc13ec6605e1f92966b82d9"
+  version "4.2.4"
+  resolved "https://registry.yarnpkg.com/es6-promise/-/es6-promise-4.2.4.tgz#dc4221c2b16518760bd8c39a52d8f356fc00ed29"
 
 escape-html@~1.0.3:
   version "1.0.3"
@@ -711,8 +711,8 @@ ng-swagger-gen@^0.9.4:
     mustache "^2.3.0"
 
 node-watch@^0.5.5:
-  version "0.5.5"
-  resolved "https://registry.yarnpkg.com/node-watch/-/node-watch-0.5.5.tgz#34865ba8bc6861ab086acdcc3403e40ed55c3274"
+  version "0.5.6"
+  resolved "https://registry.yarnpkg.com/node-watch/-/node-watch-0.5.6.tgz#23cc05694da2af76b285003df141c5c763fe3a39"
 
 normalize-package-data@^2.3.2:
   version "2.4.0"
@@ -754,8 +754,8 @@ ono@^2.0.1:
   resolved "https://registry.yarnpkg.com/ono/-/ono-2.2.5.tgz#daf09488b51174da7a7e4275dfab31b438ffa0e3"
 
 ono@^4.0.2:
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/ono/-/ono-4.0.2.tgz#2e18ff7c21b9eac0cab794f7a3082507000d6d36"
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/ono/-/ono-4.0.3.tgz#b36050f71b02841bfb59f368deab8b07375e2219"
   dependencies:
     format-util "^1.0.3"
 
@@ -933,8 +933,8 @@ safe-buffer@5.1.1, safe-buffer@~5.1.0, safe-buffer@~5.1.1:
   resolved "https://registry.yarnpkg.com/safe-buffer/-/safe-buffer-5.1.1.tgz#893312af69b2123def71f57889001671eeb2c853"
 
 "semver@2 || 3 || 4 || 5":
-  version "5.4.1"
-  resolved "https://registry.yarnpkg.com/semver/-/semver-5.4.1.tgz#e059c09d8571f0540823733433505d3a2f00b18e"
+  version "5.5.0"
+  resolved "https://registry.yarnpkg.com/semver/-/semver-5.5.0.tgz#dc4bbc7a6ca9d916dee5d43516f0092b58f7b8ab"
 
 send@0.16.1:
   version "0.16.1"
@@ -1117,8 +1117,8 @@ superagent@^3.6.3:
     readable-stream "^2.0.5"
 
 swagger-editor-dist@^3.1.16:
-  version "3.2.4"
-  resolved "https://registry.yarnpkg.com/swagger-editor-dist/-/swagger-editor-dist-3.2.4.tgz#fb82441f4b0e1e362b32bfdecf2370432c43b1e6"
+  version "3.2.7"
+  resolved "https://registry.yarnpkg.com/swagger-editor-dist/-/swagger-editor-dist-3.2.7.tgz#71aca9ed3b130c31f712f04fd3ad9f01528b691d"
 
 swagger-methods@^1.0.0:
   version "1.0.4"
@@ -1142,8 +1142,8 @@ swagger-schema-official@2.0.0-bab6bed:
   resolved "https://registry.yarnpkg.com/swagger-schema-official/-/swagger-schema-official-2.0.0-bab6bed.tgz#70070468d6d2977ca5237b2e519ca7d06a2ea3fd"
 
 swagger-ui-watcher@^1.0.7:
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/swagger-ui-watcher/-/swagger-ui-watcher-1.0.7.tgz#8b08470fd32449d044cde463684e00784328e6af"
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/swagger-ui-watcher/-/swagger-ui-watcher-1.0.8.tgz#2371a97a8bb993d330654f5a16b30d33c1ce4aa2"
   dependencies:
     commander "^2.9.0"
     express "^4.15.3"
@@ -1207,8 +1207,8 @@ validate-npm-package-license@^3.0.1:
     spdx-expression-parse "~1.0.0"
 
 validator@^9.0.0:
-  version "9.2.0"
-  resolved "https://registry.yarnpkg.com/validator/-/validator-9.2.0.tgz#ad216eed5f37cac31a6fe00ceab1f6b88bded03e"
+  version "9.3.0"
+  resolved "https://registry.yarnpkg.com/validator/-/validator-9.3.0.tgz#9fbe89a73848560b87377561776766d565e2ee54"
 
 vary@~1.1.2:
   version "1.1.2"

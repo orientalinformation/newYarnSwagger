@@ -22,7 +22,7 @@ paths:
           description: Not ok
           schema:
             $ref: "#/definitions/Error"
-  /studies/{id}/getListLine:
+  /lines/{id}/getListLine:
     get:
       operationId: loadPipeline
       parameters:
@@ -34,6 +34,37 @@ paths:
         "200":
           description: OK
           schema:
-            type: array
-            items:
-              $ref: "#/definitions/ViewLineList"
+            $ref: "#/definitions/ViewLineList"
+  /lines/saveLines:
+    post:
+      operationId: savePipelines
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/CreateModiPipeLine"
+          description: create a new pipe line!!
+      responses:
+        "200":
+          description: OK
+        "500":
+          description: Can not created!
+          schema:
+            $ref: "#/definitions/Error"
+  /reports/downLoadPDF:
+    get:
+      operationId: downLoadPDF
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/Report"
+      responses:
+        "200":
+          description: OK
+        "500":
+          description: Can not download PDF!
+          schema:
+            $ref: "#/definitions/Error"

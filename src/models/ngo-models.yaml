@@ -213,6 +213,12 @@ definitions:
         type: integer
       equipName:
         type: string
+      initWidth:
+        type: number
+      initLength:
+        type: number
+      initSurface:
+        type: number
       minWidth:
         type: number
       maxWidth:
@@ -225,6 +231,8 @@ definitions:
         type: number
       maxSurf:
         type: number
+      disabled:
+        type: boolean
   StudEqpPrm:
     type: object
     properties:
@@ -510,6 +518,8 @@ definitions:
     properties:
       result:
         $ref: "#/definitions/SizingResultEStimation"
+      productFlowRate:
+        type: number
       dataGraphChart:
         type: object
         properties:
@@ -551,6 +561,8 @@ definitions:
         $ref: "#/definitions/SizingOptimumData"
       dataGrapChart:
         $ref: "#/definitions/SizingOptimumData"
+      productFlowRate:
+        type: number
   ViewTemperatureProfile:
     type: object
     properties:
@@ -634,12 +646,24 @@ definitions:
   ViewProductchart2D:
     type: object
     properties:
+      minMax:
+        $ref: "#/definitions/MinMaxProductChart2D"
+      chartTempInterval:
+        type: array
+        items:
+          type: number
       valueRecAxis:
         $ref: "#/definitions/Coordinates"
       lfDwellingTime:
         type: number
       lftimeInterval:
         type: number
+      axisName:
+        type: array
+        items:
+          type: integer
+      dataContour:
+        $ref: "#/definitions/Coordinates"
   TemperatureProfileData:
     type: object
     properties:
@@ -729,6 +753,17 @@ definitions:
       name:
         type: number
       value:
+        type: number
+  MinMaxProductChart2D:
+    type: object
+    properties:
+      minTempStep:
+        type: number
+      maxTempStep:
+        type: number
+      minTemperature:
+        type: number
+      maxTemperature:
         type: number
   MeshPoints:
     type: object

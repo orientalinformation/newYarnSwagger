@@ -4,6 +4,11 @@ paths:
       operationId: getDataComponent
       tags:
       - referencedata
+      parameters:
+      - name: compfamily
+        in: query
+        required: true
+        type: string
       description: Get a list of family component
       responses:
         "200":

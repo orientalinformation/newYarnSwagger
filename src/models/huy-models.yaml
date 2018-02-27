@@ -8,3 +8,128 @@ definitions:
         type: string
   ViewLineList:
     type: object
+    properties:
+      dataResultExist:
+        $ref: "#/definitions/VariabelLine"
+      dataResult:
+        $ref: "#/definitions/VariabelLine"
+  VariabelLine:
+    type: object
+    properties:
+      elbows:
+        type: string
+      elbowsnumber:
+        type: number
+      gastemp:
+        type: number
+      height:
+        type: number
+      insulatedline:
+        type: string
+      insulatedlineval:
+        type: string
+      insulllenght:
+        type: number
+      insulvallenght:
+        type: number
+      non_insulated_line:
+        type: string
+      non_insulated_valves:
+        type: string
+      noninsulatevallenght:
+        type: number
+      noninsullenght:
+        type: number
+      pressuer:
+        type: number
+      tee:
+        type: string
+      teenumber:
+        type: number
+      diameter:
+        type: number
+      insulationType:
+        type: integer
+      storageTank:
+        type: string
+      diameterParam:
+        type: array
+        items:
+          type: number
+      storageTankParam:
+        type: array
+        items:
+          type: string
+      insulationParam:
+        type: array
+        items:
+          type: number
+      insulationLineSub:
+        type: string
+      non_insulated_lineSub:
+        type: string
+      insulatedlinevalSub:
+        type: string
+      non_insulated_valveSub:
+        type: string
+      teeSub:
+        type: string
+      elbowsSub:
+        type: string
+      insulationlineValue:
+        type: number
+      non_insulated_lineValue:
+        type: number
+      insulatedlinevalValue:
+        type: number
+      non_insulated_valValue:
+        type: number
+      teeValue:
+        type: number
+      elbowsValue:
+        type: number
+      storageTankValue:
+        type: array
+        items:
+          type: number
+      idPipeELMT:
+        type: array
+        items:
+          type: number
+  CreateModiPipeLine:
+    type: object
+    properties:
+      ID_STUDY:
+        type: number
+      ELBOWSVALUE:
+        type: number
+      ELBOWS:
+        type: number
+      HEIGHT:
+        type: number
+      INSUL_VALVES:
+        type: number
+      INSULLINE_LENGHT:
+        type: number
+      NOINSUL_VALVES:
+        type: number
+      NOINSULLINE_LENGHT:
+        type: number
+      PRESSURE:
+        type: number
+      TEESVALUE:
+        type: number
+      TEES:
+        type: number
+      INSULATED_LINE:
+        type: number
+      INSULATED_VALVES:
+        type: number
+      NON_INSULATED_LINE:
+        type: number
+      NON_INSULATED_VALVES:
+        type: number
+      STORAGE_TANK:
+        type: number
+      GAS_TEMP:
+        type: number

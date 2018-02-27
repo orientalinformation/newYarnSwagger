@@ -118,6 +118,43 @@ paths:
           description: ok
           schema:
             $ref: "#/definitions/ViewUnits"
+  /unit:
+    put:
+      operationId: createUnit
+      description: create a new unit
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: unit
+          description: The monetary currency to create.
+          schema:
+            $ref: "#/definitions/Units"
+      responses:
+        "200":
+          schema:
+            $ref: "#/definitions/Units"
+          description: OK, created
+        "500":
+          description: Not ok
+          schema:
+            $ref: "#/definitions/Error"
+    patch:
+      operationId: saveUnit
+      parameters:
+      - in: body
+        name: body
+        schema:
+          $ref: "#/definitions/Units"
+      responses:
+        "200":
+          description: edit Unit By Id
+          schema:
+            $ref: "#/definitions/Units"
+        "500":
+          description: Not ok
+          schema:
+            $ref: "#/definitions/Error"
   /monetaryCurrency:
     put:
       operationId: createMonetaryCurrency

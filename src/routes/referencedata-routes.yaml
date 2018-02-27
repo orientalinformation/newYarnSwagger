@@ -222,3 +222,168 @@ paths:
           description: OK
           schema:
             $ref: "#/definitions/ViewEquipment"
+    put:
+      consumes:
+      - application/x-www-form-urlencoded
+      operationId: newEquipment
+      tags:
+      - referencedata
+      description: Create new equipment
+      parameters:
+      - name: body
+        in: body
+        required: true
+        description: body create new equipment
+        schema:
+          $ref: "#/definitions/NewEquipment"
+      responses:
+        "200":
+          description: ok
+          schema:
+              type: integer
+        "422":
+          description: missing data
+  /referencedata/equipment:
+    put:
+      consumes:
+      - application/x-www-form-urlencoded
+      operationId: saveAsEquipment
+      tags:
+      - referencedata
+      description: save as equipment
+      parameters:
+      - name: body
+        in: body
+        required: true
+        description: body create new equipment
+        schema:
+          $ref: "#/definitions/SaveAsEquipment"
+      responses:
+        "200":
+          description: ok
+          schema:
+              type: integer
+        "422":
+          description: missing data
+    post:
+      consumes:
+      - application/x-www-form-urlencoded
+      operationId: saveEquipment
+      tags:
+      - referencedata
+      description: save equipment
+      parameters:
+      - name: body
+        in: body
+        required: true
+        description: body save equipment
+        schema:
+          $ref: "#/definitions/SaveEquipment"
+      responses:
+        "200":
+          description: ok
+          schema:
+              type: integer
+        "422":
+          description: missing data
+  /referencedata/equipmentfamilys:
+    get:
+      operationId: getEquipmentFamily
+      tags:
+        - referencedata
+      description: Get a list of equipment family
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/EquipmentFamily"
+  /referencedata/equipmentseries:
+    get:
+      operationId: getEquipmentSeries
+      tags:
+        - referencedata
+      description: Get list equipment series
+      parameters:
+        - name: idFamily
+          in: query
+          required: true
+          description: ID equipment family
+          type: integer
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/EquipmentSeries"
+  /referencedata/ramps:
+    get:
+      operationId: getRamps
+      tags:
+        - referencedata
+      description: Get list Ramps
+      parameters:
+        - name: idEquip
+          in: query
+          required: true
+          description: ID equipment
+          type: integer
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/Ramps"
+  /referencedata/shelves:
+    get:
+      operationId: getShelves
+      tags:
+        - referencedata
+      description: Get list Shelves
+      parameters:
+        - name: idEquip
+          in: query
+          required: true
+          description: ID equipment
+          type: integer
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/Shelves"
+  /referencedata/consumptions:
+    get:
+      operationId: getConsumptions
+      tags:
+        - referencedata
+      description: Get list Consumptions
+      parameters:
+        - name: idEquip
+          in: query
+          required: true
+          description: ID equipment
+          type: integer
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/Consumptions"
+  /referencedata/equipment/{id}:
+    delete:
+      operationId: deleteEquipment
+      tags:
+      - referencedata
+      description: delete equipment
+      parameters:
+      - name: id
+        in: path
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: delete equipment successfully
+          schema:
+              type: integer

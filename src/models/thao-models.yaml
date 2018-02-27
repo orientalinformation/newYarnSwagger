@@ -399,6 +399,38 @@ definitions:
           type: number
       top_or_QperBatch:
         type: string
+      layoutGen:
+        $ref: "#/definitions/LayoutGeneration"
+  LayoutGeneration:
+    type: object
+    properties:
+      ID_LAYOUT_GENERATION:
+        type: integer
+      ID_STUDY_EQUIPMENTS:
+        type: integer
+      LENGTH_INTERVAL:
+        type: number
+      NB_SHELVES_PERSO:
+        type: integer
+      PROD_POSITION:
+        type: integer
+      SHELVES_LENGTH:
+        type: number
+      SHELVES_TYPE:
+        type: integer
+      SHELVES_WIDTH:
+        type: number
+      WIDTH_INTERVAL:
+        type: number
+  UpdateStdEqpLayoutParams:
+    type: object
+    properties:
+      orientation:
+        type: integer
+      lengthInterval:
+        type: number
+      widthInterval:
+        type: number
   StudyEquipment:
     type: object
     properties:
@@ -487,11 +519,13 @@ definitions:
   GenMeshParams:
     type: object
     properties:
-      dim1:
+      mesh_type:
         type: number
-      dim2:
+      size1:
         type: number
-      dim3:
+      size2:
+        type: number
+      size3:
         type: number
   ViewOpenStudy:
     type: object
@@ -528,5 +562,11 @@ definitions:
         required: false
         type: number
       dim3:
+        required: false
+        type: number
+  ProdElmtInitTemp:
+    type: object
+    properties:
+      initTemp:
         required: false
         type: number

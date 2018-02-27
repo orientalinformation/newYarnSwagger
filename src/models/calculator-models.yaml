@@ -78,6 +78,24 @@ definitions:
         type: array
         items:
           $ref: "#/definitions/ViewSelect"
+      seValue1:
+        type: number
+      seValue2:
+        type: number
+      seValue3:
+        type: number
+      seValue4:
+        type: number
+      seValue5:
+        type: number
+      seValue6:
+        type: number
+      seValue7:
+        type: number
+      seValue8:
+        type: number
+      seValue9:
+        type: number
   ViewBrainOptim:
     type: object
     properties:

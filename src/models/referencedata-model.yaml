@@ -234,17 +234,37 @@ definitions:
         type: integer
       OPEN_BY_OWNER:
         type: integer
+      ID_FAMILY:
+        type: integer
       SERIES_NAME:
         type: string
+      CONSTRUCTOR:
+        type: string
       BATCH_PROCESS:
-        type: boolean
-      TEMP_SETPOINT:
-        type: number
-      DWELLING_TIME:
-        type: number
+        type: integer
+      TYPE_CELL:
+        type: integer
+      equipGeneration:
+        $ref: "#/definitions/EquipGeneration"
       capabilitiesCalc:
         type: string
-      symbol:
+      capabilitiesCalc256:
+        type: string
+      timeSymbol:
+        type: string
+      temperatureSymbol:
+        type: string
+      dimensionSymbol:
+        type: string
+      consumptionSymbol1:
+        type: string
+      consumptionSymbol2:
+        type: string
+      consumptionSymbol3:
+        type: string
+      shelvesWidthSymbol:
+        type: string
+      rampsPositionSymbol:
         type: string
   ViewEquipment:
     type: object
@@ -257,3 +277,172 @@ definitions:
         type: array
         items:
           $ref: "#/definitions/RefEquipment"
+      ID_USER:
+        type: integer
+  NewEquipment:
+    type: object
+    properties:
+      typeCalculate:
+        type: integer
+      nameEquipment:
+        type: string
+      versionEquipment:
+        type: number
+      equipmentId1:
+        type: integer
+      equipmentId2:
+        type: integer
+      tempSetPoint:
+        type: number
+      dwellingTime:
+        type: number
+      newPos:
+        type: number
+      typeEquipment:
+        type: integer
+  SaveAsEquipment:
+    type: object
+    properties:
+      nameEquipment:
+        type: string
+      versionEquipment:
+        type: number
+      equipmentId:
+        type: integer
+  EquipmentFamily:
+    type: object
+    properties:
+      ID_FAMILY:
+        type: integer
+      BATCH_PROCESS:
+        type: integer
+      TYPE_CELL:
+        type: integer
+      CODE_LANGUE:
+        type: integer
+      ID_TRANSLATION:
+        type: integer
+      LABEL:
+        type: string
+      TRANS_TYPE:
+        type: integer
+  EquipGeneration:
+    type: object
+    properties:
+      ID_EQUIPGENERATION:
+        type: integer
+      ID_EQUIP:
+        type: integer
+      ID_ORIG_EQUIP1:
+        type: integer
+      ID_ORIG_EQUIP2:
+        type: integer
+      AVG_PRODINTEMP:
+        type: integer
+      TEMP_SETPOINT:
+        type: number
+      DWELLING_TIME:
+        type: number
+      MOVING_CHANGE:
+        type: number
+      MOVING_POS:
+        type: number
+      ROTATE:
+        type: number
+      POS_CHANGE:
+        type: number
+      NEW_POS:
+        type: number
+      EQP_GEN_STATUS:
+        type: number
+      EQP_GEN_LOADRATE:
+        type: number
+  EquipmentSeries:
+    type: object
+    properties:
+      ID_EQUIPSERIES:
+        type: integer
+      ID_FAMILY:
+        type: integer
+      SERIES_NAME:
+        type: string
+      CONSTRUCTOR:
+        type: string
+  Ramps:
+    type: object
+    properties:
+      ID_RAMPS:
+        type: integer
+      ID_EQUIP:
+        type: integer
+      POSITION:
+        type: number
+  Shelves:
+    type: object
+    properties:
+      ID_SHELVES:
+        type: integer
+      ID_EQUIP:
+        type: integer
+      SPACE:
+        type: number
+      NB:
+        type: integer
+  Consumptions:
+    type: object
+    properties:
+      ID_CONSUMPTIONS:
+        type: integer
+      ID_EQUIP:
+        type: integer
+      TEMPERATURE:
+        type: number
+      CONSUMPTION_PERM:
+        type: number
+      CONSUMPTION_GETCOLD:
+        type: number
+  SaveEquipment:
+    type: object
+    properties:
+      ID_EQUIP:
+        type: integer
+      EQUIP_NAME:
+        type: string
+      EQUIP_VERSION:
+        type: number
+      EQUIP_RELEASE:
+        type: integer
+      EQUIP_COMMENT:
+        type: string
+      EQP_LENGTH:
+        type: number
+      EQP_WIDTH:
+        type: number
+      EQP_HEIGHT:
+        type: number
+      NB_TR:
+        type: integer
+      NB_TS:
+        type: integer
+      NB_VC:
+        type: integer
+      MAX_FLOW_RATE:
+        type: number
+      TMP_REGUL_MIN:
+        type: number
+      MAX_NOZZLES_BY_RAMP:
+        type: integer
+      MAX_RAMPS:
+        type: integer
+      Ramps:
+        type: array
+        items:
+          $ref: "#/definitions/Ramps"
+      Shelves:
+        type: array
+        items:
+          $ref: "#/definitions/Shelves"
+      Consumptions:
+        type: array
+        items:
+          $ref: "#/definitions/Consumptions"

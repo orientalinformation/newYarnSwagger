@@ -1,0 +1,52 @@
+paths:
+  /studies/{id}/report:
+    get:
+      operationId: getReport
+      description: Get data report for studies
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+      responses:
+        "200":
+          description: ok
+          schema:
+            $ref: "#/definitions/Report"
+    put:
+      consumes:
+      - application/x-www-form-urlencoded
+      operationId: saveReport
+      description: save report
+      parameters:
+      - name: id
+        in: path
+        required: true
+        type: integer
+      - name: body
+        in: body
+        required: true
+        description: body save report
+        schema:
+          $ref: "#/definitions/Report"
+      responses:
+        "200":
+          description: ok
+          schema:
+              type: integer
+        "422":
+          description: missing data
+  /studies/{id}/meshaxispos:
+    get:
+      operationId: getMeshAxisPos
+      description: Get data Mesh_Axis_Pos
+      parameters:
+      - name: id
+        in: path
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/ViewMeshPosition"

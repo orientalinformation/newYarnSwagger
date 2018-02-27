@@ -160,7 +160,7 @@ paths:
       parameters:
       - name: id
         in: path
-        description: StudyEquipment ID
+        description: Study ID
         required: true
         type: integer
       operationId: getstudyEquipmentProductChart
@@ -169,6 +169,21 @@ paths:
           description: todo
           schema:
             $ref:  "#/definitions/StudyEquipment"
+  /studyEquipment/{id}/study:
+    get:
+      description: get All Study Equipment in Study
+      parameters:
+      - name: id
+        in: path
+        description: Study ID
+        required: true
+        type: integer
+      operationId: getstudyEquipmentByStudyId
+      responses:
+        "200":
+          description: todo
+          schema:
+            $ref:  "#/definitions/ViewStudyEquipment"
   /studyEquipment/{id}/recordPosition:
     get:
       description: get study equipment record position

@@ -1,0 +1,208 @@
+definitions:
+  Report:
+    type: object
+    properties:
+      ID_REPORT:
+        type: integer
+      ID_STUDY:
+        type: integer
+      REP_CUSTOMER:
+        type: number
+      PROD_LIST:
+        type: number
+      PROD_TEMP:
+        type: number
+      PROD_3D:
+        type: number
+      PACKING:
+        type: number
+      EQUIP_LIST:
+        type: number
+      EQUIP_PARAM:
+        type: number
+      PIPELINE:
+        type: number
+      ASSES_TERMAL:
+        type: number
+      ASSES_CONSUMP:
+        type: number
+      ASSES_ECO:
+        type: number
+      ASSES_TR:
+        type: number
+      ASSES_TR_MIN:
+        type: number
+      ASSES_TR_MAX:
+        type: number
+      SIZING_TR:
+        type: number
+      SIZING_TR_MIN:
+        type: number
+      SIZING_TR_MAX:
+        type: number
+      SIZING_VALUES:
+        type: number
+      SIZING_GRAPHE:
+        type: number
+      SIZING_TEMP_G:
+        type: number
+      SIZING_TEMP_V:
+        type: number
+      SIZING_TEMP_SAMPLE:
+        type: number
+      AXE1_X:
+        type: number
+      AXE1_Y:
+        type: number
+      AXE2_X:
+        type: number
+      AXE2_Z:
+        type: number
+      AXE3_Y:
+        type: number
+      AXE3_Z:
+        type: number
+      ISOCHRONE_G:
+        type: number
+      ISOCHRONE_V:
+        type: number
+      ISOCHRONE_SAMPLE:
+        type: number
+      POINT1_X:
+        type: number
+      POINT1_Y:
+        type: number
+      POINT1_Z:
+        type: number
+      POINT2_X:
+        type: number
+      POINT2_Y:
+        type: number
+      POINT2_Z:
+        type: number
+      POINT3_X:
+        type: number
+      POINT3_Y:
+        type: number
+      POINT3_Z:
+        type: number
+      ISOVALUE_G:
+        type: number
+      ISOVALUE_V:
+        type: number
+      ISOVALUE_SAMPLE:
+        type: number
+      PLAN_X:
+        type: number
+      PLAN_Y:
+        type: number
+      PLAN_Z:
+        type: number
+      CONTOUR2D_G:
+        type: number
+      CONTOUR2D_SAMPLE:
+        type: number
+      CONTOUR2D_TEMP_STEP:
+        type: number
+      ENTHALPY_V:
+        type: number
+      ENTHALPY_G:
+        type: number
+      ENTHALPY_SAMPLE:
+        type: number
+      DEST_SURNAME:
+        type: string
+      DEST_NAME:
+        type: string
+      DEST_FUNCTION:
+        type: string
+      DEST_COORD:
+        type: string
+      PHOTO_PATH:
+        type: string
+      CUSTOMER_LOGO:
+        type: string
+      CONS_SPECIFIC:
+        type: number
+      CONS_OVERALL:
+        type: number
+      CONS_TOTAL:
+        type: number
+      CONS_HOUR:
+        type: number
+      CONS_DAY:
+        type: number
+      CONS_WEEK:
+        type: number
+      CONS_MONTH:
+        type: number
+      CONS_YEAR:
+        type: number
+      CONS_EQUIP:
+        type: number
+      CONS_PIPE:
+        type: number
+      CONS_TANK:
+        type: number
+      CONTOUR2D_OUTLINE_TIME:
+        type: number
+      REPORT_COMMENT:
+        type: string
+      WRITER_SURNAME:
+        type: string
+      WRITER_NAME:
+        type: string
+      WRITER_FUNCTION:
+        type: string
+      WRITER_COORD:
+        type: string
+      REP_CONS_PIE:
+        type: integer
+      CONTOUR2D_TEMP_MIN:
+        type: number
+      CONTOUR2D_TEMP_MAX:
+        type: number
+      consumptionSymbol:
+        type: string
+      isSizingValuesChosen:
+        type: integer
+      isSizingValuesMax:
+        type: integer
+      isThereCompleteNumericalResults:
+        type: string
+      idShape:
+        type: integer
+      productElmt:
+        $ref: "#/definitions/ProductElmt"
+      temperatureSymbol:
+        type: string
+      refContRep2DTempMinRef:
+        type: number
+      refContRep2DTempMaxRef:
+        type: number
+      refContRep2DTempStepRef:
+        type: number
+  MeshPosition:
+    type: object
+    properties:
+      ID_MESH_POSITION:
+        type: integer
+      ID_PRODUCT_ELMT:
+        type: integer
+      MESH_AXIS:
+        type: number
+      MESH_ORDER:
+        type: number
+      MESH_AXIS_POS:
+        type: number
+      meshAxisPosValue:
+        type: number
+  ViewMeshPosition:
+    type: object
+    properties:
+      axis1:
+        $ref: "#/definitions/MeshPosition"
+      axis2:
+        $ref: "#/definitions/MeshPosition"
+      axis3:
+        $ref: "#/definitions/MeshPosition"

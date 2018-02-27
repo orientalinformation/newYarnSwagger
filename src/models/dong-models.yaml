@@ -341,6 +341,24 @@ definitions:
         type: array
         items:
           $ref: "#/definitions/ViewSelect"
+      seValue1:
+        type: number
+      seValue2:
+        type: number
+      seValue3:
+        type: number
+      seValue4:
+        type: number
+      seValue5:
+        type: number
+      seValue6:
+        type: number
+      seValue7:
+        type: number
+      seValue8:
+        type: number
+      seValue9:
+        type: number
   ViewSelect:
     type: object
     properties:
@@ -409,42 +427,24 @@ definitions:
         type: number
       tempPtAvg:
         type: number
-      select1:
-        type: array
-        items:
-          $ref: "#/definitions/ViewSelect"
-      select2:
-        type: array
-        items:
-          $ref: "#/definitions/ViewSelect"
-      select3:
-        type: array
-        items:
-          $ref: "#/definitions/ViewSelect"
-      select4:
-        type: array
-        items:
-          $ref: "#/definitions/ViewSelect"
-      select5:
-        type: array
-        items:
-          $ref: "#/definitions/ViewSelect"
-      select6:
-        type: array
-        items:
-          $ref: "#/definitions/ViewSelect"
-      select7:
-        type: array
-        items:
-          $ref: "#/definitions/ViewSelect"
-      select8:
-        type: array
-        items:
-          $ref: "#/definitions/ViewSelect"
-      select9:
-        type: array
-        items:
-          $ref: "#/definitions/ViewSelect"
+      seValue1:
+        type: number
+      seValue2:
+        type: number
+      seValue3:
+        type: number
+      seValue4:
+        type: number
+      seValue5:
+        type: number
+      seValue6:
+        type: number
+      seValue7:
+        type: number
+      seValue8:
+        type: number
+      seValue9:
+        type: number
   BrainCalculator:
     type: object
     properties:
@@ -550,6 +550,24 @@ definitions:
         type: number
       typeCalculate:
         type: integer
+      seValue1:
+        type: number
+      seValue2:
+        type: number
+      seValue3:
+        type: number
+      seValue4:
+        type: number
+      seValue5:
+        type: number
+      seValue6:
+        type: number
+      seValue7:
+        type: number
+      seValue8:
+        type: number
+      seValue9:
+        type: number
   StartBrainCalculate:
     type: object
     properties:
@@ -641,3 +659,21 @@ definitions:
         type: array
         items:
           $ref: "#/definitions/ViewSelect"
+      seValue1:
+        type: number
+      seValue2:
+        type: number
+      seValue3:
+        type: number
+      seValue4:
+        type: number
+      seValue5:
+        type: number
+      seValue6:
+        type: number
+      seValue7:
+        type: number
+      seValue8:
+        type: number
+      seValue9:
+        type: number
