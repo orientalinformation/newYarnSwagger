@@ -182,6 +182,8 @@ definitions:
         type: number
       refContRep2DTempStepRef:
         type: number
+      ip:
+        type: string
   MeshPosition:
     type: object
     properties:
@@ -206,3 +208,8 @@ definitions:
         $ref: "#/definitions/MeshPosition"
       axis3:
         $ref: "#/definitions/MeshPosition"
+  ViewResponseUrl:
+    type: object
+    properties:
+      url:
+        type: string

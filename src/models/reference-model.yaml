@@ -189,3 +189,181 @@ definitions:
         type: number
       COMPDENS:
         type: number
+  FilterEquipment:
+    type: object
+    properties:
+      ID_EQUIP:
+        type: integer
+      ID_EQUIPSERIES:
+        type: integer
+      ID_COOLING_FAMILY:
+        type: integer
+      ID_USER:
+        type: integer
+      ID_EQUIPGENERATION:
+        type: integer
+      EQUIP_NAME:
+        type: string
+      EQUIP_VERSION:
+        type: number
+      EQUIP_RELEASE:
+        type: integer
+      EQUIP_DATE:
+        type: string
+      EQUIP_COMMENT:
+        type: string
+      EQUIPPICT:
+        type: string
+      STD:
+        type: integer
+      EQP_LENGTH:
+        type: number
+      EQP_WIDTH:
+        type: number
+      EQP_HEIGHT:
+        type: number
+      MODUL_LENGTH:
+        type: number
+      NB_MAX_MODUL:
+        type: integer
+      NB_TR:
+        type: integer
+      NB_TS:
+        type: integer
+      NB_VC:
+        type: integer
+      BUYING_COST:
+        type: number
+      RENTAL_COST:
+        type: number
+      INSTALL_COST:
+        type: number
+      MAX_FLOW_RATE:
+        type: number
+      MAX_NOZZLES_BY_RAMP:
+        type: integer
+      MAX_RAMPS:
+        type: integer
+      NUMBER_OF_ZONES:
+        type: integer
+      TMP_REGUL_MIN:
+        type: number
+      CAPABILITIES:
+        type: integer
+      ITEM_TR:
+        type: integer
+      ITEM_TS:
+        type: integer
+      ITEM_VC:
+        type: integer
+      ITEM_PRECIS:
+        type: integer
+      ITEM_TIMESTEP:
+        type: integer
+      EQP_IMP_ID_STUDY:
+        type: integer
+      OPEN_BY_OWNER:
+        type: integer
+      SERIES_NAME:
+        type: string
+      BATCH_PROCESS:
+        type: boolean
+      EquipZone:
+        type: array
+        items:
+          $ref: "#/definitions/EquipZone"
+      EquipGenZone:
+        type: array
+        items:
+          $ref: "#/definitions/EquipGenZone"
+  EquipZone:
+    type: object
+    properties:
+      ID_EQUIP_ZONE:
+        type: integer
+      ID_EQUIP:
+        type: integer
+      EQUIP_ZONE_NUMBER:
+        type: integer
+      EQUIP_ZONE_LENGTH:
+        type: number
+      EQUIP_ZONE_NAME:
+        type: string
+  EquipGenZone:
+    type: object
+    properties:
+      ID_EQUIP_GEN_ZONE:
+        type: integer
+      ID_EQUIPGENERATION:
+        type: integer
+      ZONE_NUMBER:
+        type: integer
+      TEMP_SENSOR:
+        type: number
+      TOP_ADIABAT:
+        type: number
+      BOTTOM_ADIABAT:
+        type: number
+      LEFT_ADIABAT:
+        type: number
+      RIGHT_ADIABAT:
+        type: number
+      FRONT_ADIABAT:
+        type: number
+      REAR_ADIABAT:
+        type: number
+      TOP_CHANGE:
+        type: number
+      TOP_PRM1:
+        type: number
+      TOP_PRM2:
+        type: number
+      TOP_PRM3:
+        type: number
+      BOTTOM_CHANGE:
+        type: number
+      BOTTOM_PRM1:
+        type: number
+      BOTTOM_PRM2:
+        type: number
+      BOTTOM_PRM3:
+        type: number
+      LEFT_CHANGE:
+        type: number
+      LEFT_PRM1:
+        type: number
+      LEFT_PRM2:
+        type: number
+      LEFT_PRM3:
+        type: number
+      RIGHT_CHANGE:
+        type: number
+      RIGHT_PRM1:
+        type: number
+      RIGHT_PRM2:
+        type: number
+      RIGHT_PRM3:
+        type: number
+      FRONT_CHANGE:
+        type: number
+      FRONT_PRM1:
+        type: number
+      FRONT_PRM2:
+        type: number
+      FRONT_PRM3:
+        type: number
+      REAR_CHANGE:
+        type: number
+      REAR_PRM1:
+        type: number
+      REAR_PRM2:
+        type: number
+      REAR_PRM3:
+        type: number
+  ResultCalculateFreeze:
+    type: object
+    properties:
+      CheckCalculate:
+        type: integer
+      VComponent:
+        $ref: "#/definitions/VComponent"

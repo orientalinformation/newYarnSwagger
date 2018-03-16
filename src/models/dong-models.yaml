@@ -359,6 +359,10 @@ definitions:
         type: number
       seValue9:
         type: number
+      ID_USER_STUDY:
+        type: integer
+      ID_USER_CURRENT:
+        type: integer
   ViewSelect:
     type: object
     properties:
@@ -568,6 +572,10 @@ definitions:
         type: number
       seValue9:
         type: number
+      ID_USER_STUDY:
+        type: integer
+      ID_USER_CURRENT:
+        type: integer
   StartBrainCalculate:
     type: object
     properties:

@@ -115,7 +115,7 @@ definitions:
       ID_PACKING_ELMT:
         type: integer
       THICKNESS:
-        type: number
+        type: string
       PACKING_SIDE_NUMBER:
         type: integer
       PACKING_LAYER_ORDER:
@@ -401,6 +401,8 @@ definitions:
         type: string
       layoutGen:
         $ref: "#/definitions/LayoutGeneration"
+      layoutResults:
+        $ref: "#/definitions/LayoutGeneration"
   LayoutGeneration:
     type: object
     properties:
@@ -421,6 +423,31 @@ definitions:
       SHELVES_WIDTH:
         type: number
       WIDTH_INTERVAL:
+        type: number
+  layoutResults:
+    type: object
+    properties:
+      ID_LAYOUT_RESULTS:
+        type: integer
+      ID_STUDY_EQUIPMENTS:
+        type: integer
+      NUMBER_PER_M:
+        type: number
+      NUMBER_IN_WIDTH:
+        type: integer
+      LEFT_RIGHT_INTERVAL:
+        type: number
+      LOADING_RATE:
+        type: number
+      QUANTITY_PER_BATCH:
+        type: number
+      LOADING_RATE_MAX:
+        type: number
+      QUANTITY_PER_BATCH_MAX:
+        type: number
+      NB_SHELVES:
+        type: number
+      NB_SHELVES_MAX:
         type: number
   UpdateStdEqpLayoutParams:
     type: object
@@ -570,3 +597,43 @@ definitions:
       initTemp:
         required: false
         type: number
+  ViewChaining:
+    type: object
+    properties:
+      studyName:
+        type: string
+      parent:
+        type: object
+        properties:
+          id:
+            type: integer
+          name:
+            type: string
+          equipName:
+            type: string
+      children:
+        type: array
+        items:
+          type: object
+          properties:
+            id:
+              type: integer
+            name:
+              type: string
+            equipName:
+              type: string
+      packingPreventChildComp:
+        type: boolean
+  Color:
+    type: object
+    properties:
+      ID_COLOR:
+        type: integer
+      COLOR_ORDER:
+        type: integer
+      COLOR_NAME:
+        type: string
+      CODE_HEXA:
+        type: string
+      COLOR_TEXT:
+        type: string

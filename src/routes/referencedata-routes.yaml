@@ -10,6 +10,27 @@ paths:
           description: OK
           schema:
             $ref: "#/definitions/ViewPackingElmt"
+    post:
+      consumes:
+      - application/x-www-form-urlencoded
+      operationId: updatePacking
+      tags:
+      - referencedata
+      description: update packing
+      parameters:
+      - name: body
+        in: body
+        required: true
+        description: body update packing
+        schema:
+          $ref: "#/definitions/PackingElmt"
+      responses:
+        "200":
+          description: ok
+          schema:
+            $ref: "#/definitions/PackingElmt"
+        "422":
+          description: missing data
     put:
       consumes:
       - application/x-www-form-urlencoded
@@ -23,12 +44,12 @@ paths:
         required: true
         description: body create new packing
         schema:
-          $ref: "#/definitions/NewPacking"
+          $ref: "#/definitions/PackingElmt"
       responses:
         "200":
           description: ok
           schema:
-              type: integer
+            $ref: "#/definitions/PackingElmt"
         "422":
           description: missing data
   /referencedata/packing/{id}:
@@ -45,33 +66,9 @@ paths:
       responses:
         "200":
           description: packing delete successfully
-    post:
-      consumes:
-      - application/x-www-form-urlencoded
-      operationId: updatePacking
-      tags:
-      - referencedata
-      description: update packing
-      parameters:
-      - name: id
-        in: path
-        required: true
-        type: integer
-      - name: body
-        in: body
-        required: true
-        description: body update packing
-        schema:
-          $ref: "#/definitions/NewPacking"
-      responses:
-        "200":
-          description: ok
           schema:
-            type: array
-            items:
-              type: integer
-        "422":
-          description: missing data
+            type: integer
+  /referencedata/packingelmt:
     put:
       consumes:
       - application/x-www-form-urlencoded
@@ -80,21 +77,17 @@ paths:
       - referencedata
       description: save as packing
       parameters:
-      - name: id
-        in: path
-        required: true
-        type: integer
       - name: body
         in: body
         required: true
         description: body save as packing
         schema:
-          $ref: "#/definitions/NewPacking"
+          $ref: "#/definitions/PackingElmt"
       responses:
         "200":
           description: ok
           schema:
-              type: integer
+            $ref: "#/definitions/PackingElmt"
         "422":
           description: missing data
   /referencedata/pipeline:
@@ -126,7 +119,28 @@ paths:
         "200":
           description: ok
           schema:
-              type: integer
+            $ref: "#/definitions/PipeLineElmt"
+        "422":
+          description: missing data
+    post:
+      consumes:
+      - application/x-www-form-urlencoded
+      operationId: updatePipeLine
+      tags:
+      - referencedata
+      description: update pipe line
+      parameters:
+      - name: body
+        in: body
+        required: true
+        description: body update pipe line
+        schema:
+          $ref: "#/definitions/PipeLineElmt"
+      responses:
+        "200":
+          description: ok
+          schema:
+            $ref: "#/definitions/PipeLineElmt"
         "422":
           description: missing data
   /referencedata/pipeline/{id}:
@@ -145,31 +159,7 @@ paths:
           description: pipe line delete successfully
           schema:
               type: integer
-    post:
-      consumes:
-      - application/x-www-form-urlencoded
-      operationId: updatePipeLine
-      tags:
-      - referencedata
-      description: update pipe line
-      parameters:
-      - name: id
-        in: path
-        required: true
-        type: integer
-      - name: body
-        in: body
-        required: true
-        description: body update pipe line
-        schema:
-          $ref: "#/definitions/PipeLineElmt"
-      responses:
-        "200":
-          description: ok
-          schema:
-              type: integer
-        "422":
-          description: missing data
+  /referencedata/lineelmt:
     put:
       consumes:
       - application/x-www-form-urlencoded
@@ -178,19 +168,17 @@ paths:
       - referencedata
       description: save as pipe line
       parameters:
-      - name: id
-        in: path
+      - name: body
+        in: body
         required: true
-        type: integer
-      - name: name
-        in: query
-        required: true
-        type: string
+        description: body save as pipe line
+        schema:
+          $ref: "#/definitions/PipeLineElmt"
       responses:
         "200":
           description: ok
           schema:
-              type: integer
+            $ref: "#/definitions/PipeLineElmt"
         "422":
           description: missing data
   /translation/linetype:
@@ -240,7 +228,7 @@ paths:
         "200":
           description: ok
           schema:
-              type: integer
+            $ref: "#/definitions/RefEquipment"
         "422":
           description: missing data
   /referencedata/equipment:
@@ -387,3 +375,217 @@ paths:
           description: delete equipment successfully
           schema:
               type: integer
+    put:
+      consumes:
+      - application/x-www-form-urlencoded
+      operationId: startEquipmentCalculate
+      tags:
+      - referencedata
+      description: run equipment calculate
+      parameters:
+      - name: id
+        in: path
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: integer
+        "422":
+          description: missing data
+  /referencedata/equipcharacts/{idEquip}:
+    get:
+      operationId: getEquipmentCharacts
+      tags:
+      - referencedata
+      parameters:
+      - name: idEquip
+        in: path
+        description: equipment id
+        type: integer
+      description: Get list equipment chart by Id equipment
+      responses:
+        "200":
+          description: Successful retrieve the equipment chart
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/EquipCharact"
+    delete:
+      operationId: deleteEquipCharacts
+      tags:
+      - referencedata
+      description: delete list equip charact
+      parameters:
+      - name: idEquip
+        in: path
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: delete list equipcharact successfully
+          schema:
+              type: integer
+  /referencedata/highchart:
+    get:
+      operationId: getDataHighChart
+      tags:
+      - referencedata
+      parameters:
+      - name: ID_EQUIP
+        in: query
+        required: true
+        type: integer
+      - name: profilType
+        in: query
+        required: true
+        type: number
+      - name: profilFace
+        in: query
+        required: true
+        type: number
+      description: Get data highchart
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/ViewHighChart"
+  /referencedata/equipcharact/{id}:
+    get:
+      operationId: getEquipCharactById
+      tags:
+      - referencedata
+      parameters:
+      - name: id
+        in: path
+        description: Compenth id
+        type: integer
+      description: Get equipcharact by id
+      responses:
+        "200":
+          description: Successful retrieve the equipcharact
+          schema:
+              $ref: "#/definitions/EquipCharact"
+    delete:
+      operationId: deleteEquipCharact
+      tags:
+      - referencedata
+      description: delete equip charact
+      parameters:
+      - name: id
+        in: path
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: delete equipcharact successfully
+          schema:
+              type: integer
+  /referencedata/equipcharact:
+    put:
+      operationId: updateEquipCharact
+      tags:
+      - referencedata
+      parameters:
+      - name: body
+        in: body
+        required: true
+        description: update equip EquipCharact
+        schema:
+          $ref: "#/definitions/EquipCharact"
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: integer
+        "422":
+          description: missing data
+    post:
+      operationId: addEquipCharact
+      tags:
+      - referencedata
+      parameters:
+      - name: body
+        in: body
+        required: true
+        description: add equip EquipCharact
+        schema:
+          $ref: "#/definitions/EquipCharact"
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/EquipCharact"
+        "422":
+          description: missing data
+  /referencedata/curve/{idEquip}:
+    get:
+      operationId: getDataCurve
+      tags:
+      - referencedata
+      parameters:
+      - name: idEquip
+        in: path
+        required: true
+        type: number
+      description: Get data curve
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/ViewCurve"
+  /referencedata/redrawcurves:
+    put:
+      operationId: redrawCurves
+      tags:
+      - referencedata
+      parameters:
+      - name: body
+        in: body
+        required: true
+        description: redrawCurves
+        schema:
+          $ref: "#/definitions/ViewCurve"
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: integer
+        "422":
+          description: missing data
+  /referencedata/tempsetpoint/{idEquip}:
+    get:
+      operationId: getTempSetPoint
+      tags:
+      - referencedata
+      parameters:
+      - name: idEquip
+        in: path
+        description: equipment id
+        type: integer
+      description: Get set temp point
+      responses:
+        "200":
+          description: Successful retrieve the tem set point
+          schema:
+              $ref: "#/definitions/ViewTempSetPoint"
+  /referencedata/tempsetpoint:
+    put:
+      operationId: buildForNewTR
+      tags:
+      - referencedata
+      parameters:
+      - name: body
+        in: body
+        required: true
+        description: build for new TR
+        schema:
+          $ref: "#/definitions/ViewTempSetPoint"
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/ResultBuildForNewTR"
+        "422":
+          description: missing data

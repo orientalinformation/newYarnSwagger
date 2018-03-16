@@ -1,0 +1,15 @@
+paths:
+  /input/meshinitial/{idStudy}:
+    put:
+      operationId: initTempRecordPts
+      tags:
+      - input
+      parameters:
+      - name: idStudy
+        in: path
+        description: study id
+        type: integer
+      description: Initial tempRecordpts
+      responses:
+        "200":
+          description: OK

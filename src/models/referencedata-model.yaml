@@ -300,6 +300,10 @@ definitions:
         type: number
       typeEquipment:
         type: integer
+      equipGenZone:
+        type: array
+        items:
+          $ref: "#/definitions/EquipGenZone"
   SaveAsEquipment:
     type: object
     properties:
@@ -446,3 +450,84 @@ definitions:
         type: array
         items:
           $ref: "#/definitions/Consumptions"
+  EquipCharact:
+    type: object
+    properties:
+      ID_EQUIPCHARAC:
+        type: integer
+      ID_EQUIP:
+        type: integer
+      X_POSITION:
+        type: number
+      TEMP_REGUL:
+        type: number
+      ALPHA_TOP:
+        type: number
+      ALPHA_BOTTOM:
+        type: number
+      ALPHA_LEFT:
+        type: number
+      ALPHA_RIGHT:
+        type: number
+      ALPHA_FRONT:
+        type: number
+      ALPHA_REAR:
+        type: number
+      TEMP_TOP:
+        type: number
+      TEMP_BOTTOM:
+        type: number
+      TEMP_LEFT:
+        type: number
+      TEMP_RIGHT:
+        type: number
+      TEMP_FRONT:
+        type: number
+      TEMP_REAR:
+        type: number
+  ViewHighChart:
+    type: object
+    properties:
+      MiniMum:
+        type: number
+      MaxiMum:
+        type: number
+      XAxis:
+        type: number
+      YAxis:
+        type: number
+  ViewCurve:
+    type: object
+    properties:
+      ID_EQUIP:
+        type: integer
+      isCapabilities:
+        type: integer
+      REGUL_TEMP:
+        type: number
+      DWELLING_TIME:
+        type: number
+      PRODTEMP:
+        type: number
+      LOADINGRATE:
+        type: number
+  ViewTempSetPoint:
+    type: object
+    properties:
+      ID_EQUIP:
+        type: integer
+      ID_STUDY:
+        type: integer
+      tr_current:
+        type: number
+      tr_new:
+        type: number
+  ResultBuildForNewTR:
+    type: object
+    properties:
+      RefEquipment:
+        type: array
+        items:
+          $ref: "#/definitions/RefEquipment"
+      CheckKernel:
+        type: integer

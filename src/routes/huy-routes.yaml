@@ -52,18 +52,36 @@ paths:
           description: Can not created!
           schema:
             $ref: "#/definitions/Error"
-  /reports/downLoadPDF:
+  /reports/{id}/downLoadPDF:
     get:
       operationId: downLoadPDF
       parameters:
-        - name: body
-          in: body
+        - in: path
+          name: id
           required: true
-          schema:
-            $ref: "#/definitions/Report"
+          type: integer
       responses:
         "200":
           description: OK
+          schema:
+            $ref: "#/definitions/ViewResponseUrl"
+        "500":
+          description: Can not download PDF!
+          schema:
+            $ref: "#/definitions/Error"
+  /reports/{id}/downLoadHtmlToPDF:
+    get:
+      operationId: downLoadHtmlToPDF
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/ViewResponseUrl"
         "500":
           description: Can not download PDF!
           schema:

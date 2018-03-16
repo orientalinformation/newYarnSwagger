@@ -24,11 +24,25 @@ definitions:
         type: string
       prodchartDimensionSymbol:
         type: string
+      prodDimensionSymbol:
+        type: string
       consumSymbol:
         type: string
       consumMaintienSymbol:
         type: string
       mefSymbol:
+        type: string
+      meshesSymbol:
+        type: string
+      packingThicknessSymbol:
+        type: string
+      shelvesWidthSymbol:
+        type: string
+      lineDimensionSymbol:
+        type: string
+      pressureSymbol:
+        type: string
+      materialRiseSymbol:
         type: string
   OptimumResultAna:
     type: object
@@ -350,6 +364,31 @@ definitions:
         type: integer
       NB_STEPS:
         type: number
+  productChart2DStatic:
+    type: object
+    properties:
+      idStudy:
+        type: integer
+      idStudyEquipment:
+        type: integer
+      selectedPlan:
+        type: integer
+      temperatureStep:
+        type: number
+      temperatureMin:
+        type: number
+      temperatureMax:
+        type: number
+      timeSelected:
+        type: number
+      timeInterval:
+        type: number
+      axisX:
+        type: number
+      axisY:
+        type: number
+      dimension:
+        type: string
   MeshGeneration:
     type: object
     properties:
@@ -578,8 +617,6 @@ definitions:
         $ref: "#/definitions/TemperatureProfileData"
       convChartData:
         $ref: "#/definitions/TemperatureProfileData"
-  ViewLocation:
-    type: object
   ViewLocationMeshAxis:
     type: object
     properties:
@@ -662,8 +699,14 @@ definitions:
         type: array
         items:
           type: integer
-      dataContour:
-        $ref: "#/definitions/Coordinates"
+      imageContour:
+        type: array
+        items:
+          type: string
+  Viewproductchart2DAnim:
+    type: object
+    items:
+      type: string
   TemperatureProfileData:
     type: object
     properties:
@@ -690,6 +733,28 @@ definitions:
         $ref: "#/definitions/Coordinates"
       average:
         $ref: "#/definitions/Coordinates"
+  AxisTempSelect:
+    type: object
+    properties:
+      top:
+        type: array
+        items:
+          type: number
+      int:
+        type: array
+        items:
+          type: number
+      bottom:
+        type: array
+        items:
+          type: number
+  PointValue:
+    type: object
+    properties:
+      name:
+        type: number
+      value:
+        type: number
   Coordinates:
     type: object
     properties:
@@ -765,5 +830,3 @@ definitions:
         type: number
       maxTemperature:
         type: number
-  MeshPoints:
-    type: object

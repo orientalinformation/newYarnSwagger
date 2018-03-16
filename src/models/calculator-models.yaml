@@ -124,3 +124,27 @@ definitions:
         type: array
         items:
           $ref: "#/definitions/ViewStudyEquipment"
+  ViewStudyCalculator:
+    type: object
+    properties:
+      ID_STUDY:
+        type: integer
+      STUDY_NAME:
+        type: string
+      IS_STUDY_CURRENT:
+        type: integer
+      row_span:
+        type: integer
+      studyEquipments:
+        type: array
+        items:
+          $ref: "#/definitions/ViewStudyEquipmentForStudy"
+  ViewStudyEquipmentForStudy:
+    type: object
+    properties:
+      ID_EQUIP:
+        type: integer
+      EQUIP_NAME:
+        type: string
+      EQUIP_STATUS:
+        type: number

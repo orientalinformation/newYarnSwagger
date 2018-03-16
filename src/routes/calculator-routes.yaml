@@ -146,3 +146,21 @@ paths:
           description: todo
           schema:
             $ref: "#/definitions/OptimumCalculator"
+  /calculator/calculatestatus/{idStudy}:
+    get:
+      operationId: getMyStudies
+      tags:
+      - calculator
+      parameters:
+      - name: idStudy
+        in: path
+        description: study id
+        type: integer
+      description: Get a list of study by id user
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/ViewStudyCalculator"

@@ -237,7 +237,22 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: "#/definitions/MeshPoints"
+            type: array
+            items:
+              type: number
+  /studies/{id}/locationAxisSelected:
+    get:
+      operationId: getlocationAxisSelected
+      parameters:
+      - name: id
+        in: path
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/AxisTempSelect"
   /output/sizingresult/{idStudy}/optimum:
     get:
       operationId: sizingOptimumResult
@@ -288,26 +303,6 @@ paths:
           description: todo
           schema:
             $ref: "#/definitions/ViewTemperatureProfile"
-  /output/location:
-    get:
-      operationId: location
-      description: get location product chart
-      parameters:
-      - name: idStudy
-        in: query
-        description: Study ID
-        required: true
-        type: integer
-      - name: idStudyEquipment
-        in: query
-        description: StudyEquipment ID
-        required: true
-        type: integer
-      responses:
-        "200":
-          description: OK
-          schema:
-            $ref: "#/definitions/ViewLocation"
   /output/heatExchange:
     get:
       operationId: heatExchange
@@ -412,8 +407,63 @@ paths:
         description: Plan select
         required: true
         type: integer
+      - name: dimension
+        in: query
+        description: dimension language name
+        required: true
+        type: string
       responses:
         "200":
           description: todo
           schema:
             $ref:  "#/definitions/ViewProductchart2D"
+  /output/productChart2DStatic:
+    post:
+      operationId: productChart2DStatic
+      description: get product chart 2d static chart
+      parameters:
+      - name: body
+        in: body
+        description: body
+        required: true
+        schema:
+          $ref: "#/definitions/productChart2DStatic"
+      responses:
+        "200":
+          description: todo
+          schema:
+            $ref:  "#/definitions/ViewProductchart2D"
+  /output/productchart2DAnim:
+    post:
+      operationId: productchart2DAnim
+      description: get all product chart 2d
+      parameters:
+      - name: body
+        in: body
+        description: body
+        required: true
+        schema:
+          $ref: "#/definitions/productChart2DStatic"
+      responses:
+        "200":
+          description: todo
+          schema:
+            $ref:  "#/definitions/ViewProductchart2D"
+  /output/readDataContour/{idStudyEquipment}:
+    get:
+      operationId: readDataContour
+      description: get value contour data
+      parameters:
+      - name: idStudyEquipment
+        in: path
+        description: StudyEquipment ID
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: todo
+          schema:
+            type: object
+            properties:
+              valueContour:
+                type: string

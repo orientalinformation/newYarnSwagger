@@ -33,9 +33,43 @@ paths:
         "200":
           description: OK
           schema:
-            type: integer
+            $ref: "#/definitions/VComponent"
         "422":
           description: missing data
+  /referencedata/subfamily:
+    get:
+      operationId: getDataSubFamily
+      tags:
+      - referencedata
+      parameters:
+      - name: compfamily
+        in: query
+        required: false
+        type: string
+      description: Get a list of family component
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/ViewFamily"
+  /referencedata/component/filter:
+    get:
+      operationId: getFilterComponent
+      tags:
+      - referencedata
+      parameters:
+      - name: compfamily
+        in: query
+        required: true
+        type: string
+      description: Get a list of family component
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/ViewComponent"
   /referencedata/component/{id}:
     get:
       operationId: getTemperaturesByIdComp
@@ -88,7 +122,7 @@ paths:
         "200":
           description: OK
           schema:
-            type: integer
+            $ref: "#/definitions/ResultCalculateFreeze"
         "422":
           description: missing data
   /referencedata/calculate:
@@ -180,3 +214,19 @@ paths:
             type: integer
         "422":
           description: missing data
+  /referencedata/equipment/{id}/filter:
+    get:
+      operationId: getEquipmentFilter
+      tags:
+        - referencedata
+      parameters:
+        - name: id
+          in: path
+          description: Equipment id
+          type: integer
+      description: Get data equipment of filter
+      responses:
+        "200":
+          description: Successful get data
+          schema:
+            $ref: "#/definitions/FilterEquipment"

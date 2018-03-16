@@ -108,6 +108,45 @@ paths:
       responses:
         "200":
           description: OK
+  /studies/{id}/chaining:
+    get:
+      operationId: getChainingModel
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: id study to open
+          type: integer
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/ViewChaining"
+        "422":
+          description: missing data
+    put:
+      operationId: createChildStudy
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: id parent study to chaining
+          type: integer
+        - name: studyName
+          in: query
+          required: true
+          description: study child name
+          type: string
+        - name: stdEqpId
+          in: query
+          required: true
+          description: parent study equipment id
+          type: integer
+      responses:
+        "200":
+          description: ok
+          schema:
+            $ref: "#/definitions/Study"
   /studies/{id}/product:
     post:
       operationId: updateProduct
@@ -673,3 +712,14 @@ paths:
             type: array
             items:
               $ref: "#/definitions/Study"
+  /users/colors:
+    get:
+      operationId: getColorDefs
+      description: get default user colors
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/Color"
