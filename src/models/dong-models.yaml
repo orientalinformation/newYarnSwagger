@@ -449,6 +449,18 @@ definitions:
         type: number
       seValue9:
         type: number
+      sdisableFields:
+        type: number
+      sdisableCalculate:
+        type: number
+      sdisableNbOptim:
+        type: number
+      sdisableTimeStep:
+        type: number
+      sdisablePrecision:
+        type: number
+      sdisableStorage:
+        type: number
   BrainCalculator:
     type: object
     properties:
@@ -551,6 +563,10 @@ definitions:
         items:
           $ref: "#/definitions/ViewSelect"
       sdisableTOC:
+        type: number
+      sdisableTS:
+        type: number
+      sdisableTR:
         type: number
       typeCalculate:
         type: integer

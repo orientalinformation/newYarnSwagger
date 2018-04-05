@@ -445,12 +445,48 @@ paths:
         in: query
         required: true
         type: number
+      - name: minScaleY
+        in: query
+        required: true
+        type: number
+      - name: maxScaleY
+        in: query
+        required: true
+        type: number
+      - name: typeChart
+        in: query
+        required: true
+        type: integer
+      - name: newProfil
+        in: query
+        required: true
+        type: string
       description: Get data highchart
       responses:
         "200":
           description: OK
           schema:
             $ref: "#/definitions/ViewHighChart"
+    post:
+      consumes:
+        - application/x-www-form-urlencoded
+      operationId: saveSelectedProfile
+      description: save Selected Profile
+      tags:
+      - referencedata
+      parameters:
+      - name: body
+        in: body
+        required: true
+        description: body save DataHightChart
+        schema:
+          $ref: "#/definitions/DataHightChart"
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: integer
+
   /referencedata/equipcharact/{id}:
     get:
       operationId: getEquipCharactById

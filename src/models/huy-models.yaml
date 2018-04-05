@@ -133,4 +133,14 @@ definitions:
         type: number
       GAS_TEMP:
         type: number
-  
+  ViewProcessingReport:
+    type: object
+    properties:
+      progressFileHtml:
+        type: string
+      progressFilePdf:
+        type: string
+      progress:
+        type: array
+        items:
+          type: string

@@ -1,4 +1,13 @@
 paths:
+  /users:
+    get:
+      operationId: getActiveUsers
+      description: todo
+      responses:
+        "200":
+          description: todo
+          schema:
+            $ref: "#/definitions/Users"
   /users/{id}/changepassword:
     post:
       operationId: changePassword
@@ -214,7 +223,7 @@ paths:
         "200":
           description: ok
           schema:
-            type: integer
+            $ref: "#/definitions/Units"
         "422":
           description: missing data
   /users/{id}:

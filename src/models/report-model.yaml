@@ -213,3 +213,10 @@ definitions:
     properties:
       url:
         type: string
+  Processing:
+    type: object
+    properties:
+      process:
+        type: array
+        items:
+          type: string

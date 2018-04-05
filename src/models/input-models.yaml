@@ -1,0 +1,30 @@
+definitions:
+  SVGChart:
+    type: object
+    properties:
+      x:
+        type: number
+      y:
+        type: number
+      textX:
+        type: number
+  MinMax:
+    type: object
+    properties:
+      ID_MIN_MAX:
+        type: integer
+      LIMIT_ITEM:
+        type: integer
+      LIMIT_MAX:
+        type: number
+      LIMIT_MIN:
+        type: number
+      DEFAULT_VALUE:
+        type: number
+      COMMENT:
+        type: string
+  ViewMinMax:
+    type: object
+    properties:
+      Message:
+        type: string

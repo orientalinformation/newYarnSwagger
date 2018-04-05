@@ -744,10 +744,75 @@ definitions:
         type: array
         items:
           type: number
-      bottom:
+      bot:
         type: array
         items:
           type: number
+      axe1:
+        type: array
+        items:
+          type: number
+      axe2:
+        type: array
+        items:
+          type: number
+      axe3:
+        type: array
+        items:
+          type: number
+      plan:
+        type: array
+        items:
+          type: number
+  LocationAxisParams:
+    type: object
+    properties:
+      ID_STUDY_EQUIPMENTS:
+        type: integer
+      NB_STEPS:
+        type: integer
+      POINT_TOP_X:
+        type: number
+      POINT_TOP_Y:
+        type: number
+      POINT_TOP_Z:
+        type: number
+      POINT_INT_X:
+        type: number
+      POINT_INT_Y:
+        type: number
+      POINT_INT_Z:
+        type: number
+      POINT_BOT_X:
+        type: number
+      POINT_BOT_Y:
+        type: number
+      POINT_BOT_Z:
+        type: number
+      AXIS_AXE1_X:
+        type: number
+      AXIS_AXE1_Y:
+        type: number
+      AXIS_AXE1_Z:
+        type: number
+      AXIS_AXE2_X:
+        type: number
+      AXIS_AXE2_Y:
+        type: number
+      AXIS_AXE2_Z:
+        type: number
+      AXIS_AXE3_X:
+        type: number
+      AXIS_AXE3_Y:
+        type: number
+      AXIS_AXE3_Z:
+        type: number
+      PLAN_X:
+        type: number
+      PLAN_Y:
+        type: number
+      PLAN_Z:
+        type: number
   PointValue:
     type: object
     properties:
@@ -830,3 +895,28 @@ definitions:
         type: number
       maxTemperature:
         type: number
+  Energy:
+    type: object
+    properties:
+      ID_COOLING_FAMILY:
+        type: integer
+      ID_FAMILY:
+        type: integer
+      ID_EQUIPSERIES:
+        type: integer
+      STD:
+        type: integer
+      BATCH_PROCESS:
+        type" integer
+      LABEL:
+        type: string
+      CONSTRUCTOR:
+        type: string
+      EQP_LENGTH:
+        type: string
+      EQP_WIDTH:
+        type: string
+      DISPLAY_LENGTH:
+        type: string
+      DISPLAY_WIDTH:
+        type: string

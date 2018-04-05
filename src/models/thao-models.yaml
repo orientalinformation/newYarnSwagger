@@ -26,6 +26,14 @@ definitions:
           $ref: "#/definitions/ProductElmt"
       specificDimension:
         type: number
+      compFamily:
+        $ref: "#/definitions/ViewFamily"
+      subFamily:
+        $ref: "#/definitions/ViewFamily"
+      waterPercentList:
+        type: array
+        items:
+          type: number
   Component:
     type: object
     properties:
@@ -79,6 +87,8 @@ definitions:
         type: integer
       WATER:
         type: number
+      displayName:
+        type: string
   Shape:
     type: object
     properties:

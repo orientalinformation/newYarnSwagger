@@ -13,3 +13,158 @@ paths:
       responses:
         "200":
           description: OK
+  /input/svgchart:
+    get:
+      operationId: getDataSvgChart
+      tags:
+      - input
+      description: get data svg
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/SVGChart"
+  /minmax:
+    get:
+      operationId: getMinMax
+      tags:
+        - minmax
+      description: get data min max
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/MinMax"
+  /calculator/calculationparameters:
+    post:
+      consumes:
+        - application/x-www-form-urlencoded
+      operationId: checkCalculationParameters
+      tags:
+        - calculator
+      description: Check Calculation Parameters
+      parameters:
+        - name: body
+          in: body
+          required: true
+          description: body Check Calculation Parameters
+          schema:
+            $ref: "#/definitions/StartCalculate"
+      responses:
+        "200":
+          description: Check ok
+          schema:
+            $ref: "#/definitions/ViewMinMax"
+        "422":
+          description: missing data
+  /calculator/braincalculationparameters:
+    post:
+      consumes:
+        - application/x-www-form-urlencoded
+      operationId: checkBrainCalculationParameters
+      tags:
+        - calculator
+      description: Check Brain Calculation Parameters
+      parameters:
+        - name: body
+          in: body
+          required: true
+          description: body Check Calculation Parameters
+          schema:
+            $ref: "#/definitions/BrainCalculator"
+      responses:
+        "200":
+          description: Check ok
+          schema:
+            $ref: "#/definitions/ViewMinMax"
+        "422":
+          description: missing data
+  /calculator/startcalculationparameters:
+    post:
+      consumes:
+        - application/x-www-form-urlencoded
+      operationId: checkStartCalculationParameters
+      tags:
+        - calculator
+      description: Check Start Calculation Parameters
+      parameters:
+        - name: body
+          in: body
+          required: true
+          description: body  Check Start Calculation Parameters
+          schema:
+            $ref: "#/definitions/BrainCalculator"
+      responses:
+        "200":
+          description: Check ok
+          schema:
+            $ref: "#/definitions/ViewMinMax"
+        "422":
+          description: missing data
+  /referencedata/savedatacomponent:
+    post:
+      consumes:
+        - application/x-www-form-urlencoded
+      operationId: checkSaveDataComponent
+      tags:
+        - referencedata
+      description: Check Data Component Parameters
+      parameters:
+        - name: body
+          in: body
+          required: true
+          description: body  Check Start Calculation Parameters
+          schema:
+            $ref: "#/definitions/ViewComponent"
+      responses:
+        "200":
+          description: Check ok
+          schema:
+            $ref: "#/definitions/ViewMinMax"
+        "422":
+          description: missing data
+  /referencedata/checktemperature:
+    post:
+      consumes:
+        - application/x-www-form-urlencoded
+      operationId: checkTemperature
+      tags:
+        - referencedata
+      description: Check unit min max temperatures
+      parameters:
+        - name: temperatures
+          in: query
+          required: true
+          description: temperatures check
+          type: number
+      responses:
+        "200":
+          description: Check ok
+          schema:
+            $ref: "#/definitions/ViewMinMax"
+        "422":
+          description: missing data
+  /referencedata/checkpacking:
+    post:
+      consumes:
+        - application/x-www-form-urlencoded
+      operationId: checkPacking
+      tags:
+        - referencedata
+      description: Check unit min max Packing
+      parameters:
+        - name: body
+          in: body
+          required: true
+          description: body check packing
+          schema:
+            $ref: "#/definitions/PackingElmt"
+      responses:
+        "200":
+          description: Check ok
+          schema:
+            $ref: "#/definitions/ViewMinMax"
+        "422":
+          description: missing data

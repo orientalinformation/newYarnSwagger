@@ -96,6 +96,8 @@ definitions:
         type: integer
       TYPE_COMP:
         type: integer
+      check:
+        type: integer
   ViewFamily:
     type: object
     properties:

@@ -253,6 +253,182 @@ paths:
           description: OK
           schema:
             $ref: "#/definitions/AxisTempSelect"
+  /studies/{id}/saveLocationAxis:
+    post:
+      operationId: saveLocationAxis
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/LocationAxisParams"
+      responses:
+        "200":
+          description: ok
+  /equipments/{id}/reCalculate:
+    get:
+      operationId: reCalculate
+      parameters:
+      - name: id
+        in: path
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: OK
+  /equipments/selection/loadEnergies:
+    get:
+      operationId: loadEnergies
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/Energy"
+  /equipments/selection/loadConstructors:
+    get:
+      operationId: loadConstructors
+      parameters:
+        - name: energy
+          in: query
+          type: integer
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/Energy"
+  /equipments/selection/loadFamilies:
+    get:
+      operationId: loadFamilies
+      parameters:
+        - name: energy
+          in: query
+          type: integer
+        - name: manufacturer
+          in: query
+          type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/Energy"
+  /equipments/selection/loadOrigines:
+    get:
+      operationId: loadOrigines
+      parameters:
+        - name: energy
+          in: query
+          type: integer
+        - name: manufacturer
+          in: query
+          type: string
+        - name: family
+          in: query
+          type: integer
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/Energy"
+  /equipments/selection/loadProcesses:
+    get:
+      operationId: loadProcesses
+      parameters:
+        - name: energy
+          in: query
+          type: integer
+        - name: manufacturer
+          in: query
+          type: string
+        - name: family
+          in: query
+          type: integer
+        - name: origin
+          in: query
+          type: integer
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/Energy"
+  /equipments/selection/loadSeries:
+    get:
+      operationId: loadSeries
+      parameters:
+        - name: energy
+          in: query
+          type: integer
+        - name: manufacturer
+          in: query
+          type: string
+        - name: family
+          in: query
+          type: integer
+        - name: origin
+          in: query
+          type: integer
+        - name: process
+          in: query
+          type: integer
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/Energy"
+  /equipments/selection/loadDimensions:
+    get:
+      operationId: loadDimensions
+      parameters:
+        - name: energy
+          in: query
+          type: integer
+        - name: manufacturer
+          in: query
+          type: string
+        - name: family
+          in: query
+          type: integer
+        - name: origin
+          in: query
+          type: integer
+        - name: process
+          in: query
+          type: integer
+        - name: series
+          in: query
+          type: integer
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/Energy"
+  /components/allCompFamily:
+    get:
+      operationId: getAllCompFamily
+      description: get all compamily
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref:  "#/definitions/ViewFamily"
+  /products/subfamily/{compfamily}:
+    get:
+      operationId: getSubfamily
+      description: get subfamily filter
+      parameters:
+      - name: compfamily
+        in: path
+        description: compfamily
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref:  "#/definitions/ViewFamily"
   /output/sizingresult/{idStudy}/optimum:
     get:
       operationId: sizingOptimumResult

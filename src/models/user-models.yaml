@@ -1,4 +1,37 @@
 definitions:
+  Users:
+    type: object
+    properties:
+      ID_USER:
+        type: integer
+      ID_MONETARY_CURRENCY:
+        type: integer
+      CODE_LANGUE:
+        type: integer
+      ID_CALC_PARAMSDEF:
+        type: integer
+      ID_TEMP_RECORD_PTS_DEF:
+        type: integer
+      USERNAM:
+        type: string
+      USERPRIO:
+        type: integer
+      TRACE_LEVEL:
+        type: integer
+      USER_ENERGY:
+        type: number
+      USER_CONSTRUCTOR:
+        type: string
+      USER_FAMILY:
+        type: number
+      USER_ORIGINE:
+        type: number
+      USER_PROCESS:
+        type: number
+      USER_MODEL:
+        type: number
+      USERMAIL:
+        type: string
   ChangePassword:
     type: object
     properties:

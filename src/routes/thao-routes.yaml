@@ -35,6 +35,19 @@ paths:
     get:
       operationId: findStudies
       description: Get a list of studies
+      parameters:
+      - name: idUser
+        in: query
+        type: integer
+      - name: compfamily
+        in: query
+        type: integer
+      - name: subfamily
+        in: query
+        type: integer
+      - name: component
+        in: query
+        type: integer
       responses:
         "200":
           description: OK
@@ -282,27 +295,30 @@ paths:
       description: get all available equipments
       operationId: getEquipments
       parameters:
+      - name: idStudy
+        in: query
+        type: integer
       - name: energy
         in: query
         type: integer
       - name: manufacturer
         in: query
-        type: integer
+        type: string
       - name: family
         in: query
         type: integer
-      - name: equip_origin
+      - name: origin
         type: integer
         in: query
-      - name: process_type
+      - name: process
         in: query
         type: integer
-      - name: model
+      - name: series
         in: query
         type: integer
       - name: size
         in: query
-        type: integer
+        type: string
       responses:
         "200":
           description: todo ok
@@ -552,6 +568,9 @@ paths:
       operationId: findComponents
       description: find available components by filter
       parameters:
+      - name: idStudy
+        in: query
+        type: integer
       - name: compfamily
         in: query
         type: integer
@@ -566,13 +585,6 @@ paths:
           description: todo
           schema:
             $ref: "#/definitions/ViewComponents"
-  /users:
-    get:
-      operationId: getActiveUsers
-      description: todo
-      responses:
-        "200":
-          description: todo
   /shapes:
     get:
       operationId: getShapes

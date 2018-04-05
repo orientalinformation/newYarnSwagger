@@ -71,6 +71,8 @@ paths:
       responses:
         "200":
           description: ok
+          schema:
+            $ref: "#/definitions/ViewMinMax"
         "422":
           description: missing data
   /savetemprecordptsdef:
@@ -89,6 +91,8 @@ paths:
       responses:
         "200":
           description: ok
+          schema:
+            $ref: "#/definitions/ViewMinMax"
         "422":
           description: missing data
   /savecalculationparametersdef:
@@ -107,6 +111,8 @@ paths:
       responses:
         "200":
           description: ok
+          schema:
+            $ref: "#/definitions/ViewMinMax"
         "422":
           description: missing data
   /studies/{id}/calculate:

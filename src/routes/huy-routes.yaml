@@ -53,13 +53,18 @@ paths:
           schema:
             $ref: "#/definitions/Error"
   /reports/{id}/downLoadPDF:
-    get:
+    post:
       operationId: downLoadPDF
       parameters:
         - in: path
           name: id
           required: true
           type: integer
+        - name: reportParam
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/Report"
       responses:
         "200":
           description: OK
@@ -70,8 +75,30 @@ paths:
           schema:
             $ref: "#/definitions/Error"
   /reports/{id}/downLoadHtmlToPDF:
-    get:
+    post:
       operationId: downLoadHtmlToPDF
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+        - name: reportParam
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/Report"
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/ViewResponseUrl"
+        "500":
+          description: Can not download PDF!
+          schema:
+            $ref: "#/definitions/Error"
+  /reports/{id}/processingReport:
+    get:
+      operationId: processingReport
       parameters:
         - in: path
           name: id
@@ -81,8 +108,8 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: "#/definitions/ViewResponseUrl"
+            $ref: "#/definitions/ViewProcessingReport"
         "500":
-          description: Can not download PDF!
+          description: Processing failed!
           schema:
             $ref: "#/definitions/Error"
