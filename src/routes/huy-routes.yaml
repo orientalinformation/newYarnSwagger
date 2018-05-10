@@ -113,3 +113,18 @@ paths:
           description: Processing failed!
           schema:
             $ref: "#/definitions/Error"
+  /translations:
+    get:
+      operationId: filterTrans
+      parameters:
+        - name: id_ref
+          in: query
+          type: integer
+        - name: id_trans
+          in: query
+          type: integer
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/DisplayAllLangs"

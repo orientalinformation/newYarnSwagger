@@ -15,6 +15,26 @@ definitions:
       productIsoTemp:
         type: number
         required: false
+      nbMeshPointElmt:
+        type: array
+        items:
+          type: integer
+      productElmtInitTemp:
+        type: array
+        items:
+          type: array
+          items:
+            type: number
+      initTempPositions:
+        type: array
+        items:
+          type: array
+          items:
+            type: number
+      heights:
+        type: array
+        items:
+          type: number
   ViewProduct:
     type: object
     properties:
@@ -370,6 +390,8 @@ definitions:
         type: integer
       SHAPECODE:
         type: integer
+      componentName:
+        type: string
   ViewStudyEquipment:
     type: object
     properties:
@@ -387,6 +409,8 @@ definitions:
         type: number
       ORIENTATION:
         type: integer
+      CAPABILITIES:
+        type: number
       displayName:
         type: string
       TExt:
@@ -407,6 +431,26 @@ definitions:
         type: array
         items:
           type: number
+      alpha:
+        type: array
+        items:
+          type: number
+      calculation_parameters:
+        type: array
+        items:
+          $ref: "#/definitions/CalculationParameter"
+      ldSetpointmax:
+        type: number
+      minMaxTr:
+        $ref: "#/definitions/MinMax"
+      minMaxTs:
+        $ref: "#/definitions/MinMax"
+      minMaxVc:
+        $ref: "#/definitions/MinMax"
+      minMaxAlpha:
+        $ref: "#/definitions/MinMax"
+      minMaxText:
+        $ref: "#/definitions/MinMax"
       top_or_QperBatch:
         type: string
       layoutGen:
@@ -468,6 +512,8 @@ definitions:
         type: number
       widthInterval:
         type: number
+      studyClean:
+        type: boolean
   StudyEquipment:
     type: object
     properties:
@@ -604,9 +650,14 @@ definitions:
   ProdElmtInitTemp:
     type: object
     properties:
-      initTemp:
-        required: false
-        type: number
+      isoThermal:
+        required: true
+        type: boolean
+      tempPoints:
+        required: true
+        type: array
+        items:
+          type: number
   ViewChaining:
     type: object
     properties:
@@ -646,4 +697,11 @@ definitions:
       CODE_HEXA:
         type: string
       COLOR_TEXT:
+        type: string
+  GenericError:
+    type: object
+    properties:
+      errorCode:
+        type: integer
+      message:
         type: string

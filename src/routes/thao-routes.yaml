@@ -69,6 +69,30 @@ paths:
           schema:
             $ref: "#/definitions/Study"
           description: OK, created
+  /studies/{id}/contour2d:
+    get:
+      operationId: getContour2dChart
+      parameters:
+      - name: id
+        in: path
+        description: Study ID
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: todo
+          type: object
+          properties:
+            imgPath:
+              type: string
+        "404":
+          description: not found
+          schema:
+            $ref: "#/definitions/GenericError"
+        "500":
+          description: server error
+          schema:
+            $ref: "#/definitions/GenericError"
   /studies/{id}:
     patch:
       operationId: saveStudy
@@ -208,6 +232,20 @@ paths:
         "200":
           description: OK
   /studyEquipment/{id}/layout:
+    get:
+      description: get study equipment layout image by id
+      parameters:
+      - name: id
+        in: path
+        description: StudyEquipment ID
+        required: true
+        type: integer
+      operationId: getStudyEquipmentLayoutById
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
     post:
       operationId: updateStudyEquipmentLayout
       parameters:
@@ -304,7 +342,7 @@ paths:
       - name: manufacturer
         in: query
         type: string
-      - name: family
+      - name: sery
         in: query
         type: integer
       - name: origin
@@ -313,7 +351,7 @@ paths:
       - name: process
         in: query
         type: integer
-      - name: series
+      - name: model
         in: query
         type: integer
       - name: size
@@ -355,7 +393,7 @@ paths:
         "200":
           description: todo
           schema:
-            $ref:  "#/definitions/StudyEquipment"
+            $ref:  "#/definitions/ViewStudyEquipment"
   /productions/{id}:
     get:
       operationId: getProductionById
@@ -666,6 +704,23 @@ paths:
           description: OK
           schema:
             $ref: "#/definitions/ViewMesh"
+  /products/{idProd}/initNonIsoTemperature:
+    post:
+      operationId: initNonIsoTemperature
+      description: initialize non isothermal temperature
+      parameters:
+        - name: idProd
+          in: path
+          required: true
+          type: integer
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/ViewMesh"
+      responses:
+        "200":
+          description: initialize temperature
   /products/{idProd}/generateMesh:
     post:
       operationId: generateMesh
@@ -697,9 +752,9 @@ paths:
           description: generate default mesh done successfully
           schema:
             $ref: "#/definitions/ViewMesh"
-  /products/{idProd}/initTemperature:
+  /products/{idProd}/initIsoTemperature:
     post:
-      operationId: initTemperature
+      operationId: initIsoTemperature
       description: initialize temperature
       parameters:
         - name: idProd

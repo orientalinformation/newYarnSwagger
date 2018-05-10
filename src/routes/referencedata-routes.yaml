@@ -625,3 +625,19 @@ paths:
             $ref: "#/definitions/ResultBuildForNewTR"
         "422":
           description: missing data
+  /referencedata/capability/{idEquip}:
+    get:
+      operationId: getCapabitity
+      tags:
+      - referencedata
+      parameters:
+      - name: idEquip
+        in: path
+        description: equipment id
+        type: integer
+      description: Get value capability
+      responses:
+        "200":
+          description: Successful capability
+          schema:
+              $ref: "#/definitions/ViewCapability"

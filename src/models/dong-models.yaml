@@ -464,11 +464,15 @@ definitions:
   BrainCalculator:
     type: object
     properties:
+      idStudyEquipment:
+        type: number
       sdisableFields:
         type: number
       sdisableCalculate:
         type: number
       checkOptim:
+        type: number
+      scheckOptim:
         type: number
       sdisableOptim:
         type: number
@@ -568,6 +572,8 @@ definitions:
         type: number
       sdisableTR:
         type: number
+      CAP_VARIABLE_TR:
+        type: number
       typeCalculate:
         type: integer
       seValue1:
@@ -601,6 +607,8 @@ definitions:
         type: integer
       checkOptim:
         type: boolean
+      scheckOptim:
+        type: integer
       dwellingTimes:
         type: array
         items:

@@ -44,6 +44,8 @@ definitions:
         type: string
       materialRiseSymbol:
         type: string
+      convectionCoeffSymbol:
+        type: string
   OptimumResultAna:
     type: object
     properties:
@@ -327,6 +329,23 @@ definitions:
         type: number
       disabled:
         type: string
+  ViewselectionCriteriaFilter:
+    type: object
+    properties:
+      energies:
+        $ref: "#/definitions/Energy"
+      manufacturer:
+        $ref: "#/definitions/Energy"
+      series:
+        $ref: "#/definitions/Energy"
+      origines:
+        $ref: "#/definitions/Energy"
+      processes:
+        $ref: "#/definitions/Energy"
+      model:
+        $ref: "#/definitions/Energy"
+      size:
+        $ref: "#/definitions/Energy"
   ViewPackingLayer:
     type: object
     properties:
@@ -336,6 +355,49 @@ definitions:
         type: array
         items:
           $ref: "#/definitions/PackingLayer"
+  ViewMinMaxProduction:
+    type: object
+    properties:
+      mmDaily:
+        $ref: "#/definitions/MinMax"
+      mmWeekly:
+        $ref: "#/definitions/MinMax"
+      mmAnnual:
+        $ref: "#/definitions/MinMax"
+      mmPerDay:
+        $ref: "#/definitions/MinMax"
+      mmFactory:
+        $ref: "#/definitions/MinMax"
+      mmHumidity:
+        $ref: "#/definitions/MinMax"
+      mmAverage:
+        $ref: "#/definitions/MinMax"
+      mmProdFlow:
+        $ref: "#/definitions/MinMax"
+  ViewMinMaxProductMeshPacking:
+    type: object
+    properties:
+      mmDim1:
+        $ref: "#/definitions/MinMax"
+      mmDim2:
+        $ref: "#/definitions/MinMax"
+      mmDim3:
+        $ref: "#/definitions/MinMax"
+      mmMass:
+        $ref: "#/definitions/MinMax"
+      mmTemp:
+        $ref: "#/definitions/MinMax"
+      mmThickness:
+        $ref: "#/definitions/MinMax"
+  ViewMinMaxEquipment:
+    type: object
+    properties:
+      mmPrice:
+        $ref: "#/definitions/MinMax"
+      mmLInterval:
+        $ref: "#/definitions/MinMax"
+      mmWInterval:
+        $ref: "#/definitions/MinMax"
   SavePackingLayer:
     type: object
     properties:
@@ -367,6 +429,8 @@ definitions:
   productChart2DStatic:
     type: object
     properties:
+      refreshTemp:
+        type: integer
       idStudy:
         type: integer
       idStudyEquipment:
@@ -707,6 +771,13 @@ definitions:
     type: object
     items:
       type: string
+  ViewOperatingSetting:
+    type: object
+    properties:
+      studyEquipment:
+        $ref: "#/definitions/ViewStudyEquipment"
+      resultTempExts:
+        $ref: "#/definitions/TempExt"
   TemperatureProfileData:
     type: object
     properties:
@@ -920,3 +991,105 @@ definitions:
         type: string
       DISPLAY_WIDTH:
         type: string
+  EquipSizingParam:
+    type: object
+    properties:
+      width:
+        type: number
+      length:
+        type: number
+  TempExt:
+    type: object
+    properties:
+      ID_TEMP_EXT:
+        type: integer
+      ID_EQUIPSERIES:
+        type: integer
+      TR:
+        type: number
+      T_EXT:
+        type: number
+  OperatingSettingParam:
+    type: object
+    properties:
+      eid:
+        type: integer
+      tr:
+        type: array
+        items:
+          type: number
+      ts:
+        type: array
+        items:
+          type: number
+      vc:
+        type: array
+        items:
+          type: number
+      TExt:
+        type: number
+      calculation_parameter:
+          $ref:  "#/definitions/CalculationParameter"
+  CalculationParameter:
+    type: object
+    properties:
+      ERROR_H:
+        type: number
+      ERROR_T:
+        type: number
+      HORIZ_SCAN:
+        type: boolean
+      ID_CALC_PARAMS:
+        type: integer
+      ID_STUDY_EQUIPMENTS:
+        type: integer
+      MAX_IT_NB:
+        type: number
+      NB_OPTIM:
+        type: number
+      PRECISION_LOG_STEP:
+        type: number
+      PRECISION_REQUEST:
+        type: number
+      RELAX_COEFF:
+        type: number
+      STOP_AVG:
+        type: number
+      STOP_BOTTOM_SURF:
+        type: number
+      STOP_INT:
+        type: number
+      STOP_TOP_SURF:
+        type: number
+      STORAGE_STEP:
+        type: number
+      STUDY_ALPHA_BOTTOM:
+        type: number
+      STUDY_ALPHA_BOTTOM_FIXED:
+        type: boolean
+      STUDY_ALPHA_FRONT:
+        type: number
+      STUDY_ALPHA_FRONT_FIXED:
+        type: boolean
+      STUDY_ALPHA_LEFT:
+        type: number
+      STUDY_ALPHA_LEFT_FIXED:
+        type: boolean
+      STUDY_ALPHA_REAR:
+        type: number
+      STUDY_ALPHA_REAR_FIXED:
+        type: boolean
+      STUDY_ALPHA_RIGHT:
+        type: number
+      STUDY_ALPHA_RIGHT_FIXED:
+        type: boolean
+      STUDY_ALPHA_TOP:
+        type: number
+      STUDY_ALPHA_TOP_FIXED:
+        type: boolean
+      TIME_STEP:
+        type: number
+      TIME_STEPS_NB:
+        type: number
+      VERT_SCAN:
+        type: boolean

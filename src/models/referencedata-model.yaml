@@ -643,3 +643,8 @@ definitions:
         type: number
       Y_POINT:
         type: number
+  ViewCapability:
+    type: object
+    properties:
+      CAP_EQP_DEPEND_ON_TS:
+        type: boolean

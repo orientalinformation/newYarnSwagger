@@ -1,0 +1,76 @@
+definitions:
+  TemperatureDrawing:
+    type: object
+    properties:
+      svgXsize:
+        type: number
+      svgYsize:
+        type: number
+      x0:
+        type: number
+      y0:
+        type: number
+      xsize:
+        type: number
+      ysize:
+        type: number
+      getYTopGraduate:
+        type: number
+      getYTopLegend:
+        type: number
+      getXquarter:
+        type: number
+      getXmedium:
+        type: number
+      getXThreeQuarter:
+        type: number
+      getRightLimit:
+        type: number
+      getBottomLimit:
+        type: number
+      getYBottomGraduate:
+        type: number
+      getYBottomLegend:
+        type: number
+      getXArrow:
+        type: number
+      getYArrow:
+        type: number
+      getXArrowRight:
+        type: number
+      getXArrowLeft:
+        type: number
+      getTextArrow:
+        type: number
+      getYMediumSVG:
+        type: number
+      getTempMin:
+        type: number
+      getTempMax:
+        type: number
+  ElmtEditForm:
+    type: object
+    properties:
+      isoThermal:
+        type: boolean
+      isoTemp:
+        type: number
+      elementId:
+        type: number
+      elmt:
+        $ref: "#/definitions/ProductElmt"
+      tempPoints:
+        type: array
+        items:
+          $ref: "#/definitions/TempPoint"
+      tempPositions:
+        type: array
+        items:
+          $ref: "#/definitions/TempPoint"
+      index:
+        type: number
+  TempPoint:
+    type: object
+    properties:
+      value:
+        type: number

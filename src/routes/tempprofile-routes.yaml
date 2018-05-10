@@ -1,0 +1,32 @@
+paths:
+  /input/tempprofile:
+    get:
+      operationId: getDataSvgTemperature
+      tags:
+      - input
+      description: get data svg temperature
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/TemperatureDrawing"
+  /input/temppoint:
+    get:
+      operationId: getDataTempoint
+      parameters:
+        - name: ID_PROD
+          in: query
+          required: true
+          type: integer
+        - name: INDEX_TEMP
+          in: query
+          required: true
+          type: integer
+      tags:
+      - input
+      description: get data tempoint
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/ElmtEditForm"

@@ -199,6 +199,53 @@ paths:
           description: todo
           schema:
             $ref:  "#/definitions/RecordPosition"
+  /studyEquipment/{id}/operatingSetting:
+    get:
+      description: get Operating Settings
+      parameters:
+      - name: id
+        in: path
+        description: StudyEquipment ID
+        required: true
+        type: integer
+      operationId: getOperatingSetting
+      responses:
+        "200":
+          description: todo
+          schema:
+            $ref:  "#/definitions/ViewOperatingSetting"
+  /studyEquipment/{id}/saveEquipSizing:
+    post:
+      operationId: saveEquipSizing
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/EquipSizingParam"
+      responses:
+        "200":
+          description: ok
+  /studyEquipment/{id}/saveEquipmentData:
+    post:
+      operationId: saveEquipmentData
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/OperatingSettingParam"
+      responses:
+        "200":
+          description: ok
   /studies/{id}/tempRecordPts:
     get:
       operationId: getTempRecordPts
@@ -239,7 +286,7 @@ paths:
           schema:
             type: array
             items:
-              type: number
+              $ref: "#/definitions/PointValue"
   /studies/{id}/locationAxisSelected:
     get:
       operationId: getlocationAxisSelected
@@ -280,131 +327,33 @@ paths:
       responses:
         "200":
           description: OK
-  /equipments/selection/loadEnergies:
+  /equipments/selection/selectionCriteriaFilter:
     get:
-      operationId: loadEnergies
-      responses:
-        "200":
-          description: OK
-          schema:
-            $ref: "#/definitions/Energy"
-  /equipments/selection/loadConstructors:
-    get:
-      operationId: loadConstructors
+      operationId: getSelectionCriteriaFilter
       parameters:
-        - name: energy
-          in: query
-          type: integer
+      - name: energy
+        in: query
+        type: integer
+      - name: manufacturer
+        in: query
+        type: string
+      - name: sery
+        in: query
+        type: integer
+      - name: origin
+        type: integer
+        in: query
+      - name: process
+        in: query
+        type: integer
+      - name: model
+        in: query
+        type: integer
       responses:
         "200":
           description: OK
           schema:
-            $ref: "#/definitions/Energy"
-  /equipments/selection/loadFamilies:
-    get:
-      operationId: loadFamilies
-      parameters:
-        - name: energy
-          in: query
-          type: integer
-        - name: manufacturer
-          in: query
-          type: string
-      responses:
-        "200":
-          description: OK
-          schema:
-            $ref: "#/definitions/Energy"
-  /equipments/selection/loadOrigines:
-    get:
-      operationId: loadOrigines
-      parameters:
-        - name: energy
-          in: query
-          type: integer
-        - name: manufacturer
-          in: query
-          type: string
-        - name: family
-          in: query
-          type: integer
-      responses:
-        "200":
-          description: OK
-          schema:
-            $ref: "#/definitions/Energy"
-  /equipments/selection/loadProcesses:
-    get:
-      operationId: loadProcesses
-      parameters:
-        - name: energy
-          in: query
-          type: integer
-        - name: manufacturer
-          in: query
-          type: string
-        - name: family
-          in: query
-          type: integer
-        - name: origin
-          in: query
-          type: integer
-      responses:
-        "200":
-          description: OK
-          schema:
-            $ref: "#/definitions/Energy"
-  /equipments/selection/loadSeries:
-    get:
-      operationId: loadSeries
-      parameters:
-        - name: energy
-          in: query
-          type: integer
-        - name: manufacturer
-          in: query
-          type: string
-        - name: family
-          in: query
-          type: integer
-        - name: origin
-          in: query
-          type: integer
-        - name: process
-          in: query
-          type: integer
-      responses:
-        "200":
-          description: OK
-          schema:
-            $ref: "#/definitions/Energy"
-  /equipments/selection/loadDimensions:
-    get:
-      operationId: loadDimensions
-      parameters:
-        - name: energy
-          in: query
-          type: integer
-        - name: manufacturer
-          in: query
-          type: string
-        - name: family
-          in: query
-          type: integer
-        - name: origin
-          in: query
-          type: integer
-        - name: process
-          in: query
-          type: integer
-        - name: series
-          in: query
-          type: integer
-      responses:
-        "200":
-          description: OK
-          schema:
-            $ref: "#/definitions/Energy"
+            $ref: "#/definitions/ViewselectionCriteriaFilter"
   /components/allCompFamily:
     get:
       operationId: getAllCompFamily
@@ -429,6 +378,39 @@ paths:
           description: OK
           schema:
             $ref:  "#/definitions/ViewFamily"
+  /minMaxs/production:
+    get:
+      operationId: getMinMaxProduction
+      description: get min max production
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref:  "#/definitions/ViewMinMaxProduction"
+  /minMaxs/productMeshPacking:
+    get:
+      operationId: getMinMaxProductMeshPacking
+      description: get min max product mesh packing
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref:  "#/definitions/ViewMinMaxProductMeshPacking"
+  /minMaxs/{id}/equipment:
+    get:
+      operationId: getMinMaxEquipment
+      description: get min max equipment
+      parameters:
+      - name: id
+        in: path
+        description: study ID
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref:  "#/definitions/ViewMinMaxEquipment"
   /output/sizingresult/{idStudy}/optimum:
     get:
       operationId: sizingOptimumResult

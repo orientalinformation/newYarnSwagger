@@ -168,3 +168,145 @@ paths:
             $ref: "#/definitions/ViewMinMax"
         "422":
           description: missing data
+  /users/{id}/unitsmonetary:
+    get:
+      operationId: getMonetaryUser
+      tags:
+        - profile
+      description: get Monetary user
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/Units"
+  /referencedata/checkpipeline:
+    post:
+      consumes:
+        - application/x-www-form-urlencoded
+      operationId: checkPipeline
+      tags:
+        - referencedata
+      description: Check unit min max Pipeline
+      parameters:
+        - name: body
+          in: body
+          required: true
+          description: body check Pipeline
+          schema:
+            $ref: "#/definitions/PipeLineElmt"
+      responses:
+        "200":
+          description: Check ok
+          schema:
+            $ref: "#/definitions/ViewMinMax"
+        "422":
+          description: missing data
+  /referencedata/checkequipment:
+    post:
+      consumes:
+        - application/x-www-form-urlencoded
+      operationId: checkEquipment
+      tags:
+        - referencedata
+      description: Check unit min max Equipment
+      parameters:
+        - name: body
+          in: body
+          required: true
+          description: body check Equipment
+          schema:
+            $ref: "#/definitions/NewEquipment"
+      responses:
+        "200":
+          description: Check ok
+          schema:
+            $ref: "#/definitions/ViewMinMax"
+        "422":
+          description: missing data
+  /referencedata/checkredrawcurves:
+    post:
+      consumes:
+        - application/x-www-form-urlencoded
+      operationId: checkRedrawCurves
+      tags:
+        - referencedata
+      description: Check unit min max Curves
+      parameters:
+        - name: body
+          in: body
+          required: true
+          description: body check Curves
+          schema:
+            $ref: "#/definitions/ViewCurve"
+      responses:
+        "200":
+          description: Check ok
+          schema:
+            $ref: "#/definitions/ViewMinMax"
+        "422":
+          description: missing data
+  /referencedata/checktempsetpoint:
+    post:
+      consumes:
+        - application/x-www-form-urlencoded
+      operationId: checkBuildForNewTR
+      tags:
+        - referencedata
+      description: Check unit min max tempsetpoint
+      parameters:
+        - name: body
+          in: body
+          required: true
+          description: body check tempsetpoint
+          schema:
+            $ref: "#/definitions/ViewTempSetPoint"
+      responses:
+        "200":
+          description: Check ok
+          schema:
+            $ref: "#/definitions/ViewMinMax"
+        "422":
+          description: missing data
+  /referencedata/components/{id}:
+    get:
+      operationId: getComponentById
+      tags:
+      - referencedata
+      description: Get component by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/VComponent"
+  # /referencedata/checkupdateequipment:
+  #   post:
+  #     consumes:
+  #       - application/x-www-form-urlencoded
+  #     operationId: checkUpdateEquipment
+  #     tags:
+  #       - referencedata
+  #     description: Check unit min max Update Equipment
+  #     parameters:
+  #       - name: body
+  #         in: body
+  #         required: true
+  #         description: body check Equipment
+  #         schema:
+  #           $ref: "#/definitions/SaveEquipment"
+  #     responses:
+  #       "200":
+  #         description: Check ok
+  #         schema:
+  #           $ref: "#/definitions/ViewMinMax"
+  #       "422":
+  #         description: missing data

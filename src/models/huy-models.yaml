@@ -17,7 +17,9 @@ definitions:
     type: object
     properties:
       elbows:
-        type: string
+        type: array
+        items:
+          type: string
       elbowsnumber:
         type: number
       gastemp:
@@ -25,17 +27,25 @@ definitions:
       height:
         type: number
       insulatedline:
-        type: string
+        type: array
+        items:
+          type: string
       insulatedlineval:
-        type: string
+        type: array
+        items:
+          type: string
       insulllenght:
         type: number
       insulvallenght:
         type: number
       non_insulated_line:
-        type: string
+        type: array
+        items:
+          type: string
       non_insulated_valves:
-        type: string
+        type: array
+        items:
+          type: string
       noninsulatevallenght:
         type: number
       noninsullenght:
@@ -43,15 +53,31 @@ definitions:
       pressuer:
         type: number
       tee:
-        type: string
+        type: array
+        items:
+          type: string
       teenumber:
         type: number
       diameter:
+        type: number
+      idcooling:
         type: number
       insulationType:
         type: integer
       storageTank:
         type: string
+      insul:
+        type: number
+      noninsul:
+        type: number
+      insulval:
+        type: number
+      noninsulval:
+        type: number
+      teeval:
+        type: number
+      elbowval:
+        type: number
       diameterParam:
         type: array
         items:
@@ -65,29 +91,53 @@ definitions:
         items:
           type: number
       insulationLineSub:
-        type: string
+        type: array
+        items:
+          type: string
       non_insulated_lineSub:
-        type: string
+        type: array
+        items:
+          type: string
       insulatedlinevalSub:
-        type: string
+        type: array
+        items:
+          type: string
       non_insulated_valveSub:
-        type: string
+        type: array
+        items:
+          type: string
       teeSub:
-        type: string
+        type: array
+        items:
+          type: string
       elbowsSub:
-        type: string
+        type: array
+        items:
+          type: string
       insulationlineValue:
-        type: number
+        type: array
+        items:
+          type: number
       non_insulated_lineValue:
-        type: number
+        type: array
+        items:
+          type: number
       insulatedlinevalValue:
-        type: number
+        type: array
+        items:
+          type: number
       non_insulated_valValue:
-        type: number
+        type: array
+        items:
+          type: number
       teeValue:
-        type: number
+        type: array
+        items:
+          type: number
       elbowsValue:
-        type: number
+        type: array
+        items:
+          type: number
       storageTankValue:
         type: array
         items:
@@ -144,3 +194,21 @@ definitions:
         type: array
         items:
           type: string
+  DisplayAllLangs:
+    type: object
+    properties:
+      referenceLangs:
+        $ref: "#/definitions/VariableLangs"
+      translationLangs:
+        $ref: "#/definitions/VariableLangs"
+  VariableLangs:
+    type: object
+    properties:
+      LABEL:
+        type: array
+        items:
+          type: string
+      ID_TRANSLATION:
+        type: array
+        items:
+          type: number
