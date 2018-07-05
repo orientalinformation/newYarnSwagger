@@ -69,7 +69,7 @@ definitions:
       calculWarning:
         type: number
       calculate:
-        type: "string"
+        type: boolean
       tr:
         type: number
       ts:
@@ -90,6 +90,8 @@ definitions:
         type: string
       precision:
         type: number
+      background:
+        type: string
   HeadBalanceMaxResult:
     type: object
     properties:
@@ -121,6 +123,8 @@ definitions:
         type: string
       precision:
         type: number
+      background:
+        type: string
   EstimationHeadBalanceResult:
     type: object
     properties:
@@ -150,6 +154,8 @@ definitions:
         type: string
       precision:
         type: number
+      background:
+        type: string
   ConsumptionResult:
     type: object
     properties:
@@ -190,6 +196,8 @@ definitions:
       percentEquipmentDown:
         type: integer
       percentLine:
+        type: integer
+      ENABLE_CONS_PIE:
         type: integer
   EconomicResult:
     type: object
@@ -426,6 +434,13 @@ definitions:
         type: integer
       NB_STEPS:
         type: number
+  ProductCharColorParam:
+    type: object
+    properties:
+      ID_COLOR:
+        type: integer
+      LAYER_ORDER:
+        type: integer
   productChart2DStatic:
     type: object
     properties:
@@ -630,6 +645,8 @@ definitions:
             type: integer
           equipName:
             type: string
+          image:
+            type: string
           data:
             $ref: "#/definitions/chartEstimationData"
   SizingResultEStimation:
@@ -666,6 +683,8 @@ definitions:
         $ref: "#/definitions/SizingOptimumData"
       productFlowRate:
         type: number
+      imageSizing:
+        type: string
   ViewTemperatureProfile:
     type: object
     properties:
@@ -774,10 +793,14 @@ definitions:
   ViewOperatingSetting:
     type: object
     properties:
+      equipments:
+        $ref: "#/definitions/Equipment"
       studyEquipment:
         $ref: "#/definitions/ViewStudyEquipment"
       resultTempExts:
         $ref: "#/definitions/TempExt"
+      changeTr:
+        type: boolean
   TemperatureProfileData:
     type: object
     properties:
@@ -810,31 +833,31 @@ definitions:
       top:
         type: array
         items:
-          type: number
+          $ref: "#/definitions/PointValue"
       int:
         type: array
         items:
-          type: number
+          $ref: "#/definitions/PointValue"
       bot:
         type: array
         items:
-          type: number
+          $ref: "#/definitions/PointValue"
       axe1:
         type: array
         items:
-          type: number
+          $ref: "#/definitions/PointValue"
       axe2:
         type: array
         items:
-          type: number
+          $ref: "#/definitions/PointValue"
       axe3:
         type: array
         items:
-          type: number
+          $ref: "#/definitions/PointValue"
       plan:
         type: array
         items:
-          type: number
+          $ref: "#/definitions/PointValue"
   LocationAxisParams:
     type: object
     properties:
@@ -1014,6 +1037,8 @@ definitions:
     properties:
       eid:
         type: integer
+      doTr:
+        type: boolean
       tr:
         type: array
         items:
@@ -1030,6 +1055,11 @@ definitions:
         type: number
       calculation_parameter:
           $ref:  "#/definitions/CalculationParameter"
+  ConsPieToReportParam:
+    type: object
+    properties:
+      ENABLE_CONS_PIE:
+        type: boolean
   CalculationParameter:
     type: object
     properties:
@@ -1092,4 +1122,23 @@ definitions:
       TIME_STEPS_NB:
         type: number
       VERT_SCAN:
+        type: boolean
+  OutputComputeTrTsParam:
+    type: object
+    properties:
+      TR:
+        type: array
+        items:
+          type: number
+      TS:
+        type: array
+        items:
+          type: number
+      VC:
+        type: array
+        items:
+          type: number
+      TE:
+        type: number
+      doTr:
         type: boolean

@@ -113,18 +113,47 @@ paths:
           description: Processing failed!
           schema:
             $ref: "#/definitions/Error"
-  /translations:
+  /translations/getDefaultLanguage:
     get:
-      operationId: filterTrans
-      parameters:
-        - name: id_ref
-          in: query
-          type: integer
-        - name: id_trans
-          in: query
-          type: integer
+      operationId: getDefaultLanguage
       responses:
         "200":
           description: OK
           schema:
             $ref: "#/definitions/DisplayAllLangs"
+  /translations/update:
+    post:
+      operationId: changeLabels
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/ChangeLabel"
+          description: change label of compponent!!
+      responses:
+        "200":
+          description: OK
+        "500":
+          description: Can not created!
+          schema:
+            $ref: "#/definitions/Error"
+  /translations/filterTrans:
+    get:
+      operationId: filterTrans
+      parameters:
+        - in: query
+          name: id
+          required: true
+          type: integer
+        - in: query
+          name: idtrans
+          required: true
+          type: integer
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/LoadTransLang"

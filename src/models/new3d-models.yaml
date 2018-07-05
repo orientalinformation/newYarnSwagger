@@ -1,0 +1,33 @@
+definitions:
+  Mesh3dInfo:
+    type: object
+    properties:
+      id_mesh3d_info:
+        type: integer
+      id_prod:
+        type: integer
+      nb_points:
+        type: number
+      nb_cells:
+        type: number
+      nb_faces:
+        type: number
+      nb_internalfaces:
+        type: number
+      nb_boundaries:
+        type: number
+      nb_layers:
+        type: number
+      file_path:
+        type: string
+  InitTemp3D:
+    type: object
+    properties:
+      ID_INIT_TEMP_3D:
+        type: integer
+      ID_PRODUCT_ELMT:
+        type: integer
+      MESH_POSITION:
+        type: number
+      INIT_TEMP:
+        type: number

@@ -1,0 +1,68 @@
+paths:
+  /threed/mesh3dInfo/{idProd}:
+    get:
+      operationId: getMesh3DInfo
+      tags:
+      - new3d
+      parameters:
+      - name: idProd
+        in: path
+        required: true
+        type: integer
+      description: Get mesh3dInfo by id prod
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/Mesh3dInfo"
+  /threed/{idProd}/initIso3DTemperature:
+    post:
+      operationId: initIso3DTemperature
+      description: initialize 3D temperature
+      tags:
+      - new3d
+      parameters:
+        - name: idProd
+          in: path
+          required: true
+          type: integer
+        - name: initTemp
+          in: query
+          required: true
+          type: number
+      responses:
+        "200":
+          description: initialize 3D temperature
+  /threed/{idProd}/initNonIso3DTemperature:
+    post:
+      operationId: initNonIso3DTemperature
+      description: initialize non isothermal 3D temperature
+      tags:
+      - new3d
+      parameters:
+        - name: idProd
+          in: path
+          required: true
+          type: integer
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/ViewMesh"
+      responses:
+        "200":
+          description: initialize 3D temperature
+  /threed/meshinitial/{idStudy}:
+    put:
+      operationId: initTempRecordPts3D
+      tags:
+      - new3d
+      parameters:
+      - name: idStudy
+        in: path
+        description: study id
+        type: integer
+      description: Initial tempRecordpts 3D
+      responses:
+        "200":
+          description: OK

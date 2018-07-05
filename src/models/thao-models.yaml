@@ -135,6 +135,10 @@ definitions:
     properties:
       ID_PACKING_ELMT:
         type: integer
+      PACKING_VERSION:
+        type: number
+      PACKING_RELEASE:
+        type: number
   PackingLayer:
     type: object
     properties:
@@ -364,6 +368,10 @@ definitions:
         type: number
       SHAPE_PARAM3:
         type: number
+      SHAPE_PARAM4:
+        type: number
+      SHAPE_PARAM5:
+        type: number
       PROD_DEHYD:
         type: number
       PROD_DEHYD_COST:
@@ -392,10 +400,14 @@ definitions:
         type: integer
       componentName:
         type: string
+      prodcharColor:
+        $ref:  "#/definitions/ProdcharColor"
   ViewStudyEquipment:
     type: object
     properties:
       ID_STUDY_EQUIPMENTS:
+        type: integer
+      ID_EQUIPSERIES:
         type: integer
       EQUIP_NAME:
         type: string
@@ -411,6 +423,12 @@ definitions:
         type: integer
       CAPABILITIES:
         type: number
+      BRAIN_TYPE:
+        type: number
+      EQUIP_STATUS:
+        type: integer
+      RUN_CALCULATE:
+        type: integer
       displayName:
         type: string
       TExt:
@@ -456,7 +474,7 @@ definitions:
       layoutGen:
         $ref: "#/definitions/LayoutGeneration"
       layoutResults:
-        $ref: "#/definitions/LayoutGeneration"
+        $ref: "#/definitions/layoutResults"
   LayoutGeneration:
     type: object
     properties:
@@ -511,6 +529,8 @@ definitions:
       lengthInterval:
         type: number
       widthInterval:
+        type: number
+      toc:
         type: number
       studyClean:
         type: boolean
@@ -697,6 +717,21 @@ definitions:
       CODE_HEXA:
         type: string
       COLOR_TEXT:
+        type: string
+  ProdcharColor:
+    type: object
+    properties:
+      ID_COLOR:
+        type: integer
+      ID_PROD:
+        type: integer
+      ID_PRODCHAR_COLORS:
+        type: integer
+      LAYER_ORDER:
+        type: integer
+      CODE_HEXA:
+        type: string
+      COLOR_NAME:
         type: string
   GenericError:
     type: object

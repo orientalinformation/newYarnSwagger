@@ -197,18 +197,54 @@ definitions:
   DisplayAllLangs:
     type: object
     properties:
+      langName:
+        type: array
+        items:
+          type: array
+          items:
+            $ref: "#/definitions/Translation"
       referenceLangs:
-        $ref: "#/definitions/VariableLangs"
+        type: array
+        items:
+          type: array
+          items:
+            $ref: "#/definitions/Translation"
       translationLangs:
-        $ref: "#/definitions/VariableLangs"
-  VariableLangs:
+        type: array
+        items:
+          type: array
+          items:
+            $ref: "#/definitions/Translation"
+  LoadTransLang:
+    type: object
+    properties:
+      translation:
+        type: array
+        items:
+          $ref: "#/definitions/Translation"
+      referenceLangs:
+        type: array
+        items:
+          $ref: "#/definitions/Translation"
+  Translation:
+    type: object
+    properties:
+      CODE_LANGUE:
+        type: number
+      ID_TRANSLATION:
+        type: number
+      LABEL:
+        type: string
+      TRANS_TYPE:
+        type: number
+  ChangeLabel:
     type: object
     properties:
       LABEL:
-        type: array
-        items:
-          type: string
+        type: string
       ID_TRANSLATION:
-        type: array
-        items:
-          type: number
+        type: number
+      TRANS_TYPE:
+        type: number
+      CODE_LANGUE:
+        type: number

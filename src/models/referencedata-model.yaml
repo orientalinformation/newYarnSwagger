@@ -610,6 +610,8 @@ definitions:
         type: number
       tr_new:
         type: number
+      isComefromStudy:
+        type: number
   ResultBuildForNewTR:
     type: object
     properties:

@@ -1,0 +1,6 @@
+definitions:
+  Warning:
+    type: object
+    properties:
+      Message:
+        type: string

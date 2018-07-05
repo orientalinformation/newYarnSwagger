@@ -1,0 +1,49 @@
+paths:
+  /input/warningequipment:
+    post:
+      consumes:
+        - application/x-www-form-urlencoded
+      operationId: checkWarningEquipment
+      tags:
+        - warning
+      description: Check warning equipment
+      parameters:
+        - name: idEquip
+          in: query
+          description: equipment id
+          type: integer
+      responses:
+        "200":
+          description: Check ok
+          schema:
+            $ref: "#/definitions/Warning"
+        "422":
+          description: missing data
+  /input/phamcast:
+    post:
+      consumes:
+        - application/x-www-form-urlencoded
+      operationId: checkPhamCast
+      tags:
+        - warning
+      description: Check warning equipment
+      parameters:
+        - name: idStudy
+          in: query
+          description: study id
+          type: integer
+        - name: idEquip
+          in: query
+          description: equipment id
+          type: integer
+        - name: idStudyEquipment
+          in: query
+          description: study Equipment id
+          type: integer
+      responses:
+        "200":
+          description: Check ok
+          schema:
+            $ref: "#/definitions/Warning"
+        "422":
+          description: missing data

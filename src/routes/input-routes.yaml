@@ -13,6 +13,26 @@ paths:
       responses:
         "200":
           description: OK
+  /input/update/{idStudy}:
+    put:
+      operationId: updateStudy
+      tags:
+      - input
+      parameters:
+      - name: idStudy
+        in: path
+        description: study id
+        type: integer
+      - name: COMMENT_TXT
+        in: query
+        description: study comment
+        type: string
+      description: Update study
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: integer
   /input/svgchart:
     get:
       operationId: getDataSvgChart
@@ -310,3 +330,22 @@ paths:
   #           $ref: "#/definitions/ViewMinMax"
   #       "422":
   #         description: missing data
+  /referencedata/inputequipment/{idEquip}:
+    get:
+      operationId: getInputEquipment
+      tags:
+      - referencedata
+      description: get equipment from input
+      parameters:
+      - name: idEquip
+        in: path
+        required: true
+        description: id equip
+        type: integer
+      responses:
+        "200":
+          description: ok
+          schema:
+            $ref: "#/definitions/RefEquipment"
+        "422":
+          description: missing data

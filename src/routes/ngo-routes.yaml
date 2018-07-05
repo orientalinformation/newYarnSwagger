@@ -246,6 +246,40 @@ paths:
       responses:
         "200":
           description: ok
+  /studyEquipment/{id}/computeTrTsConfig:
+    post:
+      operationId: computeTrTsConfig
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/OperatingSettingParam"
+      responses:
+        "200":
+          description: ok
+          schema:
+            $ref:  "#/definitions/ViewStudyEquipment"
+  /studyEquipment/{id}/addConsPieToReport:
+    post:
+      operationId: addConsPieToReport
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/ConsPieToReportParam"
+      responses:
+        "200":
+          description: ok
   /studies/{id}/tempRecordPts:
     get:
       operationId: getTempRecordPts
@@ -411,10 +445,42 @@ paths:
           description: OK
           schema:
             $ref:  "#/definitions/ViewMinMaxEquipment"
+  /colorPalettes:
+    get:
+      operationId: findColorPalettes
+      description: get color palletes
+      responses:
+        "200":
+          description: todo
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/Color"
+  /products/{id}/productCharColor:
+    post:
+      operationId: updateProductCharColor
+      description: update product chart color
+      parameters:
+      - name: id
+        in: path
+        description: Product ID
+        required: true
+        type: integer
+      - name: body
+        in: body
+        description: body
+        required: true
+        schema:
+          $ref: "#/definitions/ProductCharColorParam"
+      responses:
+        "200":
+          description: todo
+        "500":
+          description: server error
   /output/sizingresult/{idStudy}/optimum:
     get:
       operationId: sizingOptimumResult
-      description: get sizng result optimum
+      description: get sizing result optimum
       parameters:
       - name: idStudy
         in: path
@@ -426,6 +492,28 @@ paths:
           description: todo
           schema:
             $ref: "#/definitions/ViewSizingResultOptimum"
+    post:
+      operationId: sizingOptimumDraw
+      description: draw singzing optimum chart
+      parameters:
+        - name: idStudy
+          in: path
+          description: Study ID
+          required: true
+          type: integer
+        - name: body
+          in: body
+          description: body
+          required: true
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/SizingOptimumData"
+      responses:
+        "200":
+          description: todo
+          schema:
+            type: string
   /output/sizingresult/estimation:
     get:
       operationId: sizingEstimationResult
@@ -625,3 +713,39 @@ paths:
             properties:
               valueContour:
                 type: string
+  /output/{idStudyEquipment}/computeTrTs:
+    post:
+      operationId: computeTrTs
+      discription: compute tr trs output
+      parameters:
+        - name: idStudyEquipment
+          in: path
+          required: true
+          type: integer
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/OutputComputeTrTsParam"
+      responses:
+        "200":
+          description: ok
+          schema:
+            $ref: "#/definitions/ViewStudyEquipment"
+  /output/{idStudyEquipment}/runSequenceCalculation:
+    post:
+      operationId: runSequenceCalculation
+      discription: run Sequence Calculation
+      parameters:
+        - name: idStudyEquipment
+          in: path
+          required: true
+          type: integer
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/OutputComputeTrTsParam"
+      responses:
+        "200":
+          description: ok

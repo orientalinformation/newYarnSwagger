@@ -240,7 +240,7 @@ paths:
         description: StudyEquipment ID
         required: true
         type: integer
-      operationId: getStudyEquipmentLayoutById
+      operationId: getStudyEquipmentLayout
       responses:
         "200":
           description: OK
@@ -290,6 +290,8 @@ paths:
       responses:
         "200":
           description: ok
+          schema:
+            $ref:  "#/definitions/StudyEquipment"
   /studies/{id}/equipments/{idEquip}:
     delete:
       operationId: removeStudyEquipment
@@ -541,6 +543,14 @@ paths:
         required: false
         in: query
         type: number
+      - name: dim4
+        required: false
+        in: query
+        type: number
+      - name: dim5
+        required: false
+        in: query
+        type: number
       - name: computedmass
         required: false
         in: query
@@ -627,6 +637,10 @@ paths:
     get:
       operationId: getShapes
       description: get available shapes
+      parameters:
+      - name: calMode
+        in: query
+        type: integer
       responses:
         "200":
           description: todo
