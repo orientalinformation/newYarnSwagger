@@ -731,38 +731,42 @@ definitions:
         $ref: "#/definitions/TimeBasedResult"
       curve:
         $ref: "#/definitions/TimeBasedCurve"
+      imageTimebased:
+        type: string
   ViewProductSection:
     type: object
     properties:
-     axeTemp:
-       type: array
-       items:
-         type: number
-     dataChart:
-       type: array
-       items:
-         $ref: "#/definitions/Coordinates"
-     resultLabel:
-       type: array
-       items:
-         type: number
-     result:
-       type: object
-       properties:
-         recAxis:
-           type: array
-           items:
-             type: number
-         mesAxis:
-           type: array
-           items:
-             type: number
-         resultValue:
-           type: array
-           items:
-             type: array
-             items:
-               type: number
+      axeTemp:
+        type: array
+        items:
+          type: number
+      dataChart:
+        type: array
+        items:
+          $ref: "#/definitions/Coordinates"
+      resultLabel:
+        type: array
+        items:
+          type: number
+      result:
+        type: object
+        properties:
+          recAxis:
+            type: array
+            items:
+              type: number
+          mesAxis:
+            type: array
+            items:
+              type: number
+          resultValue:
+            type: array
+            items:
+              type: array
+              items:
+                type: number
+      imageProductSection:
+        type: string
   ViewProductchart2D:
     type: object
     properties:

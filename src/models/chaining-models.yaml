@@ -1,0 +1,26 @@
+definitions:
+  ModelChaining:
+    type: object
+    properties:
+      studyName:
+        type: string
+      ID_STUDY:
+        type: number
+      active:
+        type: number
+  OverviewChaining:
+    type: object
+    properties:
+      ID_STUDY:
+        type: number
+      imgComp:
+        type: number
+      StudyEquipment:
+        type: array
+        items:
+          $ref: "#/definitions/ChainingStudyEquipment"
+  ChainingStudyEquipment:
+    type: object
+    properties:
+      name:
+        type: string

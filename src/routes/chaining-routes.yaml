@@ -1,0 +1,41 @@
+paths:
+  /chaining/{id}:
+    get:
+      operationId: getAllChaining
+      tags:
+      - chaining
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: id study to open
+          type: integer
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/ModelChaining"
+        "422":
+          description: missing data
+  /chaining/overview/{id}:
+    get:
+      operationId: getOverViewChaining
+      tags:
+      - chaining
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: id study
+          type: integer
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/OverviewChaining"
+        "422":
+          description: missing data
