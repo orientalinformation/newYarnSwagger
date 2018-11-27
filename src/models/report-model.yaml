@@ -184,6 +184,8 @@ definitions:
         type: number
       ip:
         type: string
+      countRunInterval:
+        type: number
   MeshPosition:
     type: object
     properties:

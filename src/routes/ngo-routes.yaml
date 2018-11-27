@@ -246,6 +246,73 @@ paths:
       responses:
         "200":
           description: ok
+  /studyEquipment/{id}/computeTrTsConfig:
+    post:
+      operationId: computeTrTsConfig
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/OperatingSettingParam"
+      responses:
+        "200":
+          description: ok
+          schema:
+            $ref:  "#/definitions/ViewStudyEquipment"
+  /studyEquipment/{id}/addConsPieToReport:
+    post:
+      operationId: addConsPieToReport
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/ConsPieToReportParam"
+      responses:
+        "200":
+          description: ok
+  /studyEquipment/{id}/getSpecialLength:
+    get:
+      description: get Special Length
+      parameters:
+      - name: id
+        in: path
+        description: StudyEquipment ID
+        required: true
+        type: integer
+      operationId: getSpecialLength
+      responses:
+        "200":
+          description: todo
+          schema:
+            type: array
+            items:
+              type: string
+  /studyEquipment/{id}/duplicateEltNewSize:
+    post:
+      operationId: duplicateEltNewSize
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/DuplicateEltNewSizeParam"
+      responses:
+        "200":
+          description: ok
   /studies/{id}/tempRecordPts:
     get:
       operationId: getTempRecordPts
@@ -411,10 +478,42 @@ paths:
           description: OK
           schema:
             $ref:  "#/definitions/ViewMinMaxEquipment"
+  /colorPalettes:
+    get:
+      operationId: findColorPalettes
+      description: get color palletes
+      responses:
+        "200":
+          description: todo
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/Color"
+  /products/{id}/productCharColor:
+    post:
+      operationId: updateProductCharColor
+      description: update product chart color
+      parameters:
+      - name: id
+        in: path
+        description: Product ID
+        required: true
+        type: integer
+      - name: body
+        in: body
+        description: body
+        required: true
+        schema:
+          $ref: "#/definitions/ProductCharColorParam"
+      responses:
+        "200":
+          description: todo
+        "500":
+          description: server error
   /output/sizingresult/{idStudy}/optimum:
     get:
       operationId: sizingOptimumResult
-      description: get sizng result optimum
+      description: get sizing result optimum
       parameters:
       - name: idStudy
         in: path
@@ -426,6 +525,28 @@ paths:
           description: todo
           schema:
             $ref: "#/definitions/ViewSizingResultOptimum"
+    post:
+      operationId: sizingOptimumDraw
+      description: draw singzing optimum chart
+      parameters:
+        - name: idStudy
+          in: path
+          description: Study ID
+          required: true
+          type: integer
+        - name: body
+          in: body
+          description: body
+          required: true
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/SizingOptimumData"
+      responses:
+        "200":
+          description: todo
+          schema:
+            type: string
   /output/sizingresult/estimation:
     get:
       operationId: sizingEstimationResult
@@ -608,7 +729,7 @@ paths:
           schema:
             $ref:  "#/definitions/ViewProductchart2D"
   /output/readDataContour/{idStudyEquipment}:
-    get:
+    post:
       operationId: readDataContour
       description: get value contour data
       parameters:
@@ -617,6 +738,11 @@ paths:
         description: StudyEquipment ID
         required: true
         type: integer
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: "#/definitions/dataContourParam"
       responses:
         "200":
           description: todo
@@ -625,3 +751,72 @@ paths:
             properties:
               valueContour:
                 type: string
+  /output/{idStudyEquipment}/computeTrTs:
+    post:
+      operationId: computeTrTs
+      discription: compute tr trs output
+      parameters:
+        - name: idStudyEquipment
+          in: path
+          required: true
+          type: integer
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/OutputComputeTrTsParam"
+      responses:
+        "200":
+          description: ok
+          schema:
+            $ref: "#/definitions/ViewStudyEquipment"
+  /output/{idStudyEquipment}/runSequenceCalculation:
+    post:
+      operationId: runSequenceCalculation
+      discription: run Sequence Calculation
+      parameters:
+        - name: idStudyEquipment
+          in: path
+          required: true
+          type: integer
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/OutputComputeTrTsParam"
+      responses:
+        "200":
+          description: ok
+  /output/{idStudyEquipment}/drawConsumptionPie:
+    post:
+      operationId: drawConsumptionPie
+      discription: draw Consumption Pie Chart
+      parameters:
+        - name: idStudyEquipment
+          in: path
+          required: true
+          type: integer
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/ConsumptionPieParam"
+      responses:
+        "200":
+          description: ok
+          schema:
+            type: string
+  /study/{id}/getSelectedMeshPoints:
+    get:
+      operationId: getSelectedMeshPoints
+      discription: get Selected MeshPoint
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+      responses:
+        "200":
+          description: ok
+          schema:
+            $ref:  "#/definitions/SelectedMeshPoint"

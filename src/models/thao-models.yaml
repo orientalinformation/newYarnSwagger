@@ -15,6 +15,8 @@ definitions:
       productIsoTemp:
         type: number
         required: false
+      averageProductTemp:
+        type: number
       nbMeshPointElmt:
         type: array
         items:
@@ -54,6 +56,8 @@ definitions:
         type: array
         items:
           type: number
+      isAddComponentAllowed:
+        type: boolean
   Component:
     type: object
     properties:
@@ -109,6 +113,8 @@ definitions:
         type: number
       displayName:
         type: string
+      class:
+        type: string
   Shape:
     type: object
     properties:
@@ -135,6 +141,18 @@ definitions:
     properties:
       ID_PACKING_ELMT:
         type: integer
+      PACKING_VERSION:
+        type: number
+      PACKING_RELEASE:
+        type: number
+      PACKING_TYPE:
+        type: string
+      PACKING_COLOR:
+        type: string
+      PACKING_NAME:
+        type: string
+      USER_NAME:
+        type: string
   PackingLayer:
     type: object
     properties:
@@ -299,6 +317,10 @@ definitions:
         type: string
       BATCH_PROCESS:
         type: boolean
+      displayName:
+        type: string
+      class:
+        type: string
   Production:
     type: object
     properties:
@@ -364,6 +386,10 @@ definitions:
         type: number
       SHAPE_PARAM3:
         type: number
+      SHAPE_PARAM4:
+        type: number
+      SHAPE_PARAM5:
+        type: number
       PROD_DEHYD:
         type: number
       PROD_DEHYD_COST:
@@ -392,10 +418,14 @@ definitions:
         type: integer
       componentName:
         type: string
+      prodcharColor:
+        $ref:  "#/definitions/ProdcharColor"
   ViewStudyEquipment:
     type: object
     properties:
       ID_STUDY_EQUIPMENTS:
+        type: integer
+      ID_EQUIPSERIES:
         type: integer
       EQUIP_NAME:
         type: string
@@ -410,6 +440,14 @@ definitions:
       ORIENTATION:
         type: integer
       CAPABILITIES:
+        type: number
+      BRAIN_TYPE:
+        type: number
+      EQUIP_STATUS:
+        type: integer
+      RUN_CALCULATE:
+        type: integer
+      BRAIN_PROCESS:
         type: number
       displayName:
         type: string
@@ -456,7 +494,7 @@ definitions:
       layoutGen:
         $ref: "#/definitions/LayoutGeneration"
       layoutResults:
-        $ref: "#/definitions/LayoutGeneration"
+        $ref: "#/definitions/layoutResults"
   LayoutGeneration:
     type: object
     properties:
@@ -477,6 +515,14 @@ definitions:
       SHELVES_WIDTH:
         type: number
       WIDTH_INTERVAL:
+        type: number
+      SHELVES_EURO_LENGTH:
+        type: number
+      SHELVES_EURO_WIDTH:
+        type: number
+      SHELVES_GASTRO_LENGTH:
+        type: number
+      SHELVES_GASTRO_WIDTH:
         type: number
   layoutResults:
     type: object
@@ -512,6 +558,12 @@ definitions:
         type: number
       widthInterval:
         type: number
+      toc:
+        type: number
+      crate:
+        type: integer
+      nbShelves:
+        type: integer
       studyClean:
         type: boolean
   StudyEquipment:
@@ -697,6 +749,21 @@ definitions:
       CODE_HEXA:
         type: string
       COLOR_TEXT:
+        type: string
+  ProdcharColor:
+    type: object
+    properties:
+      ID_COLOR:
+        type: integer
+      ID_PROD:
+        type: integer
+      ID_PRODCHAR_COLORS:
+        type: integer
+      LAYER_ORDER:
+        type: integer
+      CODE_HEXA:
+        type: string
+      COLOR_NAME:
         type: string
   GenericError:
     type: object

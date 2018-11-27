@@ -67,10 +67,24 @@ definitions:
         type: array
         items:
           $ref: "#/definitions/TempPoint"
+      xPositions:
+        type: array
+        items:
+          type: integer
       index:
         type: number
   TempPoint:
     type: object
     properties:
       value:
+        type: number
+  PlotPoints:
+    type: object
+    properties:
+      temperature:
+        type: number
+  ProgressBar:
+    type: object
+    properties:
+      BRAIN_PROCESS:
         type: number

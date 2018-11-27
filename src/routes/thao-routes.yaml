@@ -240,7 +240,7 @@ paths:
         description: StudyEquipment ID
         required: true
         type: integer
-      operationId: getStudyEquipmentLayoutById
+      operationId: getStudyEquipmentLayout
       responses:
         "200":
           description: OK
@@ -290,6 +290,8 @@ paths:
       responses:
         "200":
           description: ok
+          schema:
+            $ref:  "#/definitions/StudyEquipment"
   /studies/{id}/equipments/{idEquip}:
     delete:
       operationId: removeStudyEquipment
@@ -541,6 +543,14 @@ paths:
         required: false
         in: query
         type: number
+      - name: dim4
+        required: false
+        in: query
+        type: number
+      - name: dim5
+        required: false
+        in: query
+        type: number
       - name: computedmass
         required: false
         in: query
@@ -627,6 +637,10 @@ paths:
     get:
       operationId: getShapes
       description: get available shapes
+      parameters:
+      - name: calMode
+        in: query
+        type: integer
       responses:
         "200":
           description: todo
@@ -699,6 +713,10 @@ paths:
           required: true
           description: id of product
           type: integer
+        - name: ID_STUDY
+          in: query
+          required: true
+          type: number
       responses:
         "200":
           description: OK
@@ -738,6 +756,8 @@ paths:
       responses:
         "200":
           description: generate mesh done successfully
+          schema:
+            type: integer
   /products/{idProd}/defaultMesh:
     post:
       operationId: generateDefaultMesh

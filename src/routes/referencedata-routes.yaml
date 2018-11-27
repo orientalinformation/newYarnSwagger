@@ -360,6 +360,22 @@ paths:
             items:
               $ref: "#/definitions/Consumptions"
   /referencedata/equipment/{id}:
+    get:
+      operationId: getEquipment
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID equipment
+          type: integer
+      tags:
+      - referencedata
+      description: Get a equipment
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/RefEquipment"
     delete:
       operationId: deleteEquipment
       tags:

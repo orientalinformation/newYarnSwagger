@@ -13,6 +13,44 @@ paths:
       responses:
         "200":
           description: OK
+  /input/studyequipment/{id}:
+    put:
+      operationId: selectCalculate
+      tags:
+      - input
+      parameters:
+      - name: id
+        in: path
+        description: studyequipment
+        type: integer
+      - name: run_calcuate
+        in: query
+        description: run_calcuate
+        type: number
+      description: select id study equipment
+      responses:
+        "200":
+          description: OK
+  /input/update/{idStudy}:
+    put:
+      operationId: updateStudy
+      tags:
+      - input
+      parameters:
+      - name: idStudy
+        in: path
+        description: study id
+        type: integer
+      - name: COMMENT_TXT
+        in: query
+        description: study comment
+        type: string
+      description: Update study
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: integer
   /input/svgchart:
     get:
       operationId: getDataSvgChart
@@ -288,25 +326,39 @@ paths:
           description: OK
           schema:
             $ref: "#/definitions/VComponent"
-  # /referencedata/checkupdateequipment:
-  #   post:
-  #     consumes:
-  #       - application/x-www-form-urlencoded
-  #     operationId: checkUpdateEquipment
-  #     tags:
-  #       - referencedata
-  #     description: Check unit min max Update Equipment
-  #     parameters:
-  #       - name: body
-  #         in: body
-  #         required: true
-  #         description: body check Equipment
-  #         schema:
-  #           $ref: "#/definitions/SaveEquipment"
-  #     responses:
-  #       "200":
-  #         description: Check ok
-  #         schema:
-  #           $ref: "#/definitions/ViewMinMax"
-  #       "422":
-  #         description: missing data
+  /referencedata/inputequipment/{idEquip}:
+    get:
+      operationId: getInputEquipment
+      tags:
+      - referencedata
+      description: get equipment from input
+      parameters:
+      - name: idEquip
+        in: path
+        required: true
+        description: id equip
+        type: integer
+      responses:
+        "200":
+          description: ok
+          schema:
+            $ref: "#/definitions/RefEquipment"
+        "422":
+          description: missing data
+  /referencedata/inputequipment/translate:
+    get:
+      operationId: getTranslateData
+      tags:
+      - referencedata
+      description: get trans data
+      parameters:
+      - name: idEquip
+        in: path
+        required: true
+        description: id equip
+        type: integer
+      responses:
+        "200":
+          description: ok
+          schema:
+            $ref: "#/definitions/ViewAdminTran"

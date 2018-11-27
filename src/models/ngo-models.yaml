@@ -69,7 +69,7 @@ definitions:
       calculWarning:
         type: number
       calculate:
-        type: "string"
+        type: boolean
       tr:
         type: number
       ts:
@@ -90,6 +90,8 @@ definitions:
         type: string
       precision:
         type: number
+      background:
+        type: string
   HeadBalanceMaxResult:
     type: object
     properties:
@@ -121,6 +123,8 @@ definitions:
         type: string
       precision:
         type: number
+      background:
+        type: string
   EstimationHeadBalanceResult:
     type: object
     properties:
@@ -150,6 +154,8 @@ definitions:
         type: string
       precision:
         type: number
+      background:
+        type: string
   ConsumptionResult:
     type: object
     properties:
@@ -190,6 +196,8 @@ definitions:
       percentEquipmentDown:
         type: integer
       percentLine:
+        type: integer
+      ENABLE_CONS_PIE:
         type: integer
   EconomicResult:
     type: object
@@ -398,6 +406,14 @@ definitions:
         $ref: "#/definitions/MinMax"
       mmWInterval:
         $ref: "#/definitions/MinMax"
+      mmVolume:
+        $ref: "#/definitions/MinMax"
+      mmShelvesL:
+        $ref: "#/definitions/MinMax"
+      mmShelvesW:
+        $ref: "#/definitions/MinMax"
+      mmShelvesNb:
+        $ref: "#/definitions/MinMax"
   SavePackingLayer:
     type: object
     properties:
@@ -426,6 +442,13 @@ definitions:
         type: integer
       NB_STEPS:
         type: number
+  ProductCharColorParam:
+    type: object
+    properties:
+      ID_COLOR:
+        type: integer
+      LAYER_ORDER:
+        type: integer
   productChart2DStatic:
     type: object
     properties:
@@ -630,6 +653,8 @@ definitions:
             type: integer
           equipName:
             type: string
+          image:
+            type: string
           data:
             $ref: "#/definitions/chartEstimationData"
   SizingResultEStimation:
@@ -643,6 +668,8 @@ definitions:
         type: boolean
       tr:
         type: string
+      ts:
+        type: string
       conso:
         type: string
       toc:
@@ -653,6 +680,8 @@ definitions:
         type: string
       tocMax:
         type: string
+      capabilitie:
+        type: number
   ViewSizingResultOptimum:
     type: object
     properties:
@@ -666,6 +695,8 @@ definitions:
         $ref: "#/definitions/SizingOptimumData"
       productFlowRate:
         type: number
+      imageSizing:
+        type: string
   ViewTemperatureProfile:
     type: object
     properties:
@@ -681,6 +712,10 @@ definitions:
         $ref: "#/definitions/TemperatureProfileData"
       convChartData:
         $ref: "#/definitions/TemperatureProfileData"
+      imageTemp:
+        type: string
+      imageConv:
+        type: string
   ViewLocationMeshAxis:
     type: object
     properties:
@@ -699,10 +734,12 @@ definitions:
   ViewHeatExchange:
     type: object
     properties:
-     result:
-       $ref: "#/definitions/Coordinates"
-     curve:
-       $ref: "#/definitions/Coordinates"
+      result:
+        $ref: "#/definitions/Coordinates"
+      curve:
+        $ref: "#/definitions/Coordinates"
+      imageHeatExchange:
+        type: string
   ViewTimeBased:
     type: object
     properties:
@@ -712,38 +749,42 @@ definitions:
         $ref: "#/definitions/TimeBasedResult"
       curve:
         $ref: "#/definitions/TimeBasedCurve"
+      imageTimebased:
+        type: string
   ViewProductSection:
     type: object
     properties:
-     axeTemp:
-       type: array
-       items:
-         type: number
-     dataChart:
-       type: array
-       items:
-         $ref: "#/definitions/Coordinates"
-     resultLabel:
-       type: array
-       items:
-         type: number
-     result:
-       type: object
-       properties:
-         recAxis:
-           type: array
-           items:
-             type: number
-         mesAxis:
-           type: array
-           items:
-             type: number
-         resultValue:
-           type: array
-           items:
-             type: array
-             items:
-               type: number
+      axeTemp:
+        type: array
+        items:
+          type: number
+      dataChart:
+        type: array
+        items:
+          $ref: "#/definitions/Coordinates"
+      resultLabel:
+        type: array
+        items:
+          type: number
+      result:
+        type: object
+        properties:
+          recAxis:
+            type: array
+            items:
+              type: number
+          mesAxis:
+            type: array
+            items:
+              type: number
+          resultValue:
+            type: array
+            items:
+              type: array
+              items:
+                type: number
+      imageProductSection:
+        type: string
   ViewProductchart2D:
     type: object
     properties:
@@ -774,10 +815,14 @@ definitions:
   ViewOperatingSetting:
     type: object
     properties:
+      equipments:
+        $ref: "#/definitions/Equipment"
       studyEquipment:
         $ref: "#/definitions/ViewStudyEquipment"
       resultTempExts:
         $ref: "#/definitions/TempExt"
+      changeTr:
+        type: boolean
   TemperatureProfileData:
     type: object
     properties:
@@ -810,31 +855,31 @@ definitions:
       top:
         type: array
         items:
-          type: number
+          $ref: "#/definitions/PointValue"
       int:
         type: array
         items:
-          type: number
+          $ref: "#/definitions/PointValue"
       bot:
         type: array
         items:
-          type: number
+          $ref: "#/definitions/PointValue"
       axe1:
         type: array
         items:
-          type: number
+          $ref: "#/definitions/PointValue"
       axe2:
         type: array
         items:
-          type: number
+          $ref: "#/definitions/PointValue"
       axe3:
         type: array
         items:
-          type: number
+          $ref: "#/definitions/PointValue"
       plan:
         type: array
         items:
-          type: number
+          $ref: "#/definitions/PointValue"
   LocationAxisParams:
     type: object
     properties:
@@ -1014,6 +1059,8 @@ definitions:
     properties:
       eid:
         type: integer
+      doTr:
+        type: boolean
       tr:
         type: array
         items:
@@ -1030,6 +1077,16 @@ definitions:
         type: number
       calculation_parameter:
           $ref:  "#/definitions/CalculationParameter"
+  ConsPieToReportParam:
+    type: object
+    properties:
+      ENABLE_CONS_PIE:
+        type: boolean
+  DuplicateEltNewSizeParam:
+    type: object
+    properties:
+      nbModule:
+        type: integer
   CalculationParameter:
     type: object
     properties:
@@ -1093,3 +1150,94 @@ definitions:
         type: number
       VERT_SCAN:
         type: boolean
+  OutputComputeTrTsParam:
+    type: object
+    properties:
+      TR:
+        type: array
+        items:
+          type: number
+      TS:
+        type: array
+        items:
+          type: number
+      VC:
+        type: array
+        items:
+          type: number
+      TE:
+        type: number
+      doTr:
+        type: boolean
+  ConsumptionPieParam:
+    type: object
+    properties:
+      percentProduct:
+        type: number
+      percentEquipmentPerm:
+        type: number
+      percentEquipmentDown:
+        type: number
+      percentLine:
+        type: number
+      percentProductLabel:
+        type: string
+      percentEquipmentPermLabel:
+        type: string
+      percentEquipmentDownLabel:
+        type: string
+      percentLineLabel:
+        type: string
+  dataContourParam:
+    type: object
+    properties:
+      selectedPlan:
+        type: integer
+      timeSelected:
+        type: number
+  SelectedMeshPoint:
+    type: object
+    properties:
+      POINT1_X:
+        $ref: "#/definitions/SelectedMeshPointElm"
+      POINT1_Y:
+        $ref: "#/definitions/SelectedMeshPointElm"
+      POINT1_Z:
+        $ref: "#/definitions/SelectedMeshPointElm"
+      POINT2_X:
+        $ref: "#/definitions/SelectedMeshPointElm"
+      POINT2_Y:
+        $ref: "#/definitions/SelectedMeshPointElm"
+      POINT2_Z:
+        $ref: "#/definitions/SelectedMeshPointElm"
+      POINT3_X:
+        $ref: "#/definitions/SelectedMeshPointElm"
+      POINT3_Y:
+        $ref: "#/definitions/SelectedMeshPointElm"
+      POINT3_Z:
+        $ref: "#/definitions/SelectedMeshPointElm"
+      AXE1_X:
+        $ref: "#/definitions/SelectedMeshPointElm"
+      AXE1_Y:
+        $ref: "#/definitions/SelectedMeshPointElm"
+      AXE2_X:
+        $ref: "#/definitions/SelectedMeshPointElm"
+      AXE2_Z:
+        $ref: "#/definitions/SelectedMeshPointElm"
+      AXE3_Y:
+        $ref: "#/definitions/SelectedMeshPointElm"
+      AXE3_Z:
+        $ref: "#/definitions/SelectedMeshPointElm"
+      PLAN_X:
+        $ref: "#/definitions/SelectedMeshPointElm"
+      PLAN_Y:
+        $ref: "#/definitions/SelectedMeshPointElm"
+      PLAN_Z:
+        $ref: "#/definitions/SelectedMeshPointElm"
+  SelectedMeshPointElm:
+    type: object
+    properties:
+      unit:
+        type: string
+      value:
+        type: number

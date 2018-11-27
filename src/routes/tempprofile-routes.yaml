@@ -30,3 +30,38 @@ paths:
           description: OK
           schema:
             $ref: "#/definitions/ElmtEditForm"
+  /input/profile/generate:
+    post:
+      operationId: getPlotPoints
+      parameters:
+        - name: body
+          in: body
+          required: true
+          description: body get plot point
+          schema:
+            $ref: "#/definitions/ElmtEditForm"
+      tags:
+      - input
+      description: get data plot point
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/PlotPoints"
+  /calculator/study/progressbar:
+    get:
+      operationId: getValueProgressStudyEquipment
+      tags:
+        - calculator
+      description: get study equipment
+      parameters:
+      - name: idStudy
+        in: query
+        type: integer
+      responses:
+        "200":
+          description: todo
+          schema:
+              $ref: "#/definitions/ProgressBar"

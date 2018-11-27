@@ -266,6 +266,10 @@ definitions:
         type: string
       rampsPositionSymbol:
         type: string
+      FAN_FREQUENCY:
+        type: number
+      checkFanFrequency:
+        type: boolean
   ViewEquipment:
     type: object
     properties:
@@ -300,6 +304,8 @@ definitions:
         type: number
       typeEquipment:
         type: integer
+      fanFrequency:
+        type: number
       equipGenZone:
         type: array
         items:
@@ -609,6 +615,8 @@ definitions:
       tr_current:
         type: number
       tr_new:
+        type: number
+      isComefromStudy:
         type: number
   ResultBuildForNewTR:
     type: object

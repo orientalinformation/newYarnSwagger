@@ -28,3 +28,19 @@ definitions:
     properties:
       Message:
         type: string
+  ViewStran:
+    type: object
+    properties:
+      key:
+        type: string
+      value:
+        type: string
+  ViewAdminTran:
+    type: object
+    properties:
+      admintrans:
+        type: array
+        items:
+          $ref: "#/definitions/ViewStran"
+      idlang:
+        type: integer

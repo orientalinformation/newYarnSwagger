@@ -198,3 +198,21 @@ paths:
           description: get MonetaryCurrency By Id
           schema:
             $ref: "#/definitions/MonetaryCurrency"
+  /admin/stranslate:
+    put:
+      operationId: saveFileTranslate
+      tags:
+      - admin
+      description: save file translate
+      consumes:
+        - application/json
+      parameters:
+        - name: body
+          in: body
+          required: true
+          description: save translate
+          schema:
+            $ref: "#/definitions/ViewAdminTran"
+      responses:
+        "200":
+          description: OK post data

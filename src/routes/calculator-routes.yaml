@@ -121,7 +121,7 @@ paths:
             $ref: "#/definitions/StartCalculate"
       responses:
         "200":
-          description: Run kernal ok
+          description: Run kernel ok
           schema:
             type: array
             items:
